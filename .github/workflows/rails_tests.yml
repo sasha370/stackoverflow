@@ -27,8 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Ruby
-      
-      - uses: eregon/use-ruby-action@master
+      - name: Install Ruby version specified in 
+        uses: eregon/use-ruby-action@master
         
       - name: Build and test with Rake
         env:
