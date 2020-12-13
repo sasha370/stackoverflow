@@ -9,7 +9,7 @@ on:
       - 'master'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     # Similar to docker-compose.yml but not the same, 🤷‍♂️
     services:
