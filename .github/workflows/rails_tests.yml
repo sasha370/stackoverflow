@@ -6,8 +6,9 @@ on:
     branches:
       - 'master'
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-18.04
+
     services:
       postgres:
         image: postgres:12
@@ -15,7 +16,7 @@ jobs:
           POSTGRES_USER: sasha370
           POSTGRES_PASSWORD: sasha370
           POSTGRES_DB: stackoverflow_test
-        ports: ['5432:5434']
+        ports: ['5432:5432']
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -24,25 +25,21 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: actions/setup-ruby@v1
+      - uses: actions/cache@v2
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Install dependent libraries
-        run: sudo apt-get install libpq-dev
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
-      - name: Build App
+      - name: Build App Tests
         env:
           PGHOST: localhost
           PGUSER: sasha370
           RAILS_ENV: test
         run: |
+          sudo apt-get install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
           bin/rails db:setup
-
-      - name: Run Tests
-        env:
-          PGHOST: localhost
-          PGUSER: sasha370
-          RAILS_ENV: test
-        run: bundle exec rspec
+          bundle exec rspec
