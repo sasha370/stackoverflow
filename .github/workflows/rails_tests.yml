@@ -27,17 +27,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install libraries
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y postgresql-client libpq-dev
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2       
         
       - name: Build and test with Rake
         env:
           RAILS_ENV: test
           
         run: |
-          sudo apt-get -yqq install libpq-dev
           gem install bundler --no-document
           bundle config GITHUB__COM $GITHUB_ACCESS_TOKEN
           bundle install --jobs 4 --retry 3
