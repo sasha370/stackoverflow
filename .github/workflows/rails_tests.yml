@@ -37,6 +37,7 @@ jobs:
           RAILS_ENV: test
           
         run: |
+          yarn --frozen-lockfile
           gem install bundler --no-document
           bundle config GITHUB__COM $GITHUB_ACCESS_TOKEN
           bundle install --jobs 4 --retry 3
