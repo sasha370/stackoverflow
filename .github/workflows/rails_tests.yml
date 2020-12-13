@@ -40,7 +40,6 @@ jobs:
          POSTGRES_PASSWORD: postgres
         run: | 
           sudo apt-get -yqq install libpq-dev
-          node client.js
           yarn --frozen-lockfile
           gem install bundler --no-document
           bundle install --jobs 4 --retry 3
