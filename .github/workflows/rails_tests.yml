@@ -38,7 +38,6 @@ jobs:
           PGUSER: sasha370
           RAILS_ENV: test
         run: |
-          sudo apt-get install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
           bin/rails db:setup
