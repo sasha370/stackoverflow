@@ -20,7 +20,7 @@ jobs:
         ports: ['5432:5432']
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-      ci: psql -c 'create role shippable with superuser;' -U postgres
+     
 
     steps:
       - name: Checkout repository
@@ -41,5 +41,5 @@ jobs:
           yarn --frozen-lockfile
           gem install bundler --no-document
           bundle install --jobs 4 --retry 3
-          bundle exec rails db:prepare
+          bundle exec rails db:setup
           bundle exec rspec 
