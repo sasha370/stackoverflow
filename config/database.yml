@@ -32,6 +32,7 @@ development:
 
 test:
   <<: *default
+  port: 5432
   database: stackoverflow_test
 
 production:
@@ -39,4 +40,4 @@ production:
   database: stackoverflow_production
   username: postgres
   password: <%= ENV['STACKOVERFLOW_DATABASE_PASSWORD'] %>
- 
+
