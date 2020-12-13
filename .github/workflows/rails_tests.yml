@@ -15,10 +15,6 @@ jobs:
     services:
       postgres:
         image: postgres:11
-        env:
-          POSTGRES_USERNAME: password
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: test
         ports:
           - 5432:5432
         # needed because the postgres container does not provide a healthcheck
@@ -26,25 +22,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.2       
-        
+                         
       - name: Build and test with Rake
         env:
-          RAILS_ENV: test
-          
-        run: |
-          yarn --frozen-lockfile
-          gem install bundler --no-document
-          bundle config GITHUB__COM $GITHUB_ACCESS_TOKEN
-          bundle install --jobs 4 --retry 3
-      - name: Db create Migrate
-        env:
-         GITHUB_ACCESS_TOKEN: $
+         RAILS_ENV: test
+         RAILS_MASTER_KEY: ${{ secret.RAILS_MASTER_KEY}}
          DATABASE_URL: postgres://postgres:@localhost:5432/test
         run: | 
-          bundle exec rails db:schema:load
-          bundle exec rspec ./spec
+          sudo apt-get -yqq install libpq-dev
+          yarn --frozen-lockfile
+          gem install bundler --no-document
+          bundle install --jobs 4 --retry 3
+          bundle exec rails db:prepare
+          bundle exec rspec 
