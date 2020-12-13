@@ -1,0 +1,21 @@
+@import "bootstrap";
+
+/*sticky footer*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-bottom: 50px;
+}
+
+.footer {
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  //overflow: hidden;
+}

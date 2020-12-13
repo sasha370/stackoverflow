@@ -1,0 +1,23 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Stackoverflow"
+    = csrf_meta_tags
+    -# = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+
+  %body
+    .container
+      = render 'shared/navbar'
+      = render 'shared/message'
+      %br/
+      = yield
+      %br/
+      = render 'shared/footer'
+    %footer
+      %p &copy; Company 2020
