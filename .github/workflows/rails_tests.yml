@@ -14,6 +14,8 @@ jobs:
     # Similar to docker-compose.yml but not the same, 🤷‍♂️
     services:
       postgres:
+        env:
+          POSTGRES_PASSWORD: ""
         image: postgres:11
         ports: ['5432:5432']
         # needed because the postgres container does not provide a healthcheck
