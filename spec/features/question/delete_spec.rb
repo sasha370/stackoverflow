@@ -18,4 +18,10 @@ I want to be able to delete it
     expect(page).to have_content 'Question was successfully deleted.'
   end
 
+  scenario 'question can`t be deleted by other users`' do
+    sign_in(another_user)
+    visit question_path(question)
+
+    expect(page).to have_no_content 'Delete'
+  end
 end

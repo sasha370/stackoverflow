@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User can sign in", %q{
+feature 'User can sign in', %q{
     In order to ask question as an unauthenticated user
     I`d like to be able to sign in
 } do
@@ -13,7 +13,7 @@ feature "User can sign in", %q{
     fill_in 'Password', with: user.password
     click_on 'Log in'
 
-    expect(page).to have_content "Signed in successfully."
+    expect(page).to have_content 'Signed in successfully.'
   end
 
   scenario 'Unregistered user tries to sign in' do
@@ -21,7 +21,6 @@ feature "User can sign in", %q{
     fill_in 'Password', with: '123456'
     click_on 'Log in'
 
-    expect(page).to have_content "Invalid Email or password."
+    expect(page).to have_content 'Invalid Email or password.'
   end
-
 end

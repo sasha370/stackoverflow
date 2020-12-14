@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe AnswersController, type: :controller do
   let!(:user) { create(:user) }
   let!(:question) { create(:question, user: user) }
-  let(:answer) { create(:answer, question: question) }
+  let(:answer) { create(:answer, question: question, user: user) }
 
 
   describe 'POST #create' do
     before { login(user) }
     context 'with valid attributes' do
       it 'saves a new answer on the database' do
-        expect { post :create, params: { question_id: question.id, answer: attributes_for(:answer) } }.to change(Answer, :count).by(1)
+        expect { post :create, params: { question_id: question, answer: attributes_for(:answer) } }.to change(Answer, :count).by(1)
       end
 
       it 'redirect to associate question view' do
@@ -28,7 +28,7 @@ RSpec.describe AnswersController, type: :controller do
 
   describe 'DELETE #destroy' do
     let!(:question) { create(:question, user: user) }
-    let!(:answer) { create(:answer, question: question) }
+    let!(:answer) { create(:answer, question: question, user: user) }
 
     before { login(user) }
 
