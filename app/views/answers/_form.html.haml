@@ -1,0 +1,7 @@
+= form_with(model:  [@question, @answer], local: true) do |form|
+  = render 'shared/error', resource: @answer
+  %div
+    = form.label :body, 'Add answer'
+    = form.text_area :body, class: 'form-control'
+    %br
+    = form.submit 'Create answer', class: "actions btn  btn-sm btn-primary"
