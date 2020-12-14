@@ -39,7 +39,6 @@ jobs:
           POSTGRES_USER: sasha370
           POSTGRES_PASSWORD: sasha370
           POSTGRES_DB: stackoverflow_test
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY}}
 
 
         run: |
