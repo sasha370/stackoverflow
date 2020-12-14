@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @question = Question.all
+    @questions = Question.all
   end
 
   def show

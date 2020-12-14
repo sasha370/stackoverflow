@@ -1,9 +1,13 @@
-%ul.nav
-  %li.nav-item
-    %a.nav-link.active{:href => "#"} Active
-  %li.nav-item
-    %a.nav-link{:href => "#"} Link
-  %li.nav-item
-    %a.nav-link{:href => "#"} Link
-  %li.nav-item
-    %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to 'StackOverflow', root_path,  class: 'navbar-brand'
+  %ul.nav.mr-auto
+    %li.nav-item
+      = link_to "Questions", questions_path, class: 'nav-link'
+    %li.nav-item
+      %a.nav-link{:href => "#"} Link
+    %li.nav-item
+      %a.nav-link{:href => "#"} Link
+  .form-inline.my-2.my-lg-0
+    = link_to "Log out", '#', class: 'btn btn-sm btn-danger mr-2'
+    = link_to "Log in", '#', class: 'btn btn-sm btn-danger mr-2'
+    = link_to "Register", '#', class: 'btn btn-sm btn-danger mr-2'
