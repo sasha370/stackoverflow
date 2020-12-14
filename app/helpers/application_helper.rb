@@ -27,4 +27,8 @@ module ApplicationHelper
       end
       flash_messages.join("\n").html_safe
     end
+
+    def owner?(resource)
+      current_user == resource.user
+    end
 end

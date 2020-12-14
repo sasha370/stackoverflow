@@ -5,8 +5,8 @@ feature 'User can create answer', %q{
     I must be able to fill out a answer form
 } do
 
-  given(:user) { build(:user) }
-  given(:question) { create(:question) }
+  given(:user) { create(:user) }
+  given(:question) { create(:question, user: user) }
 
   describe 'Auth user' do
     background do
@@ -28,6 +28,11 @@ feature 'User can create answer', %q{
     end
   end
 
-  scenario 'UnAuth user tries to answers the question'
+  scenario 'UnAuth user tries to answers the question' do
+    visit question_path(question)
+    click_on 'Create answer'
+
+    expect(page).to have_content 'You need to sign in or sign up before continuing.'
+  end
 
 end
