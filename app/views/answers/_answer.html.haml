@@ -1,2 +1,6 @@
-%p
-  = answer.body
+.row
+  .col-11
+    = answer.body
+  .col-1.ml_auto
+    = link_to 'Delete', question_answer_path(answer.question, answer), method: :delete,
+     id: "delete_answer_#{answer.id}"

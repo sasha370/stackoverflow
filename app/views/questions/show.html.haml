@@ -6,7 +6,7 @@
     %p.card-text
       = @question.body
     = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
-    = link_to "Delete", question_path(@question), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'
+    = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %ul.list-group.list-group-flush
       %li.list-group-item
     = render @question.answers
