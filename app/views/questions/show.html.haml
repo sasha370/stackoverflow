@@ -1,0 +1,19 @@
+.card
+  .card-header
+    %p.card-title
+      = @question.title
+  .card-body
+    %p.card-text
+      = @question.body
+    - if  current_user.present? && current_user.author?(@question)
+      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
+      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
+    %hr
+    %ul.list-group.list-group-flush
+      %li.list-group-item
+    = render @question.answers
+    %hr
+    = render 'answers/form'
+  .card-footer
+    = link_to "Back", questions_path, class: 'btn btn-sm btn-secondary'
+

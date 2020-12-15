@@ -1,0 +1,9 @@
+- if resource.present? && resource.errors.any?
+  = content_tag(:div, class: 'resource-errors', data: { resource_id: resource.id }, id: 'error_explanation') do
+    %h2
+      You have:
+      = resource.errors.count
+      error
+    %ul
+      - resource.errors.full_messages.each do |message|
+        %li= message

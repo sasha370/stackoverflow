@@ -10,8 +10,11 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem "haml-rails"
-
+gem 'devise'
+gem 'devise-bootstrap-views'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'twitter-bootstrap-rails'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -26,8 +29,8 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "better_errors"
-  gem "binding_of_caller"
+  # gem "better_errors"
+  # gem "binding_of_caller"
   gem 'guard'
   gem 'guard-rspec', require: false
 end
@@ -38,6 +41,7 @@ group :test do
   gem 'webdrivers'
   gem 'shoulda-matchers'
   gem "rails-controller-testing"
+  gem 'launchy'
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to 'StackOverflow', root_path,  class: 'navbar-brand'
+  %ul.nav.mr-auto
+    %li.nav-item
+      = link_to "Questions", questions_path, class: 'nav-link'
+    %li.nav-item
+      %a.nav-link{:href => "#"} Link
+    %li.nav-item
+      %a.nav-link{:href => "#"} Link
+  .form-inline.my-2.my-lg-0
+    - if current_user
+      = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger mr-2'
+    - else
+      = link_to "Login", new_user_session_path, class: 'btn btn-sm btn-danger mr-2'
+      = link_to "Register", new_user_registration_path , class: 'btn btn-sm btn-danger mr-2'

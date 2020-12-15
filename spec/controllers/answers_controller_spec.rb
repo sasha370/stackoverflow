@@ -1,22 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
-  let(:question) { create(:question) }
-  let(:answer) { build(:answer) }
+  let!(:user) { create(:user) }
+  let!(:question) { create(:question, user: user) }
+  let(:answer) { create(:answer, question: question, user: user) }
 
-  describe 'GET #new' do
-    before { get :new, params: { question_id: question } }
-
-    it 'assigns an answer to the variable @answer' do
-      expect(assigns(:answer)).to be_a_new(Answer)
-    end
-
-    it 'render new view' do
-      expect(response).to render_template :new
-    end
-  end
 
   describe 'POST #create' do
+    before { login(user) }
     context 'with valid attributes' do
       it 'saves a new answer on the database' do
         expect { post :create, params: { question_id: question, answer: attributes_for(:answer) } }.to change(Answer, :count).by(1)
@@ -32,13 +23,22 @@ RSpec.describe AnswersController, type: :controller do
       it 'does noe save on the database' do
         expect { post :create, params: { question_id: question, answer: attributes_for(:answer, :invalid) } }.to_not change(Answer, :count)
       end
-
-      it 'render new view' do
-        post :create, params: { question_id: question, answer: attributes_for(:answer, :invalid) }
-        expect(response).to render_template :new
-      end
     end
   end
 
+  describe 'DELETE #destroy' do
+    let!(:question) { create(:question, user: user) }
+    let!(:answer) { create(:answer, question: question, user: user) }
 
+    before { login(user) }
+
+    it 'delete the answer' do
+      expect { delete :destroy, params: { question_id: question, id: answer } }.to change(Answer, :count).by(-1)
+    end
+
+    it 'redirect to question show view' do
+      delete :destroy, params: { question_id: question, id: answer }
+      expect(response).to redirect_to question_path(question)
+    end
+  end
 end
