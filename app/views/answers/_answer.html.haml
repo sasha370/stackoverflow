@@ -3,4 +3,4 @@
     = answer.body
   .col-1.ml_auto
     = link_to 'Delete', question_answer_path(answer.question, answer), method: :delete,
-     id: "delete_answer_#{answer.id}" if owner?(answer)
+     id: "delete_answer_#{answer.id}" if current_user.present? && current_user.author?(answer)

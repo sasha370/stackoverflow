@@ -5,7 +5,7 @@
   .card-body
     %p.card-text
       = @question.body
-    - if owner?(@question)
+    - if  current_user.present? && current_user.author?(@question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr
