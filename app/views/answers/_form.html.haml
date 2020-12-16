@@ -1,3 +1,4 @@
+= render 'shared/error', resource: @answer
 = form_with(model:  [@question, @answer], local: true) do |form|
   %div
     = form.label :body, 'Add answer'
