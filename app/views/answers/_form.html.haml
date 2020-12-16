@@ -1,5 +1,6 @@
-= render 'shared/error', resource: @answer
-= form_with(model:  [@question, @answer], local: true) do |form|
+.answer-errors
+  = render 'shared/error', resource: @answer
+= form_with(model:  [@question, @answer] ) do |form|
   %div
     = form.label :body, 'Add answer'
     = form.text_area :body, class: 'form-control'

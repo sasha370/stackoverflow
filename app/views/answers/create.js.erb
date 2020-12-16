@@ -1,0 +1,9 @@
+document.querySelector('.answer-errors').innerHTML = '<%=  j render 'shared/error', resource: @answer %>';
+
+document.querySelector('.flash_wrapper ').insertAdjacentHTML('beforeend','<%=  j render 'shared/message' %>');
+
+<% if @answer.persisted? %>
+
+document.querySelector('.answers').insertAdjacentHTML('beforeend', '<%= j render @answer %>');
+document.getElementById('answer_body').value  = '';
+<%  end %>

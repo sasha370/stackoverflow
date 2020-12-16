@@ -13,7 +13,8 @@
   %body
     .container
       = render 'shared/navbar'
-      = render 'shared/message'
+      .flash_wrapper
+        = render 'shared/message'
       %br/
       = yield
       %br/

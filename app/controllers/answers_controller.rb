@@ -5,13 +5,13 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     @answer.user = current_user
-    if @answer.save
-      flash[:notice] = 'Your answer successfully created.'
-      redirect_to @question
-    else
-      set_question # т.к. в question хранятся данные о несохраненном ответе c id = nil, его надо обновить из БД
-      flash.now[:alert] = 'Your answer have an errors!'
-      render 'questions/show'
+    # @answer.save
+    respond_to do |format|
+      if @answer.save
+        format.js { flash[:notice] = 'Your answer successfully created.' }
+      else
+        format.js { flash[:alert] = 'sdfsdf' }
+      end
     end
   end
 

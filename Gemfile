@@ -37,8 +37,10 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  # gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'webdrivers', '~> 4.0', require: false
   gem 'shoulda-matchers'
   gem "rails-controller-testing"
   gem 'launchy'
