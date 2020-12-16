@@ -7,21 +7,24 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     if @answer.save
       flash[:notice] = 'Your answer successfully created.'
+      redirect_to @question
     else
-      flash[:alert] = 'Your answer have an errors!'
+      set_question # т.к. в question хранятся данные о несохраненном ответе c id = nil, его надо обновить из БД
+      flash.now[:alert] = 'Your answer have an errors!'
+      render 'questions/show'
     end
-    redirect_to question_path(@question)
   end
 
   def destroy
     @answer = Answer.find(params[:id])
-    if current_user == @answer.user
+    if current_user.id == @answer.user_id
       @answer.destroy
       flash[:notice] = 'Answer was successfully deleted.'
+      redirect_to @question
     else
-      flash[:alert] = 'Your have`n permission for this action'
+      flash.now[:alert] = 'Your have`n permission for this action'
+      render 'questions/show'
     end
-    redirect_to @question
   end
 
   private

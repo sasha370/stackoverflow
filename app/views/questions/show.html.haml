@@ -11,7 +11,8 @@
     %hr
     %ul.list-group.list-group-flush
       %li.list-group-item
-    = render @question.answers
+    - if @question.answers.any?
+      = render @question.answers
     %hr
     = render 'answers/form'
   .card-footer

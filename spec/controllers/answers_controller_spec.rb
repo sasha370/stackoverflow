@@ -23,6 +23,11 @@ RSpec.describe AnswersController, type: :controller do
       it 'does noe save on the database' do
         expect { post :create, params: { question_id: question, answer: attributes_for(:answer, :invalid) } }.to_not change(Answer, :count)
       end
+
+      it 'redirect to associate question view' do
+        post :create, params: { question_id: question, answer: attributes_for(:answer, :invalid) }
+        expect(response).to render_template 'questions/show'
+      end
     end
   end
 
