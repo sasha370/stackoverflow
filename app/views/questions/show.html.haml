@@ -11,8 +11,8 @@
     %hr
     %ul#answers.list-group.list-group-flush
       - if @question.answers.any?
-        - @question.answers.each do |answer|
-          = render  answer
+        - @question.answers.sort_by_best.each do |answer|
+          = render answer
     %hr
     - if current_user
       = render 'answers/form'

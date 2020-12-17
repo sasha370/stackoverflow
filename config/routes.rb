@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
 
   resources :questions do
-    resources :answers,shallow: true, only: [:create, :edit, :destroy, :update]
+    resources :answers, shallow: true, only: [:create, :edit, :destroy, :update] do
+      member do
+        put :choose_best
+      end
+    end
   end
 
 end

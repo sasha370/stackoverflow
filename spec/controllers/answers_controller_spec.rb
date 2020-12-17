@@ -5,7 +5,6 @@ RSpec.describe AnswersController, type: :controller do
   let!(:question) { create(:question, user: user) }
   let!(:answer) { create(:answer, question: question, user: user) }
 
-
   describe 'POST #create' do
     before { login(user) }
     context 'with valid attributes' do
@@ -30,7 +29,6 @@ RSpec.describe AnswersController, type: :controller do
       end
     end
   end
-
 
   describe "PATCH #update" do
     context 'with valid attributes' do
@@ -59,7 +57,6 @@ RSpec.describe AnswersController, type: :controller do
     end
   end
 
-
   describe 'DELETE #destroy' do
     let!(:question) { create(:question, user: user) }
     let!(:answer) { create(:answer, question: question, user: user) }
@@ -73,6 +70,20 @@ RSpec.describe AnswersController, type: :controller do
     it 'response have "No content" status' do
       delete :destroy, params: { question_id: question, id: answer }
       expect(response).to have_http_status(204)
+    end
+  end
+
+  describe "PUT #choose_best" do
+
+    it 'assign answer to @answer' do
+      put :choose_best, params: { id: answer }, format: :js
+      expect(assigns(:answer)).to eq(answer)
+    end
+
+    it 'author can choose best answer' do
+      put :choose_best, params: { id: answer }, format: :js
+      answer.reload
+      expect(answer).to be_best
     end
   end
 end

@@ -2,7 +2,7 @@ document.querySelector('.flash_wrapper ').insertAdjacentHTML('beforeend','<%=  j
 document.querySelector('.answer-errors').innerHTML = '<%=  j render 'shared/error', resource: @answer %>';
 
 
+document.getElementById('answer_body').value = '';
 <% if @answer.persisted? %>
 document.querySelector('#answers').insertAdjacentHTML('beforeend', '<%= j render @answer %>');
-document.getElementById('answer_body').value = '';
 <%  end %>
