@@ -1,0 +1,31 @@
+
+/*sticky footer*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-bottom: 50px;
+}
+
+.footer {
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  //overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.flash_wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
