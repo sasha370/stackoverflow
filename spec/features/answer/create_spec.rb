@@ -24,7 +24,6 @@ feature 'User can create answer', %q{
 
     scenario 'answers the question with errors', js: true do
       click_on 'Create answer'
-
       expect(page).to have_content "Body can't be blank"
       expect(page).to have_content 'Your have an errors!'
     end
@@ -32,7 +31,6 @@ feature 'User can create answer', %q{
 
   scenario 'UnAuth user tries to answers the question' do
     visit question_path(question)
-
     expect(page).to have_no_content 'Create answer'
   end
 end

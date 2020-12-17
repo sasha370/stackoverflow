@@ -16,6 +16,8 @@
               = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
                class: 'delete_link', id: "#{answer.id}"
 
+  .answer-errors
+    = render 'shared/error', resource: answer
   = form_with(model: answer, class: 'hidden', id: "edit_form_#{answer.id}"  )  do |form|
     %div
       = form.label :body, "Edit answer"

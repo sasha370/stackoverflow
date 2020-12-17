@@ -6,6 +6,7 @@ As an author of answer
 I`d like to be able to edit my answer
 } do
   given!(:user) { create(:user) }
+  given!(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
   given!(:answer) { create(:answer, question: question, user: user) }
 
@@ -24,15 +25,28 @@ I`d like to be able to edit my answer
         expect(page).to_not have_selector 'textarea'
       end
     end
-    scenario 'edits his answer with errors'
-    scenario 'tries to edit other user`s question'
+
+    scenario 'edits his answer with errors', js: true do
+      sign_in(user)
+      visit question_path(question)
+      click_link(class: 'edit_link', id: answer.id)
+
+      within(:xpath, '//ul[@id="answers"]') do
+        fill_in "Edit answer", with: ''
+        click_on 'Save'
+        expect(page).to have_content "Body can't be blank"
+      end
+    end
+
+    scenario 'tries to edit other user`s question' do
+      sign_in(another_user)
+      visit question_path(question)
+      expect(page).to have_no_link(class: 'edit_link', id: answer.id)
+    end
   end
 
   scenario 'UnAuth can not edit answer' do
     visit question_path(question)
-
-    expect(page).to_not have_link 'Edit'
+    expect(page).to have_no_link(class: 'edit_link', id: answer.id)
   end
-
-
 end
