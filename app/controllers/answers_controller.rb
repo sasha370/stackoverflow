@@ -25,11 +25,6 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     if current_user.id == @answer.user_id
       @answer.destroy
-      flash[:notice] = 'Answer was successfully deleted.'
-      redirect_to @answer.question
-    else
-      flash.now[:alert] = 'Your have`n permission for this action'
-      render 'questions/show'
     end
   end
 

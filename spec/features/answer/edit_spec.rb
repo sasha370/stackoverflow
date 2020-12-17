@@ -13,7 +13,7 @@ I`d like to be able to edit my answer
     scenario 'edits his answer', js: true do
       sign_in(user)
       visit question_path(question)
-      click_link "#{answer.id}"
+      click_link(class: 'edit_link', id: answer.id)
 
       within(:xpath, '//ul[@id="answers"]') do
         fill_in "Edit answer", with: 'edited answer'
