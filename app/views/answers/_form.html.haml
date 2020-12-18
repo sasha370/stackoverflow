@@ -1,8 +1,8 @@
-.answer-errors
+.answer-errors{id: "errors_new"}
   = render 'shared/error', resource: @answer
 = form_with(model:  [@question, @answer] ) do |form|
   %div
     = form.label :body, 'Add answer'
-    = form.text_area :body, class: 'form-control'
+    = form.text_area :body, class: 'form-control', id: "new_form"
     %br
     = form.submit 'Create answer', class: "actions btn  btn-sm btn-primary"

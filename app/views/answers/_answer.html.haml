@@ -16,11 +16,12 @@
               = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
                class: 'delete_link', id: "#{answer.id}"
 
-  .answer-errors
-    = render 'shared/error', resource: answer
-  = form_with(model: answer, class: 'hidden', id: "edit_form_#{answer.id}"  )  do |form|
-    %div
-      = form.label :body, "Edit answer"
-      = form.text_area :body, class: 'form-control'
-      %br
-      = form.submit 'Save'
+  - if current_user.present? && current_user.author?(answer)
+    = form_with(model: answer, class: 'hidden', id: "edit_form_#{answer.id}"  )  do |form|
+      .answer-errors{id: "errors_#{answer.id}"}
+        = render 'shared/error', resource: answer
+      %div
+        = form.label :body, "Edit answer"
+        = form.text_area :body, class: 'form-control'
+        %br
+        = form.submit 'Save'

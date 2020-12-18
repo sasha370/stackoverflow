@@ -5,8 +5,8 @@ feature 'User can create answer', %q{
     I must be able to fill out a answer form
 } do
 
-  given(:user) { create(:user) }
-  given(:question) { create(:question, user: user) }
+  given!(:user) { create(:user) }
+  given!(:question) { create(:question, user: user) }
 
   describe 'Auth user' do
     background do
@@ -15,7 +15,7 @@ feature 'User can create answer', %q{
     end
 
     scenario 'answers the question', js: true do
-      fill_in 'Add answer', with: 'Answer for question'
+      fill_in 'new_form', with: 'Answer for question'
       click_on 'Create answer'
 
       expect(page).to have_content 'Your answer successfully created.'
