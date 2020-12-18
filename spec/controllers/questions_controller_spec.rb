@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:user) { create(:user) }
+  let(:another_user) { create(:user) }
   let(:question) { create(:question, user: user) }
 
   describe 'GET #index' do
@@ -117,8 +118,24 @@ RSpec.describe QuestionsController, type: :controller do
         expect(question.body).to eq question.body
       end
 
-      it 're-render edit view' do
+      it 'redirect to question' do
         expect(response).to render_template :edit
+      end
+    end
+
+    context 'NOT Author of question' do
+      before { login(another_user) }
+
+      it 'does not change question attributes' do
+        patch :update, params: { id: question, question: { title: 'TitleTest_another', body: 'BodyTest_another' } }
+        question.reload
+        expect(question.title).to_not eq 'TitleTest_another'
+        expect(question.body).to_not eq 'BodyTest_another'
+      end
+
+      it 'redirect to question' do
+        patch :update, params: { id: question, question: { title: 'TitleTest_another', body: 'BodyTest_another' } }
+        expect(response).to redirect_to question
       end
     end
   end
@@ -134,6 +151,18 @@ RSpec.describe QuestionsController, type: :controller do
     it 'redirect to index' do
       delete :destroy, params: { id: question }
       expect(response).to redirect_to questions_path
+    end
+
+    context 'NOT Author of question' do
+      before { login(another_user) }
+      it 'can`t delete' do
+        expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(0)
+      end
+
+      it 'redirect to question' do
+        delete :destroy, params: { id: question }
+        expect(response).to redirect_to question_path(question)
+      end
     end
   end
 end

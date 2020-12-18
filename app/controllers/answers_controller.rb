@@ -4,8 +4,10 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: [:update, :destroy, :choose_best]
 
   def update
-    @answer.update(answer_params)
-    @question = @answer.question
+    if current_user.author?(@answer)
+      @answer.update(answer_params)
+      @question = @answer.question
+    end
   end
 
   def create
@@ -21,13 +23,11 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @answer.user_id
-      @answer.destroy
-    end
+    @answer.destroy if current_user.id == @answer.user_id
   end
 
   def choose_best
-    @answer.set_best
+    @answer.set_best if current_user.id == @answer.question.user_id
   end
 
   private
