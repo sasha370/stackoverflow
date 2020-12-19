@@ -23,11 +23,11 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer.destroy if current_user.id == @answer.user_id
+    @answer.destroy if current_user.author?(@answer)
   end
 
   def choose_best
-    @answer.set_best if current_user.id == @answer.question.user_id
+    @answer.set_best if current_user.author?(@answer.question)
   end
 
   private

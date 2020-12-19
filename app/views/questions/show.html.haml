@@ -10,9 +10,8 @@
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr
     %ul#answers.list-group.list-group-flush
-      - if @question.answers.any?
-        - @question.answers.sort_by_best.each do |answer|
-          = render answer
+      - @question.answers.sort_by_best.each do |answer|
+        = render answer
     %hr
     - if current_user
       = render 'answers/form'
