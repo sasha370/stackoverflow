@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
+    @answers = @question.answers.sort_by_best
   end
 
   def new
@@ -27,10 +28,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_params)
-      redirect_to @question
+    if current_user.author?(@question)
+      if @question.update(question_params)
+        redirect_to @question
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to @question
     end
   end
 

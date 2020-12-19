@@ -1,0 +1,7 @@
+document.querySelector('.flash_wrapper ').insertAdjacentHTML('beforeend', '<%=  j render 'shared/message' %>');
+document.querySelector('#errors_new').innerHTML = '<%=  j render 'shared/error', resource: @answer %>';
+
+<% if @answer.persisted? %>
+document.querySelector('#answers').insertAdjacentHTML('beforeend', '<%= j render @answer %>');
+document.querySelector('#new_form').value = '';
+<%  end %>

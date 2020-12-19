@@ -1,30 +1,40 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :set_question, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy, :update, :choose_best]
+  before_action :set_question, only: [:create]
+  before_action :set_answer, only: [:update, :destroy, :choose_best]
+
+  def update
+    if current_user.author?(@answer)
+      @answer.update(answer_params)
+      @question = @answer.question
+    end
+  end
 
   def create
     @answer = @question.answers.new(answer_params)
     @answer.user = current_user
-    if @answer.save
-      flash[:notice] = 'Your answer successfully created.'
-    else
-      flash[:alert] = 'Your answer have an errors!'
+    respond_to do |format|
+      if @answer.save
+        format.js { flash[:notice] = 'Your answer successfully created.' }
+      else
+        format.js { flash[:alert] = 'Your have an errors!' }
+      end
     end
-    redirect_to question_path(@question)
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
-    if current_user == @answer.user
-      @answer.destroy
-      flash[:notice] = 'Answer was successfully deleted.'
-    else
-      flash[:alert] = 'Your have`n permission for this action'
-    end
-    redirect_to @question
+    @answer.destroy if current_user.author?(@answer)
+  end
+
+  def choose_best
+    @answer.set_best if current_user.author?(@answer.question)
   end
 
   private
+
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)

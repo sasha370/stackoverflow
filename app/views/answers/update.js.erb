@@ -1,0 +1,7 @@
+document.querySelector('.flash_wrapper ').insertAdjacentHTML('beforeend', '<%=  j render 'shared/message' %>');
+
+<% if !@answer.errors.any? %>
+document.querySelector("#answer_<%=@answer.id %>").innerHTML = '<%= j render @answer %>';
+<%else %>
+document.querySelector('#errors_<%=@answer.id %>').innerHTML = '<%=  j render 'shared/error', resource: @answer %>';
+<%  end %>

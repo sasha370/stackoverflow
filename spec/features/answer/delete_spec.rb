@@ -8,21 +8,20 @@ I want to be able to delete it
   given!(:user) { create(:user) }
   given!(:question) { create(:question, user: user) }
   given!(:answer) { create(:answer, question: question, user: user) }
-  given(:another_user) { create(:user) }
+  given!(:another_user) { create(:user) }
 
-  scenario 'answer deleted by author' do
+  scenario 'answer deleted by author', js: true do
     sign_in(user)
     visit question_path(question)
-    click_link("delete_answer_#{answer.id}")
+    click_link(class: 'delete_link', id: answer.id)
 
     expect(page).to have_no_content answer.body
-    expect(page).to have_content 'Answer was successfully deleted.'
   end
 
-  scenario 'answer can`t be deleted by other users`' do
+  scenario 'answer can`t be deleted by other users`', js: true do
     sign_in(another_user)
     visit question_path(question)
 
-    expect(page).to have_no_content "delete_answer_#{answer.id}"
+    expect(page).to have_no_link(class: 'delete_link', id: answer.id)
   end
 end

@@ -26,7 +26,6 @@ feature 'User can create question', %q{
 
     scenario 'asks a question with errors' do
       click_on 'Ask'
-
       expect(page).to have_content "Title can't be blank"
     end
   end
@@ -34,7 +33,6 @@ feature 'User can create question', %q{
   scenario 'UnAuth user tried asks a question' do
     visit questions_path
     click_on 'Ask question'
-
     expect(page).to have_content 'You need to sign in or sign up before continuing.'
   end
 end

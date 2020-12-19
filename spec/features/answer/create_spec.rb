@@ -5,8 +5,8 @@ feature 'User can create answer', %q{
     I must be able to fill out a answer form
 } do
 
-  given(:user) { create(:user) }
-  given(:question) { create(:question, user: user) }
+  given!(:user) { create(:user) }
+  given!(:question) { create(:question, user: user) }
 
   describe 'Auth user' do
     background do
@@ -14,25 +14,23 @@ feature 'User can create answer', %q{
       visit question_path(question)
     end
 
-    scenario 'answers the question' do
-      fill_in 'Add answer', with: 'Answer for question'
+    scenario 'answers the question', js: true do
+      fill_in 'new_form', with: 'Answer for question'
       click_on 'Create answer'
 
       expect(page).to have_content 'Your answer successfully created.'
       expect(page).to have_content 'Answer for question'
     end
 
-    scenario 'answers the question with errors' do
+    scenario 'answers the question with errors', js: true do
       click_on 'Create answer'
-
-      expect(page).to have_content 'Your answer have an errors!'
+      expect(page).to have_content "Body can't be blank"
+      expect(page).to have_content 'Your have an errors!'
     end
   end
 
   scenario 'UnAuth user tries to answers the question' do
     visit question_path(question)
-    click_on 'Create answer'
-
-    expect(page).to have_content 'You need to sign in or sign up before continuing.'
+    expect(page).to have_no_content 'Create answer'
   end
 end
