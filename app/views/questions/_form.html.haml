@@ -8,6 +8,10 @@
       %br/
       = form.label :body
       = form.text_area :body, class: 'form-control'
+    %div
+      %br/
+      = form.label :files
+      = form.file_field :files, class: 'form-control-file', multiple: true
   .card-footer
     %div
       = form.submit 'Ask', class: "actions btn  btn-sm btn-primary"

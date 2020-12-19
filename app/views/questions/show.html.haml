@@ -5,7 +5,14 @@
   .card-body
     %p.card-text
       = @question.body
-    - if  current_user.present? && current_user.author?(@question)
+    - if @question.files.attached?
+      Прикрепленные файлы:
+      %br
+      - @question.files.each do |file|
+        = link_to file.filename.to_s, url_for(file)
+        %br
+      %br
+    - if current_user&.author?(@question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr

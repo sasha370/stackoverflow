@@ -19,7 +19,6 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
-
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
 end
@@ -37,7 +36,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  # gem 'selenium-webdriver'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'webdrivers', '~> 4.0', require: false
