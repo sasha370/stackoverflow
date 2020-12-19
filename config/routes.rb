@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :questions do
+    member { delete :delete_attachment }
     resources :answers, shallow: true, only: [:create, :edit, :destroy, :update] do
       member do
         put :choose_best

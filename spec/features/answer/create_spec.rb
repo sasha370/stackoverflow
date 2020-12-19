@@ -22,7 +22,7 @@ feature 'User can create answer', %q{
       expect(page).to have_content 'Answer for question'
     end
 
-    scenario 'ask a answer with attached files', js: true do
+    scenario 'ask an answer with attached files', js: true do
       fill_in 'new_form', with: 'Answer for question'
       attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
       click_on 'Create answer'

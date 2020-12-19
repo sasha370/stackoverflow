@@ -20,11 +20,15 @@
              class: 'delete_link', id: "#{answer.id}"
 
   - if  current_user&.author?(answer)
-    = form_with(model: answer, class: 'hidden', id: "edit_form_#{answer.id}"  )  do |form|
+    = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
       .answer-errors{id: "errors_#{answer.id}"}
         = render 'shared/error', resource: answer
       %div
         = form.label :body, "Edit answer"
         = form.text_area :body, class: 'form-control'
+      %div
+        %br/
+        = form.label :files
+        = form.file_field :files, class: 'form-control-file edit_files', multiple: true
         %br
         = form.submit 'Save'

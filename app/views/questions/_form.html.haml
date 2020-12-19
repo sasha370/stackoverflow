@@ -10,8 +10,13 @@
       = form.text_area :body, class: 'form-control'
     %div
       %br/
+      #attached_files
+        =render 'shared/attach', resource: @question
+    %div
+      %br/
       = form.label :files
       = form.file_field :files, class: 'form-control-file', multiple: true
+
   .card-footer
     %div
       = form.submit 'Ask', class: "actions btn  btn-sm btn-primary"

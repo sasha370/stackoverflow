@@ -48,6 +48,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def delete_attachment
+    file = ActiveStorage::Attachment.find(params[:id])
+    file.purge if current_user.author?(file.record)
+    @question = Question.with_attached_files.find(file.record.id)
+  end
+
   private
 
   def set_question

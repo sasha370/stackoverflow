@@ -1,0 +1,8 @@
+- if resource.files.attached?
+  Прикрепленные файлы:
+  %br
+  - resource.files.each do |file|
+    = link_to file.filename.to_s, url_for(file)
+    - if current_page?(action: 'edit')
+      = link_to 'Delete', delete_attachment_question_url(file.id), method: :delete, data: { confirm: 'Are you sure?'}, id: "delete_attach_#{file.id}" , remote: true
+    %br
