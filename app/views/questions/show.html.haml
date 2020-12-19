@@ -13,7 +13,7 @@
         %br
       %br
     - if current_user&.author?(@question)
-      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
+      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr
     %ul#answers.list-group.list-group-flush
