@@ -10,3 +10,4 @@ require("channels")
 import 'bootstrap'
 import './styles.scss';
 import './answers'
+import './activestorage'

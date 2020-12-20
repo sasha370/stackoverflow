@@ -6,7 +6,7 @@
     %p.card-text
       = @question.body
       %br/
-      =render 'shared/attach', resource: @question
+      =render 'attachments/attach', resource: @question
       %br/
     - if current_user&.author?(@question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'

@@ -11,11 +11,11 @@
     %div
       %br/
       #attached_files
-        =render 'shared/attach', resource: @question
+        =render 'attachments/attach', resource: @question
     %div
       %br/
       = form.label :files
-      = form.file_field :files, class: 'form-control-file', multiple: true
+      = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
 
   .card-footer
     %div

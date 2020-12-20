@@ -47,8 +47,8 @@ I`d like to be able to edit my question
       question.files.attach(create_file_blob)
       visit edit_question_path(question)
       click_on(id: "delete_link_#{question.files[0].id}")
+      page.accept_alert
 
-      click_on 'Ask'
       expect(page).to have_no_link question.files[0].filename.to_s
     end
   end
