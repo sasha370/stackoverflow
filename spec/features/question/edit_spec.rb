@@ -46,7 +46,7 @@ I`d like to be able to edit my question
     scenario 'edit a question for delete attached files', js: true do
       question.files.attach(create_file_blob)
       visit edit_question_path(question)
-      click_on(id: "delete_attach_#{question.files[0].id}")
+      click_on(id: "delete_link_#{question.files[0].id}")
 
       click_on 'Ask'
       expect(page).to have_no_link question.files[0].filename.to_s

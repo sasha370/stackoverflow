@@ -12,6 +12,7 @@ I`d like to be able to edit my answer
 
   describe 'Auth user' do
     before do
+      answer.files.attach(create_file_blob)
       sign_in(user)
       visit question_path(question)
       click_link(class: 'edit_link', id: answer.id)
@@ -44,6 +45,14 @@ I`d like to be able to edit my answer
 
         expect(page).to have_link 'rails_helper.rb'
         expect(page).to have_link 'spec_helper.rb'
+      end
+    end
+
+    scenario 'edit a answer for delete attached files', js: true do
+      within(:xpath, "//form[@id=\"edit_form_#{answer.id}\"]") do
+        click_on(id: "delete_link_#{answer.files[0].id}")
+
+        expect(page).to have_no_link answer.files[0].filename.to_s
       end
     end
   end

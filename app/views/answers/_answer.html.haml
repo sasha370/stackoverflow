@@ -3,10 +3,8 @@
     .row
       .col-9
         = answer.body
-        - if answer.files.attached?
-          - answer.files.each do |file|
-            %br
-            = link_to file.filename.to_s, url_for(file)
+        #answer_attached_
+        = render 'shared/attach', resource: answer
       .col-3.ml_auto
         - if answer.persisted?
           - if current_user&.author?(answer.question)
@@ -26,6 +24,12 @@
       %div
         = form.label :body, "Edit answer"
         = form.text_area :body, class: 'form-control'
+
+      - answer.files.each do |file|
+        %em{id: "attached_file_#{file.id}"}
+          = link_to file.filename.to_s, url_for(file)
+          = link_to 'Delete', attachment_url(file.id), method: :delete, data: { confirm: 'Are you sure?'}, id: "delete_link_#{file.id}" , remote: true
+          %br/
       %div
         %br/
         = form.label :files

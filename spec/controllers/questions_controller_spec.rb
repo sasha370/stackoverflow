@@ -165,28 +165,4 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
   end
-
-  describe 'DELETE #delete_attachment attachment' do
-    let!(:question) { create(:question) }
-    before do
-      question.files.attach(create_file_blob)
-      login(question.user)
-    end
-
-    it 'delete the attachment file' do
-      expect { delete :delete_attachment, params: { id: question.files[0] }, format: :js }.to change(question.files, :count).by(-1)
-    end
-
-    it 'render delete_attachment' do
-      delete :delete_attachment, params: { id: question.files[0] }, format: :js
-      expect(response).to render_template :delete_attachment
-    end
-
-    context 'NOT Author of question' do
-      before { login(another_user) }
-      it 'can`t delete attachment' do
-        expect { delete :delete_attachment, params: { id: question.files[0] }, format: :js }.to change(question.files, :count).by(0)
-      end
-    end
-  end
 end

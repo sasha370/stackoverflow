@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: "questions#index"
 
 
+  resources :attachments, only: :destroy
+
   resources :questions do
-    member { delete :delete_attachment }
     resources :answers, shallow: true, only: [:create, :edit, :destroy, :update] do
       member do
         put :choose_best
