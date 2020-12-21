@@ -8,15 +8,16 @@ I`d like to be able to add links
 
   given(:user) { create(:user) }
   given(:gist_url) { 'https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js' }
-  given(:gist_url_2) { 'https://github.com' }
+  given(:wrong_url) { 'gist_github.com' }
 
-  scenario 'User adds link when asks question' do
+  background do
     sign_in(user)
     visit new_question_path
+  end
 
+  scenario 'User adds link when asks question' do
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'text text text'
-
     fill_in 'Name', with: 'My gist'
     fill_in 'Url', with: gist_url
 
@@ -25,24 +26,15 @@ I`d like to be able to add links
     expect(page).to have_link 'My gist', href: gist_url
   end
 
-  scenario 'User adds several links when asks question' do
-    sign_in(user)
-    visit new_question_path
-
+  scenario 'User add link with errors' do
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'text text text'
+    fill_in 'Name', with: ''
+    fill_in 'Url', with: wrong_url
 
-    fill_in 'Name', with: 'My gist'
-    fill_in 'Url', with: gist_url
-
-    within(:xpath, '//div[@id="add_link"]') do
-      click_on 'Add link'
-      fill_in 'Name', with: 'My gist2'
-      fill_in 'Url', with: gist_url_2
-    end
     click_on 'Ask'
 
-    expect(page).to have_link 'My gist', href: gist_url
-    expect(page).to have_link 'My gist2', href: gist_url_2
+    expect(page).to have_content 'Links url is invalid'
+    expect(page).to have_content "Links name can't be blank"
   end
 end

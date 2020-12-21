@@ -10,14 +10,10 @@
       = form.text_area :body, class: 'form-control'
     %div
       Links:
-      .form-row
-        = form.fields_for :links do |l|
-          .col-6
-            = l.label :name
-            = l.text_field :name, class: 'form-control'
-          .col-6
-            = l.label :url
-            = l.text_field :url, class: 'form-control'
+      = form.fields_for :links do |link|
+        = render 'shared/link_fields', f: link
+      .links
+        = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
     %div
       %br/
       #attached_files

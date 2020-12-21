@@ -1,0 +1,9 @@
+.nested-fields
+  .form-row
+    .col-6
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .col-6
+      = f.label :url
+      = f.text_field :url, class: 'form-control'
+    = link_to_remove_association "remove task", f, class: 'btn btn-sm btn-danger mb-1 mt-1 ml-auto'
