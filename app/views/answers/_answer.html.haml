@@ -3,9 +3,8 @@
     .row
       .col-9
         = answer.body
-        .links
-          - answer.links.each do |link|
-            = link_to link.name, link.url
+        %ul
+          = render 'shared/link', resource: answer
         #answer_attached_
           = render 'attachments/attach', resource: answer
 
@@ -31,14 +30,16 @@
         = form.text_area :body, class: 'form-control'
 
       %div
+        %hr/
         Links:
         %ul
           = render 'shared/link', resource: answer
+        %hr/
         = form.fields_for :links do |link|
           = render 'shared/link_fields', f: link
         .links
           = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
-
+        %hr/
       - answer.files.each do |file|
         %em{id: "attached_file_#{file.id}"}
           = link_to file.filename.to_s,  url_for(file)

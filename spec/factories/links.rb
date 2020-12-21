@@ -1,6 +1,11 @@
 FactoryBot.define do
   factory :link do
-    name { "MyString" }
-    url { "MyString" }
+    name { "gist_url" }
+    url { "https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43" }
+
+    trait :wrong_link do
+      name { "wrong_url" }
+      url { "https://gist.githudd.yy" }
+    end
   end
 end

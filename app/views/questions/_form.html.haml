@@ -6,25 +6,26 @@
       = form.text_field :title, class: 'form-control'
 
     %div
-      %br/
       = form.label :body
       = form.text_area :body, class: 'form-control'
 
     %div
+      %hr/
       Links:
       = render 'shared/link', resource: @question unless current_page?(action: 'new')
+      %hr/
       = form.fields_for :links do |link|
         = render 'shared/link_fields', f: link
       .links
         = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
 
     %div
-      %br/
+      %hr/
       #attached_files
         =render 'attachments/attach', resource: @question
 
     %div
-      %br/
+      %hr/
       = form.label :files
       = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
 

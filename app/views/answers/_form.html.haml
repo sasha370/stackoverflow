@@ -5,13 +5,14 @@
     = form.label :body, 'Add answer'
     = form.text_area :body, class: 'form-control', id: "new_form"
   %div
+    %hr/
     Links:
     = form.fields_for :links do |link|
       = render 'shared/link_fields', f: link
     .links
       = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
   %div
-    %br/
+    %hr/
     = form.label :files
     = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
     %br
