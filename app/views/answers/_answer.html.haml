@@ -3,8 +3,11 @@
     .row
       .col-9
         = answer.body
+        .links
+          - answer.links.each do |link|
+            = link_to link.name, link.url
         #answer_attached_
-        = render 'attachments/attach', resource: answer
+          = render 'attachments/attach', resource: answer
       .col-3.ml_auto
         - if answer.persisted?
           - if current_user&.author?(answer.question)

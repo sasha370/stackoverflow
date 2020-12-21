@@ -5,6 +5,10 @@
   .card-body
     %p.card-text
       = @question.body
+      .links
+        - @question.links.each do |link|
+          %li
+            = link_to link.name, link.url
       %br/
       =render 'attachments/attach', resource: @question
       %br/

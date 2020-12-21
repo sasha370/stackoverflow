@@ -9,6 +9,16 @@
       = form.label :body
       = form.text_area :body, class: 'form-control'
     %div
+      Links:
+      .form-row
+        = form.fields_for :links do |l|
+          .col-6
+            = l.label :name
+            = l.text_field :name, class: 'form-control'
+          .col-6
+            = l.label :url
+            = l.text_field :url, class: 'form-control'
+    %div
       %br/
       #attached_files
         =render 'attachments/attach', resource: @question

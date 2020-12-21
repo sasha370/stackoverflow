@@ -5,6 +5,16 @@
     = form.label :body, 'Add answer'
     = form.text_area :body, class: 'form-control', id: "new_form"
   %div
+    Links:
+    .form-row
+      = form.fields_for :links do |l|
+        .col-6
+          = l.label :name
+          = l.text_field :name, class: 'form-control'
+        .col-6
+          = l.label :url
+          = l.text_field :url, class: 'form-control'
+  %div
     %br/
     = form.label :files
     = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
