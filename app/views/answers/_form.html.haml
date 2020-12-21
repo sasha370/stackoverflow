@@ -4,5 +4,9 @@
   %div
     = form.label :body, 'Add answer'
     = form.text_area :body, class: 'form-control', id: "new_form"
+  %div
+    %br/
+    = form.label :files
+    = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
     %br
     = form.submit 'Create answer', class: "actions btn  btn-sm btn-primary"

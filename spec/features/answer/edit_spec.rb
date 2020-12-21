@@ -11,11 +11,14 @@ I`d like to be able to edit my answer
   given!(:answer) { create(:answer, question: question, user: user) }
 
   describe 'Auth user' do
-    scenario 'edits his answer', js: true do
+    before do
+      answer.files.attach(create_file_blob)
       sign_in(user)
       visit question_path(question)
       click_link(class: 'edit_link', id: answer.id)
+    end
 
+    scenario 'edits his answer', js: true do
       within(:xpath, '//ul[@id="answers"]') do
         fill_in "Edit answer", with: 'edited answer'
         click_on 'Save'
@@ -27,10 +30,6 @@ I`d like to be able to edit my answer
     end
 
     scenario 'edits his answer with errors', js: true do
-      sign_in(user)
-      visit question_path(question)
-      click_link(class: 'edit_link', id: answer.id)
-
       within(:xpath, '//ul[@id="answers"]') do
         fill_in "Edit answer", with: ''
         click_on 'Save'
@@ -38,14 +37,33 @@ I`d like to be able to edit my answer
       end
     end
 
-    scenario 'tries to edit other user`s question' do
-      sign_in(another_user)
-      visit question_path(question)
-      expect(page).to have_no_link(class: 'edit_link', id: answer.id)
+    scenario 'edit an answer with attached files', js: true do
+      within(:xpath, '//ul[@id="answers"]') do
+        fill_in "Edit answer", with: 'Edited Answer'
+        attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+        click_on 'Save'
+
+        expect(page).to have_link 'rails_helper.rb'
+        expect(page).to have_link 'spec_helper.rb'
+      end
+    end
+
+    scenario 'edit a answer for delete attached files', js: true do
+      within(:xpath, "//form[@id=\"edit_form_#{answer.id}\"]") do
+        click_on(id: "delete_link_#{answer.files[0].id}")
+
+        expect(page).to have_no_link answer.files[0].filename.to_s
+      end
     end
   end
 
-  scenario 'UnAuth can not edit answer' do
+  scenario 'tries to edit other user`s question' do
+    sign_in(another_user)
+    visit question_path(question)
+    expect(page).to have_no_link(class: 'edit_link', id: answer.id)
+  end
+
+  scenario 'UnAuth user can not edit answer' do
     visit question_path(question)
     expect(page).to have_no_link(class: 'edit_link', id: answer.id)
   end

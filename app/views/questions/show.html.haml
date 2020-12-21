@@ -5,14 +5,17 @@
   .card-body
     %p.card-text
       = @question.body
-    - if  current_user.present? && current_user.author?(@question)
-      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning'
+      %br/
+      =render 'attachments/attach', resource: @question
+      %br/
+    - if current_user&.author?(@question)
+      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
-    %hr
+    %hr/
     %ul#answers.list-group.list-group-flush
       - @question.answers.sort_by_best.each do |answer|
         = render answer
-    %hr
+    %hr/
     - if current_user
       = render 'answers/form'
     - else
