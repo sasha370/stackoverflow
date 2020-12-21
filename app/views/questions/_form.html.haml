@@ -4,20 +4,25 @@
     %div
       = form.label :title
       = form.text_field :title, class: 'form-control'
+
     %div
       %br/
       = form.label :body
       = form.text_area :body, class: 'form-control'
+
     %div
       Links:
+      = render 'shared/link', resource: @question unless current_page?(action: 'new')
       = form.fields_for :links do |link|
         = render 'shared/link_fields', f: link
       .links
         = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
+
     %div
       %br/
       #attached_files
         =render 'attachments/attach', resource: @question
+
     %div
       %br/
       = form.label :files
