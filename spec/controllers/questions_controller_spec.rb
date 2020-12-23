@@ -4,6 +4,7 @@ RSpec.describe QuestionsController, type: :controller do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:question) { create(:question, user: user) }
+  let(:reward) { create(:reward, question: question) }
 
   describe 'GET #index' do
     let(:questions) { create_list(:question, 3) }
@@ -46,8 +47,12 @@ RSpec.describe QuestionsController, type: :controller do
       expect(assigns(:question)).to be_a_new(Question)
     end
 
-    it 'assigns the requested question to @question' do
+    it 'assigns the requested link to @question' do
       expect(assigns(:question).links.first).to be_a_new(Link)
+    end
+
+    it 'assigns the reward to @question' do
+      expect(assigns(:question).reward).to be_a_new(Reward)
     end
 
     it 'renders new view' do

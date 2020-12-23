@@ -8,7 +8,7 @@ RSpec.describe Link, type: :model do
   it { should_not allow_value("Inv4lid_").for(:url) }
 
   let(:question) { create(:question) }
-  let(:link) { create(:link, linkable: question) }
+  let(:link) { create(:link,:gist, linkable: question) }
   let(:wrong_link) { create(:link, :wrong_link, linkable: question) }
 
   it 'must be true if link from gists.github' do

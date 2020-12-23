@@ -8,7 +8,7 @@ I`d like to be able to add links
 
   given(:user) { create(:user) }
   given(:question) { create(:question, user: user) }
-  given(:gist_url) { 'https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js' }
+  given(:gist_url) { 'https://gist.githSDub.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js' }
   given(:wrong_url) { 'gist_github.com' }
 
   background do

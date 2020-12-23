@@ -1,19 +1,27 @@
 = form_with(model:  @question, local: true) do |form|
   .card-body
     = render 'shared/error', resource: @question
-    %div
-      = form.label :title
-      = form.text_field :title, class: 'form-control'
+    .question
+      %div
+        = form.label :title
+        = form.text_field :title, class: 'form-control'
+
+      %div
+        = form.label :body
+        = form.text_area :body, class: 'form-control'
 
     %div
-      = form.label :body
-      = form.text_area :body, class: 'form-control'
+      %hr/
+    .reward
+      Reward:
+      -# = render 'rewards/reward', resource: @question.reward unless current_page?(action: 'new')
+      = form.fields_for :reward do |reward|
+        = render 'rewards/form', r: reward
 
     %div
       %hr/
       Links:
       = render 'shared/link', resource: @question unless current_page?(action: 'new')
-      %hr/
       = form.fields_for :links do |link|
         = render 'shared/link_fields', f: link
       .links

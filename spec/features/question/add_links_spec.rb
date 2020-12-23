@@ -7,7 +7,7 @@ I`d like to be able to add links
 } do
 
   given(:user) { create(:user) }
-  given(:gist_url) { 'https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js' }
+  given(:gist_url) { 'https://gist.gitb.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43' }
   given(:wrong_url) { 'gist_github.com' }
 
   background do
@@ -16,8 +16,8 @@ I`d like to be able to add links
   end
 
   scenario 'User adds link when asks question' do
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Body', with: 'text text text'
+    fill_in 'question[title]', with: 'Test question'
+    fill_in 'question[body]', with: 'text text text'
     fill_in 'Name', with: 'My gist'
     fill_in 'Url', with: gist_url
 
@@ -27,8 +27,8 @@ I`d like to be able to add links
   end
 
   scenario 'User add link with errors' do
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Body', with: 'text text text'
+    fill_in 'question[title]', with: 'Test question'
+    fill_in 'question[body]', with: 'text text text'
     fill_in 'Name', with: ''
     fill_in 'Url', with: wrong_url
 

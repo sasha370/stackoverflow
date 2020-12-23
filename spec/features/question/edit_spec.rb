@@ -52,16 +52,6 @@ I`d like to be able to edit my question
 
       expect(page).to have_no_link question.files[0].filename.to_s
     end
-
-    # scenario 'edit a question with links' do  TODO
-    #   click_on 'Add link'
-    #   sleep 1
-    #   # find(:xpath, '//input[contains("question_links_attributes_")]')
-    #   find.all('input[id^="question_links_attributes_"][id$="_name")]')[0].fill_in = "Hello"
-    #
-    #   click_on 'Ask'
-    #   expect(page).to have_link 'My gist', href: gist_url
-    # end
   end
 
   scenario 'UnAuth can not edit answer' do
