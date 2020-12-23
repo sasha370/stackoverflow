@@ -9,16 +9,21 @@
           = render 'attachments/attach', resource: answer
 
       .col-3.ml_auto
-        - if answer.persisted?
-          - if current_user&.author?(answer.question)
-            = link_to 'Make best', choose_best_answer_path(answer), method: :put, remote: true,
-            class: 'best_link', id: "best_#{answer.id}"
-          - if current_user&.author?(answer)
-            |
-            = link_to 'Edit', '#', class: 'edit_link', id: "#{answer.id}"
-            |
-            = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
-             class: 'delete_link', id: "#{answer.id}"
+        .row
+          - if answer.persisted?
+            - if current_user&.author?(answer.question)
+              = link_to 'Make best', choose_best_answer_path(answer), method: :put, remote: true,
+              class: 'best_link', id: "best_#{answer.id}"
+            - if current_user&.author?(answer)
+              |
+              = link_to 'Edit', '#', class: 'edit_link', id: "#{answer.id}"
+              |
+              = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
+               class: 'delete_link', id: "#{answer.id}"
+
+        - if answer.best
+          .row
+            = render 'rewards/reward', resource: answer.question.reward
 
   - if  current_user&.author?(answer)
     = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|

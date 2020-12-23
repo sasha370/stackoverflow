@@ -1,12 +1,12 @@
 = link_to 'Ask question', new_question_path, class: 'btn btn-success'
-%br
-%br
+%br/
+%br/
 - @questions.each do |q|
   .row
     .col-1
       counters
     .col-11
       = link_to q.title, question_path(q)
-  %hr
+%hr
 
 

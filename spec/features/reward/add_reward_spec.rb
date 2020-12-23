@@ -5,7 +5,14 @@ feature 'User can add reward for best answer', %q(
   I`d like to be able create reward
 for best answer
 ) do
-  given(:user) { create(:user) }
+
+  given!(:user) { create(:user) }
+  given!(:question) { create(:question, user: user) }
+  given!(:another_user) { create(:user) }
+  given!(:answer) { create(:answer, question: question, user: another_user) }
+  given!(:another_answer) { create(:answer, question: question, user: user) }
+  given!(:reward) { question.create_reward(title: 'For smt', image: create_file_blob) }
+  let(:first_answer) { page.find(:css, 'div.best_answer') }
 
   background do
     sign_in(user)
@@ -23,4 +30,31 @@ for best answer
     expect(page).to have_content 'for best answer'
     expect(page).to have_css("img[alt='image.jpg']")
   end
+
+
+  scenario 'the best answer have reward of question', js: true do
+    visit question_path(question)
+    click_on(id: "best_#{answer.id}")
+
+    expect(first_answer).to have_content reward.title
+    expect(first_answer).to have_css("img[alt='image.jpg']")
+  end
+
+  scenario 'author of best question have reward', js: true  do
+    visit question_path(question)
+    click_on(id: "best_#{answer.id}")
+    sleep 2
+
+    expect(another_user.answers.best.count).to eq 1
+  end
+
+  scenario 'author of best answer haven`t` reward when choose another best', js: true  do
+    visit question_path(question)
+    click_on(id: "best_#{another_answer.id}")
+    sleep 2
+
+    expect(another_user.answers.best.count).to eq 0
+  end
+
+
 end

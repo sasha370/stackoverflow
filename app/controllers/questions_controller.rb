@@ -19,12 +19,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @reward = @question.build_reward
   end
 
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      @question.create_reward(question_params[:reward_attributes])
       redirect_to @question, notice: 'Your question successfully created.'
     else
       render :new
