@@ -17,8 +17,8 @@ I`d like to be able to edit my question
     end
 
     scenario 'edits his question with correct data' do
-      fill_in "Title", with: 'edited title'
-      fill_in "Body", with: 'edited body'
+      fill_in 'question[title]', with: 'edited title'
+      fill_in 'question[body]', with: 'edited body'
       click_on 'Ask'
 
       expect(page).to have_content 'edited title'
@@ -26,8 +26,8 @@ I`d like to be able to edit my question
     end
 
     scenario 'edits his answer with errors' do
-      fill_in "Title", with: ''
-      fill_in "Body", with: ''
+      fill_in 'question[title]', with: ''
+      fill_in 'question[body]', with: ''
       click_on 'Ask'
 
       expect(page).to have_content "Title can't be blank"
@@ -35,9 +35,9 @@ I`d like to be able to edit my question
     end
 
     scenario 'edit a question with attached files' do
-      fill_in 'Title', with: 'Test question'
-      fill_in 'Body', with: 'text text text'
-      attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+      fill_in 'question[title]', with: 'Test question'
+      fill_in 'question[body]', with: 'text text text'
+      attach_file 'question[files][]', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
       click_on 'Ask'
 
       expect(page).to have_link 'rails_helper.rb'

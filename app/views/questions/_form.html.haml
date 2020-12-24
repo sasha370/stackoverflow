@@ -14,9 +14,8 @@
       %hr/
     .reward
       Reward:
-      - if @question.reward.title
-        = render 'rewards/reward', resource: @question.reward unless current_page?(action: 'new')
-      = form.fields_for :reward do |reward|
+      = render 'rewards/reward', resource: @question.reward unless current_page?(action: 'new')
+      = form.fields_for :reward, @question.build_reward do |reward|
         = render 'rewards/form', r: reward
 
     %div
