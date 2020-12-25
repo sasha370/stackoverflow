@@ -1,0 +1,4 @@
+- if resource
+  %p
+    = resource.title
+    = image_tag url_for(resource.image), size: "30", alt: "#{resource.image.filename}"

@@ -1,0 +1,7 @@
+.form-row
+  .col-6
+    = r.label :title
+    = r.text_field :title, class: 'form-control  form-control-sm'
+  .col-6
+    = r.label :image
+    = r.file_field :image, class: 'form-control-file form-control-sm', direct_upload: true

@@ -3,33 +3,54 @@
     .row
       .col-9
         = answer.body
+        %ul
+          = render 'shared/link', resource: answer
         #answer_attached_
-        = render 'attachments/attach', resource: answer
+          = render 'attachments/attach', resource: answer
+
       .col-3.ml_auto
-        - if answer.persisted?
-          - if current_user&.author?(answer.question)
-            = link_to 'Make best', choose_best_answer_path(answer), method: :put, remote: true,
-            class: 'best_link', id: "best_#{answer.id}"
-          - if current_user&.author?(answer)
-            |
-            = link_to 'Edit', '#', class: 'edit_link', id: "#{answer.id}"
-            |
-            = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
-             class: 'delete_link', id: "#{answer.id}"
+        .row
+          - if answer.persisted?
+            - if current_user&.author?(answer.question)
+              = link_to 'Make best', choose_best_answer_path(answer), method: :put, remote: true,
+              class: 'best_link', id: "best_#{answer.id}"
+            - if current_user&.author?(answer)
+              |
+              = link_to 'Edit', '#', class: 'edit_link', id: "#{answer.id}"
+              |
+              = link_to 'Delete', answer_path(answer), remote:true, method: :delete,
+               class: 'delete_link', id: "#{answer.id}"
+
+        - if answer.best
+          .row
+            = render 'rewards/reward', resource: answer.question.reward
 
   - if  current_user&.author?(answer)
     = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
       .answer-errors{id: "errors_#{answer.id}"}
         = render 'shared/error', resource: answer
+
       %div
         = form.label :body, "Edit answer"
         = form.text_area :body, class: 'form-control'
 
+      %div
+        %hr/
+        Links:
+        %ul
+          = render 'shared/link', resource: answer
+        %hr/
+        = form.fields_for :links do |link|
+          = render 'shared/link_fields', f: link
+        .links
+          = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
+        %hr/
       - answer.files.each do |file|
         %em{id: "attached_file_#{file.id}"}
           = link_to file.filename.to_s,  url_for(file)
           = link_to 'Delete', attachment_url(file.id), method: :delete, data: { confirm: 'Are you sure?'}, id: "delete_link_#{file.id}" , remote: true
           %br/
+
       %div
         %br/
         = form.label :files

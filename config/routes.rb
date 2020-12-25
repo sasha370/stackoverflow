@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "questions#index"
 
-
   resources :attachments, only: :destroy
+  resources :rewards, only: :index
 
   resources :questions do
     resources :answers, shallow: true, only: [:create, :edit, :destroy, :update] do
@@ -12,5 +12,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end

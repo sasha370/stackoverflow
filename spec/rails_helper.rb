@@ -21,7 +21,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app,:phantomjs_options => ['--debug=no', '--load-images=no', '--ignore-ssl-errors=yes', '--ssl-protocol=TLSv1'],  js_errors: false)
+  Capybara::Poltergeist::Driver.new(app,:phantomjs_options => ['--debug=no', '--load-images=yes', '--ignore-ssl-errors=yes', '--ssl-protocol=TLSv1'],  js_errors: false)
 end
 
 Capybara.default_selector = :xpath

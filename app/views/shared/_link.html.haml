@@ -1,0 +1,10 @@
+.links_list
+  - resource.links.each do |link|
+    - if link.gist?
+      = link_to link.name, link.url, class: 'gist', data: {gist_file: "#{link.url}"}
+      -#reserv variant (need to unplug gist.js)
+      -#%script{:src => "#{link.url}.js"}
+    - else
+      %li
+        = link_to link.name, link.url
+
