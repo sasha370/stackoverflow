@@ -1,5 +1,8 @@
 document.addEventListener('turbolinks:load', function () {
-  document.getElementById('answers').addEventListener('click', setter);
+  let el = document.getElementById('answers')
+  if (el) {
+    el.addEventListener('click', setter);
+  }
 
   function setter(e) {
     if (e.target.classList.contains('edit_link')) {

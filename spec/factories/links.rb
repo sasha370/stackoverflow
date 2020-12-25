@@ -6,7 +6,8 @@ FactoryBot.define do
     trait :wrong_link do
       name { "wrong_url" }
       url { "https://gist.githudd.yy" }
-      end
+    end
+
     trait :gist do
       name { "Gist" }
       url { "https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js" }
