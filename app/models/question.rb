@@ -18,6 +18,14 @@ class Question < ApplicationRecord
   end
 
   def vote_plus
-    ratings.create_with(vote: 1).find_or_create_by(user_id: user_id)
+    ratings.find_or_create_by(user_id: user_id).update(vote: 1)
+  end
+
+  def vote_minus
+    ratings.find_or_create_by(user_id: user_id).update(vote: -1)
+  end
+
+  def cancel_voice
+    ratings.find_by(user_id: user_id).destroy
   end
 end

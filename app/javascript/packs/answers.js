@@ -1,23 +1,4 @@
 document.addEventListener('turbolinks:load', function () {
-
-  $('form.new-answer').on('ajax:success', function (e){
-
-    let answer = e.detail[0];
-    $('#answers').append('<p>' + answer.body + '</p>');
-  })
-    .on('ajax:error', function(e){
-      let errors = e.detail[0];
-      $.each(errors, function(index,value){
-      document.querySelector('#errors_new').append('<p>' + value+ '</p>');
-
-      })
-    })
-
-
-
-
-
-
   let el = document.getElementById('answers')
   if (el) {
     el.addEventListener('click', setter);

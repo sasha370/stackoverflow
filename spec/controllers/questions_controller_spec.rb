@@ -95,11 +95,25 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
-  describe 'POST #thumb_up' do
+  describe 'POST #thumb_up, #thumb_down' do
     before { login(user) }
 
     it 'create a new rating' do
       expect { post :thumb_up, params: { id: question } }.to change(Rating, :count).by(1)
+    end
+
+    it 'create a new rating' do
+      expect { post :thumb_down, params: { id: question } }.to change(Rating, :count).by(1)
+    end
+  end
+
+  describe 'POST #cancel_voice' do
+    before do
+      login(user)
+      question.vote_plus
+    end
+    it 'destroy rating' do
+      expect { post :cancel_voice, params: { id: question } }.to change(Rating, :count).by(-1)
     end
   end
 

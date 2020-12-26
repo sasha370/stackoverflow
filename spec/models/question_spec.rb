@@ -15,16 +15,25 @@ RSpec.describe Question, type: :model do
     expect(Question.new.files).to be_an_instance_of(ActiveStorage::Attached::Many)
   end
 
-  let(:user){create(:user)}
-  let(:question){create(:question, user: user)}
+  let(:user) { create(:user) }
+  let(:question) { create(:question, user: user) }
 
   it 'should create rating with vote = 1' do
-    expect{question.vote_plus}.to change(Rating, :count).by(1)
+    expect { question.vote_plus }.to change(Rating, :count).by(1)
     expect(question.ratings.first.vote).to eq 1
   end
 
-  it 'should correctly back a rating' do
-    expect{question.vote_plus}.to change{question.rating}.by(1)
+  it 'should create rating with vote = 1' do
+    expect { question.vote_minus }.to change(Rating, :count).by(1)
+    expect(question.ratings.first.vote).to eq -1
   end
 
+  it 'should cancel rating = remove it' do
+    question.vote_plus
+    expect { question.cancel_voice }.to change(Rating, :count).by(-1)
+  end
+
+  it 'should correctly back a rating' do
+    expect { question.vote_plus }.to change { question.rating }.by(1)
+  end
 end

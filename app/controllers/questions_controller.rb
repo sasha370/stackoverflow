@@ -1,11 +1,21 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :thumb_up]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :thumb_up, :thumb_down, :cancel_voice]
 
   def thumb_up
     @question.vote_plus
+    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
   end
 
+  def thumb_down
+    @question.vote_minus
+    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
+  end
+
+  def cancel_voice
+    @question.cancel_voice
+    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
+  end
 
   def index
     @questions = Question.all
