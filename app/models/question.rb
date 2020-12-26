@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :links, dependent: :destroy, as: :linkable
+  has_many :ratings, dependent: :destroy, as: :ratingable
   belongs_to :user
   has_one :reward, dependent: :destroy
 
@@ -11,4 +12,12 @@ class Question < ApplicationRecord
 
   validates :title, :body, presence: true
   validates :title, length: { minimum: 5 }
+
+  def rating
+    ratings.pluck(:vote).sum
+  end
+
+  def vote_plus
+    ratings.create_with(vote: 1).find_or_create_by(user_id: user_id)
+  end
 end

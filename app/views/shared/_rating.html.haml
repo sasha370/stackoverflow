@@ -1,0 +1,11 @@
+%span{id: "rating_#{resource.class}_#{resource.id}"}
+  =  resource.rating || '0'
+  |
+%span
+  = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true do
+    %i.fa.fa-thumbs-up
+  = link_to polymorphic_path(resource, action: :cancel_voice),  method: :post, remote: true do
+    %i.fa.fa-ban
+  = link_to polymorphic_path(resource, action: :thumb_down),  method: :post, remote: true do
+    %i.fa.fa-thumbs-down
+

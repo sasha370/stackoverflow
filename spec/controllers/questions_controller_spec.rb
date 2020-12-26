@@ -95,6 +95,14 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
+  describe 'POST #thumb_up' do
+    before { login(user) }
+
+    it 'create a new rating' do
+      expect { post :thumb_up, params: { id: question } }.to change(Rating, :count).by(1)
+    end
+  end
+
   describe 'PATCH #update' do
     before { login(user) }
 
