@@ -17,15 +17,19 @@ class Question < ApplicationRecord
     ratings.pluck(:vote).sum
   end
 
-  def vote_plus
-    ratings.find_or_create_by(user_id: user_id).update(vote: 1)
+  def vote_plus(user)
+    ratings.find_or_create_by(user_id: user.id).update(vote: 1)
   end
 
-  def vote_minus
-    ratings.find_or_create_by(user_id: user_id).update(vote: -1)
+  def vote_minus(user)
+    ratings.find_or_create_by(user_id: user.id).update(vote: -1)
   end
 
-  def cancel_voice
-    ratings.find_by(user_id: user_id).destroy
+  def cancel_voice(user)
+    ratings.find_by(user_id: user.id).destroy
+  end
+
+  def name_id
+    self.class.name.downcase + '_' + id.to_s
   end
 end

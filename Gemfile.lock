@@ -101,6 +101,10 @@ GEM
     commonjs (0.2.7)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    database_cleaner (1.8.5)
+    database_cleaner-active_record (1.8.0)
+      activerecord
+      database_cleaner (~> 1.8.0)
     debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
@@ -352,6 +356,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   cocoon
+  database_cleaner-active_record
   devise
   devise-bootstrap-views
   dotenv-rails

@@ -18,5 +18,10 @@ RSpec.describe User, type: :model do
     it 'shouldn`t not be correct if user are not author' do
       expect(another_user.author?(question)).to eq(false)
     end
+
+    it 'already add voice for resource' do
+      question.vote_plus(user)
+      expect(user.voted?(question)).to eq true
+    end
   end
 end

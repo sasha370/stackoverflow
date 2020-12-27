@@ -7,7 +7,7 @@ RSpec.describe QuestionsController, type: :controller do
   let(:reward) { create(:reward, question: question) }
 
   describe 'GET #index' do
-    let(:questions) { create_list(:question, 3) }
+    let(:questions) { create_list(:question, 3, user: user) }
     before { get :index }
 
     it 'populate an array of all questions' do
@@ -96,7 +96,7 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'POST #thumb_up, #thumb_down' do
-    before { login(user) }
+    before { login(another_user) }
 
     it 'create a new rating' do
       expect { post :thumb_up, params: { id: question } }.to change(Rating, :count).by(1)
@@ -109,8 +109,8 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe 'POST #cancel_voice' do
     before do
-      login(user)
-      question.vote_plus
+      login(another_user)
+      question.vote_plus(another_user)
     end
     it 'destroy rating' do
       expect { post :cancel_voice, params: { id: question } }.to change(Rating, :count).by(-1)

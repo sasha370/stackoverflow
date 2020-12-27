@@ -3,18 +3,24 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy, :thumb_up, :thumb_down, :cancel_voice]
 
   def thumb_up
-    @question.vote_plus
-    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
+    unless current_user.author?(@question)
+      @question.vote_plus(current_user)
+      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
+    end
   end
 
   def thumb_down
-    @question.vote_minus
-    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
+    unless current_user.author?(@question)
+      @question.vote_minus(current_user)
+      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
+    end
   end
 
   def cancel_voice
-    @question.cancel_voice
-    render json: {id: @question.id, rating: @question.rating, type: @question.class.name.downcase}
+    unless current_user.author?(@question)
+      @question.cancel_voice(current_user)
+      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
+    end
   end
 
   def index

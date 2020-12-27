@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def author?(resource)
     self.id == resource.user_id
   end
+
+  def voted?(resource)
+    resource.ratings.exists?(user_id: id)
+  end
 end
