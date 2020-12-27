@@ -1,6 +1,6 @@
 RSpec.shared_examples 'ratinged' do
 
-  context  'POST #thumb_up, #thumb_down' do
+  context 'POST #thumb_up, #thumb_down' do
     before { login(user) }
 
     it 'create a new rating' do

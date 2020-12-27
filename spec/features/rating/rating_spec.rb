@@ -44,11 +44,11 @@ by registered user
       expect(page).to have_no_link("cancel_rating_#{question.name_id}")
     end
 
-    # scenario 'can`t vote for answer' do
-    #   visit question_path(question)
-    #   expect(page).to have_no_link("rating_buttons_#{answer.name_id}")
-    #   expect(page).to have_no_link("cancel_rating_#{answer.name_id}")
-    # end
+    scenario 'can`t vote for answer' do
+      visit question_path(question)
+      expect(page).to have_no_link("rating_buttons_#{answer.name_id}")
+      expect(page).to have_no_link("cancel_rating_#{answer.name_id}")
+    end
   end
 end
 

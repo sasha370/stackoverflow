@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :questions, concerns: [:ratingable] do
-    resources :answers, shallow: true, only: [:create, :edit, :destroy, :update] do
+    resources :answers,  concerns: [:ratingable], shallow: true, only: [:create, :edit, :destroy, :update] do
       member do
         put :choose_best
       end

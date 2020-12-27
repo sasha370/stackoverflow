@@ -2,7 +2,7 @@ document.addEventListener('turbolinks:load', function () {
 
   let ratingLinks = document.querySelectorAll('.rating-link');
 
-    //listening all links with ajax
+  //listening all links with ajax
   ratingLinks.forEach((link) => {
 
     link.addEventListener('ajax:success', (e) => {
@@ -11,11 +11,11 @@ document.addEventListener('turbolinks:load', function () {
       document.getElementById(rating_field).innerText = data.rating;
 
       // find thumb`s links and toggle it
-      let  ratingLinks = 'rating_buttons_' +  data.type
+      let ratingLinks = 'rating_buttons_' + data.type
       document.getElementsByClassName(ratingLinks)[0].classList.toggle('hidden');
 
       // find cancel_vote link and toggle it
-      let  cancelLink = 'cancel_rating_' +  data.type
+      let cancelLink = 'cancel_rating_' + data.type
       document.getElementsByClassName(cancelLink)[0].classList.toggle('hidden');
     })
   })

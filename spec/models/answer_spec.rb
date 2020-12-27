@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative './concerns/ratingable_spec'
 
 RSpec.describe Answer, type: :model do
   it { should validate_presence_of :body }
@@ -12,6 +13,14 @@ RSpec.describe Answer, type: :model do
   let(:question) { create(:question, user: user) }
   let(:answer) { create(:answer, question: question, user: user) }
   let!(:best_answer) { create(:answer, question: question, user: user, best: true) }
+
+  it_behaves_like 'ratingable' do
+    let!(:another_user) { create(:user) }
+    let(:user) { create(:user) }
+    let(:question) { create(:question, user: another_user) }
+    let(:model) { create(:answer, question: question, user: another_user) }
+  end
+
 
   describe '#set_best' do
     it 'the answer set as best' do

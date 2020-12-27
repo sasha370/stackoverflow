@@ -7,7 +7,7 @@ RSpec.describe QuestionsController, type: :controller do
   let(:question) { create(:question, user: user) }
   let(:reward) { create(:reward, question: question) }
 
-  it_behaves_like    'ratinged' do
+  it_behaves_like 'ratinged' do
     let!(:another_user) { create(:user) }
     let(:user) { create(:user) }
     let(:ratinged) { create(:question, user: another_user) }

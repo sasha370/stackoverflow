@@ -1,10 +1,18 @@
 require 'rails_helper'
+require_relative './concerns/ratinged'
 
 RSpec.describe AnswersController, type: :controller do
   let!(:user) { create(:user) }
   let!(:another_user) { create(:user) }
   let!(:question) { create(:question, user: user) }
   let!(:answer) { create(:answer, question: question, user: user) }
+
+  it_behaves_like 'ratinged' do
+    let!(:another_user) { create(:user) }
+    let(:user) { create(:user) }
+    let(:question) { create(:question, user: another_user) }
+    let(:ratinged) { create(:answer, question: question, user: another_user) }
+  end
 
   describe 'POST #create' do
     before { login(user) }

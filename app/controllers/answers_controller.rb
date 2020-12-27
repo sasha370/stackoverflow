@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  include Ratinged
+
   before_action :authenticate_user!, only: [:create, :destroy, :update, :choose_best]
   before_action :set_question, only: [:create]
   before_action :set_answer, only: [:update, :destroy, :choose_best]
@@ -37,7 +39,7 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:body, files: [], links_attributes: [:id,:name, :url, :done, :_destroy])
+    params.require(:answer).permit(:body, files: [], links_attributes: [:id, :name, :url, :done, :_destroy])
   end
 
   def set_question
