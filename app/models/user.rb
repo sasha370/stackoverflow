@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :ratings
 
   def author?(resource)
-    self.id == resource.user_id
+    id == resource.user_id
   end
 
   def voted?(resource)

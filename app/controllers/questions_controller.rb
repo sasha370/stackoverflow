@@ -1,27 +1,8 @@
 class QuestionsController < ApplicationController
+  include Ratinged
+
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :thumb_up, :thumb_down, :cancel_voice]
-
-  def thumb_up
-    unless current_user.author?(@question)
-      @question.vote_plus(current_user)
-      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
-    end
-  end
-
-  def thumb_down
-    unless current_user.author?(@question)
-      @question.vote_minus(current_user)
-      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
-    end
-  end
-
-  def cancel_voice
-    unless current_user.author?(@question)
-      @question.cancel_voice(current_user)
-      render json: { id: @question.id, rating: @question.rating, type: @question.name_id }
-    end
-  end
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
     @questions = Question.all
