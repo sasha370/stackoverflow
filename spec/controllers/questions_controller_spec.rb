@@ -1,10 +1,17 @@
 require 'rails_helper'
+require_relative './concerns/ratinged'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:question) { create(:question, user: user) }
   let(:reward) { create(:reward, question: question) }
+
+  it_behaves_like    'ratinged' do
+    let!(:another_user) { create(:user) }
+    let(:user) { create(:user) }
+    let(:ratinged) { create(:question, user: another_user) }
+  end
 
   describe 'GET #index' do
     let(:questions) { create_list(:question, 3, user: user) }
@@ -92,28 +99,6 @@ RSpec.describe QuestionsController, type: :controller do
         post :create, params: { question: attributes_for(:question, :invalid) }
         expect(response).to render_template :new
       end
-    end
-  end
-
-  describe 'POST #thumb_up, #thumb_down' do
-    before { login(another_user) }
-
-    it 'create a new rating' do
-      expect { post :thumb_up, params: { id: question } }.to change(Rating, :count).by(1)
-    end
-
-    it 'create a new rating' do
-      expect { post :thumb_down, params: { id: question } }.to change(Rating, :count).by(1)
-    end
-  end
-
-  describe 'POST #cancel_voice' do
-    before do
-      login(another_user)
-      question.vote_plus(another_user)
-    end
-    it 'destroy rating' do
-      expect { post :cancel_voice, params: { id: question } }.to change(Rating, :count).by(-1)
     end
   end
 

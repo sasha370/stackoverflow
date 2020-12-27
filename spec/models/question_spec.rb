@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative './concerns/ratingable_spec'
 
 RSpec.describe Question, type: :model do
   it { should validate_presence_of :title }
@@ -15,25 +16,9 @@ RSpec.describe Question, type: :model do
     expect(Question.new.files).to be_an_instance_of(ActiveStorage::Attached::Many)
   end
 
-  let(:user) { create(:user) }
-  let(:question) { create(:question, user: user) }
-
-  it 'should create rating with vote = 1' do
-    expect { question.vote_plus(user) }.to change(Rating, :count).by(1)
-    expect(question.ratings.first.vote).to eq 1
-  end
-
-  it 'should create rating with vote = 1' do
-    expect { question.vote_minus(user) }.to change(Rating, :count).by(1)
-    expect(question.ratings.first.vote).to eq -1
-  end
-
-  it 'should cancel rating = remove it' do
-    question.vote_plus(user)
-    expect { question.cancel_voice(user) }.to change(Rating, :count).by(-1)
-  end
-
-  it 'should correctly back a rating' do
-    expect { question.vote_plus(user) }.to change { question.rating }.by(1)
-  end
+    it_behaves_like 'ratingable' do
+      let!(:another_user) { create(:user) }
+      let(:user) { create(:user) }
+      let(:model) { create(:question, user: another_user) }
+    end
 end
