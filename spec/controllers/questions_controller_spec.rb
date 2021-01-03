@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative './concerns/ratinged'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:user) { create(:user) }
@@ -6,8 +7,14 @@ RSpec.describe QuestionsController, type: :controller do
   let(:question) { create(:question, user: user) }
   let(:reward) { create(:reward, question: question) }
 
+  it_behaves_like 'ratinged' do
+    let!(:another_user) { create(:user) }
+    let(:user) { create(:user) }
+    let(:ratinged) { create(:question, user: another_user) }
+  end
+
   describe 'GET #index' do
-    let(:questions) { create_list(:question, 3) }
+    let(:questions) { create_list(:question, 3, user: user) }
     before { get :index }
 
     it 'populate an array of all questions' do

@@ -13,3 +13,4 @@ import 'bootstrap'
 import './styles.scss';
 import './answers'
 import './gist'
+import './rating'
