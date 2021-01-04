@@ -20,7 +20,7 @@
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr/
-    %h3
+    %h4
       Answers:
     %hr/
     %ul#answers.list-group.list-group-flush
@@ -29,7 +29,8 @@
     %hr/
 
     - if current_user
-      = render 'answers/form'
+      .container.border.border-success.p-2.bg-light
+        = render 'answers/form'
     - else
       Need to #{ link_to  'Log in', new_user_session_path} to answer
 

@@ -9,8 +9,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("@nathanvda/cocoon")
+require("handlebars")
 import 'bootstrap'
 import './styles.scss';
 import './answers'
 import './gist'
 import './rating'
+

@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
 gem "cocoon"
 gem "font-awesome-rails"
-
+gem 'gon'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
