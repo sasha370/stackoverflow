@@ -33,11 +33,12 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
-  config.include FeatureHelpers
+  config.include FeatureHelpers, type: :feature
   config.include ActiveStorageHelpers
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
+  config.include Capybara::DSL
 
   config.filter_rails_from_backtrace!
   config.after(:all) do

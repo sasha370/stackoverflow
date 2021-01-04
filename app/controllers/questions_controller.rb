@@ -13,6 +13,8 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     @answers = @question.answers.sort_by_best
     @answer.links.new
+    gon.question_id  = @question.id
+    gon.current_user_id = current_user&.id
   end
 
   def new

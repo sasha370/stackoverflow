@@ -1,0 +1,30 @@
+%div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
+  %li.list-group-item
+    .row
+      .col-9
+        = answer.body
+        %ul
+          = render 'shared/link', resource: answer
+        #answer_attached_
+          = render 'attachments/attach', resource: answer
+      .col-2.ml_auto
+        .row
+      .col-1
+        .small
+          Rating:
+          %span{id: "rating_#{answer.name_id}"}
+            =  answer.rating || '0'
+
+          - if current_user
+            %span
+              |
+            %span{class:  "rating_buttons_#{answer.name_id} #{current_user&.voted?(answer) ?  'hidden' : ''}"}
+              = link_to  polymorphic_path(answer, action: :thumb_up),  method: :post, remote: true, class: 'rating-link', id: "thumb_up_#{answer.class.name.downcase}_#{answer.id}" do
+                %i.fa.fa-thumbs-up
+              = link_to polymorphic_path(answer, action: :thumb_down),  method: :post, remote: true, class: 'rating-link', id: "thumb_down_#{answer.class.name.downcase}_#{answer.id}"  do
+                %i.fa.fa-thumbs-down
+            %span{class:  "cancel_rating_#{answer.name_id} #{current_user&.voted?(answer) ? '': 'hidden'}"}
+              = link_to polymorphic_path(answer, action: :cancel_voice),  method: :post, remote: true, class: 'rating-link', id: "cancel_voice_#{answer.class.name.downcase}_#{answer.id}"  do
+                %i.fa.fa-ban
+
+

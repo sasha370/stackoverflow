@@ -4,6 +4,7 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy, :update, :choose_best]
   before_action :set_question, only: [:create]
   before_action :set_answer, only: [:update, :destroy, :choose_best]
+  after_action :publish_answer, only: [:create]
 
   def update
     if current_user.author?(@answer)
@@ -33,6 +34,30 @@ class AnswersController < ApplicationController
   end
 
   private
+
+  def publish_answer
+    return if @answer.errors.any?
+    ActionCable.server.broadcast( "answers_question_#{@answer.question_id}",
+                                  answer: @answer,
+                                  html: html(@answer)
+                                  )
+
+
+  end
+  def html(answer)
+    wardenize
+    @job_renderer.render(
+        partial: 'answers/answer',
+        locals: { answer: answer }
+    )
+  end
+
+  def wardenize
+    @job_renderer = ::AnswersController.renderer.new
+    renderer_env = @job_renderer.instance_eval { @env }
+    warden = ::Warden::Proxy.new(renderer_env, ::Warden::Manager.new(Rails.application))
+    renderer_env['warden'] = warden
+  end
 
   def set_answer
     @answer = Answer.with_attached_files.find(params[:id])
