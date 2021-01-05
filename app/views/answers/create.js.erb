@@ -4,4 +4,5 @@ document.querySelector('#errors_new').innerHTML = '<%=  j render 'shared/error',
 <% if @answer.persisted? %>
 document.querySelector('#answers').insertAdjacentHTML('beforeend', '<%= j render @answer %>');
 document.querySelector('#new_form').value = '';
+//TODO  Нужна очистка полей под Links и сброс кнопки Attached files
 <%  end %>

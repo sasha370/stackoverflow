@@ -60,7 +60,7 @@ for best answer
 
     scenario 'author of best answer haven`t` reward when choose another best', js: true do
       click_on(id: "best_#{another_answer.id}")
-      sleep 3
+      sleep 5
       expect(another_user.answers.best.count).to eq 0
     end
   end
