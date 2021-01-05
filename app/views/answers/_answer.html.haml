@@ -1,6 +1,12 @@
 %div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
   %li.list-group-item
     .row
+      .col-1
+        .border-right
+          = render 'shared/rating', resource: answer
+          - if answer.best
+            .row
+              = render 'rewards/reward', resource: answer.question.reward
       .col-9
         = answer.body
         %ul
@@ -20,11 +26,16 @@
 
               = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
                class: 'delete_link', id: "#{answer.id}"
+    .row
       .col-1
-        = render 'shared/rating', resource: answer
-        - if answer.best
-          .row
-            = render 'rewards/reward', resource: answer.question.reward
+      .col-11
+        .container.border.border-secondary.p-2.bg-light
+          %small Comments:
+          = render 'comments/comments', resource: answer
+          %br/
+          - if current_user
+            = render 'comments/form', resource: answer
+
 
   - if  current_user&.author?(answer)
     = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|

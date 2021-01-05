@@ -11,7 +11,10 @@ module Commented
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.js { flash[:notice] = 'Your comment successfully created.' }
+        format.js do
+          render partial: 'comments/add_comment', layout: false
+          flash[:notice] = 'Your comment successfully created.'
+        end
       else
         format.js { flash[:alert] = 'Your have an errors!' }
       end
@@ -21,6 +24,7 @@ module Commented
   def destroy_comment
     @comment = Comment.find(params[:comment_id])
     if current_user.author?(@comment)
+      render partial: 'comments/destroy_comment', layout: false
       @comment.destroy { flash[:notice] = 'Your comment successfully deleted.' }
     end
   end

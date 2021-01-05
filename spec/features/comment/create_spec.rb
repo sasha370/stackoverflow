@@ -18,16 +18,19 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to question' do
-      fill_in id: "new_question_comment" , with: 'My comment'
-      click_on 'Commit'
+      within(id: "new_#{question.name_id}_comment_field") do
+        fill_in id: "comment_body", with: 'My comment'
+        click_on 'Commit'
+      end
 
       expect(page).to have_content 'My comment'
     end
 
-    # TODO
     scenario 'to answer' do
-      fill_in id: "new_comment_answer_#{answer.id}" , with: 'My comment for answer'
-      click_on 'Commit'
+      within(id: "new_#{answer.name_id}_comment_field") do
+        fill_in id: "comment_body", with: 'My comment for answer'
+        click_on 'Commit'
+      end
 
       expect(page).to have_content 'My comment for answer'
     end
@@ -36,7 +39,7 @@ feature 'User can create comment', %q{
   describe 'NonAuth user can`t add comment' do
     scenario 'and don`t see any button' do
       visit question_path(question)
-      expect(page).to have_no_field(id: "new_question_comment" )
+      expect(page).to have_no_field(id: "new_question_comment")
     end
   end
 end
