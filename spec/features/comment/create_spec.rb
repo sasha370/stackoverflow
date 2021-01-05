@@ -10,7 +10,7 @@ feature 'User can create comment', %q{
   given!(:another_user) { create(:user) }
   given!(:answer) { create(:answer, question: question, user: user) }
 
-  describe 'Auth user can add comment' do
+  describe 'Auth user can add comment', js: true do
 
     background do
       sign_in(another_user)
@@ -18,8 +18,8 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to question' do
-      fill_in 'Comment', with: 'My comment'
-      click_on 'Add comment'
+      fill_in id: "new_question_comment" , with: 'My comment'
+      click_on 'Commit'
 
       expect(page).to have_content 'My comment'
     end
@@ -28,7 +28,9 @@ feature 'User can create comment', %q{
   end
 
   describe 'NonAuth user can`t add comment' do
-    scenario 'and don`t see any button'
+    scenario 'and don`t see any button' do
+      visit question_path(question)
+      expect(page).to have_no_field(id: "new_question_comment" )
+    end
   end
-
 end

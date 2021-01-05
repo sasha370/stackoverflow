@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   include Ratinged
+  include Commented
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
@@ -13,8 +14,8 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     @answers = @question.answers.sort_by_best
     @answer.links.new
-    gon.question_id  = @question.id
-    gon.current_user_id = current_user&.id
+    set_gon
+    @comment = Comment.new
   end
 
   def new
@@ -57,6 +58,11 @@ class QuestionsController < ApplicationController
 
   private
 
+  def set_gon
+    gon.question_id = @question.id
+    gon.current_user_id = current_user&.id
+  end
+
   def publish_question
     return if @question.errors.any?
     ActionCable.server.broadcast(
@@ -73,4 +79,5 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :body, files: [], links_attributes: [:id, :name, :url, :done, :_destroy], reward_attributes: [:id, :title, :image])
   end
+
 end

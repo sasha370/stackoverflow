@@ -11,7 +11,6 @@ $(document).on('turbolinks:load', function () {
       },
 
       received(data) {
-        console.log(data)
         if (gon.current_user_id != data.answer.user_id) {
           $('#answers').append(data.html);
         }

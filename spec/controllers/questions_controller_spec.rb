@@ -1,5 +1,6 @@
 require 'rails_helper'
 require_relative './concerns/ratinged'
+require_relative './concerns/commented'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:user) { create(:user) }
@@ -11,6 +12,11 @@ RSpec.describe QuestionsController, type: :controller do
     let!(:another_user) { create(:user) }
     let(:user) { create(:user) }
     let(:ratinged) { create(:question, user: another_user) }
+  end
+
+  it_behaves_like 'commented' do
+    let!(:user) { create(:user) }
+    let(:commented) { create(:question, user: user) }
   end
 
   describe 'GET #index' do
@@ -39,6 +45,10 @@ RSpec.describe QuestionsController, type: :controller do
 
     it 'assigns new links for answer' do
       expect(assigns(:answer).links.first).to be_a_new(Link)
+    end
+
+    it 'assigns new comment for question' do
+      expect(assigns(:comment)).to be_a_new(Comment)
     end
 
     it 'renders show view' do
