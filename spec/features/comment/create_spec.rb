@@ -24,7 +24,13 @@ feature 'User can create comment', %q{
       expect(page).to have_content 'My comment'
     end
 
-    scenario 'to answer'
+    # TODO
+    scenario 'to answer' do
+      fill_in id: "new_comment_answer_#{answer.id}" , with: 'My comment for answer'
+      click_on 'Commit'
+
+      expect(page).to have_content 'My comment for answer'
+    end
   end
 
   describe 'NonAuth user can`t add comment' do

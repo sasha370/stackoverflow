@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   include Ratinged
+  include Commented
 
   before_action :authenticate_user!, only: [:create, :destroy, :update, :choose_best]
   before_action :set_question, only: [:create]

@@ -1,5 +1,6 @@
 require 'rails_helper'
 require_relative './concerns/ratinged'
+require_relative './concerns/commented'
 
 RSpec.describe AnswersController, type: :controller do
   let!(:user) { create(:user) }
@@ -12,6 +13,12 @@ RSpec.describe AnswersController, type: :controller do
     let(:user) { create(:user) }
     let(:question) { create(:question, user: another_user) }
     let(:ratinged) { create(:answer, question: question, user: another_user) }
+  end
+
+  it_behaves_like 'commented' do
+    let!(:user) { create(:user) }
+    let(:question) { create(:question, user: another_user) }
+    let(:commented) { create(:answer, question: question, user: another_user) }
   end
 
   describe 'POST #create' do
