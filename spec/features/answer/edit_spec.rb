@@ -40,18 +40,19 @@ I`d like to be able to edit my answer
     scenario 'edit an answer with attached files', js: true do
       within(:xpath, '//ul[@id="answers"]') do
         fill_in "Edit answer", with: 'Edited Answer'
-        attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+        # attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb"]
+        find("#answer_files").send_keys("D://test.txt")
         click_on 'Save'
 
-        expect(page).to have_link 'rails_helper.rb'
-        expect(page).to have_link 'spec_helper.rb'
+        # expect(page).to have_link 'rails_helper.rb'
+        expect(page).to have_link 'test.txt'
       end
     end
 
     scenario 'edit a answer for delete attached files', js: true do
       within(:xpath, "//form[@id=\"edit_form_#{answer.id}\"]") do
         click_on(id: "delete_link_#{answer.files[0].id}")
-
+        accept_alert
         expect(page).to have_no_link answer.files[0].filename.to_s
       end
     end

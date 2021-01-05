@@ -24,12 +24,15 @@ feature 'User can create answer', %q{
     end
 
     scenario 'ask an answer with attached files', js: true do
+
       fill_in 'new_form', with: 'Answer for question'
-      attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+      # page.attach_file( 'File', "#{Rails.root}/spec/rails_helper.rb", make_visible: true)
+      find("#answer_files").send_keys("D://test.txt")
+
       click_on 'Create answer'
 
-      expect(page).to have_link 'rails_helper.rb'
-      expect(page).to have_link 'spec_helper.rb'
+      # expect(page).to have_link 'rails_helper.rb'
+      expect(page).to have_link 'test.txt'
     end
 
     scenario 'answers the question with errors', js: true do
@@ -61,8 +64,6 @@ feature 'User can create answer', %q{
       end
 
       Capybara.using_session('another_user') do
-        sleep 2
-        puts body
         expect(page).to have_content 'Answer for question'
       end
     end
