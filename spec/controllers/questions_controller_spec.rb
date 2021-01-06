@@ -17,6 +17,7 @@ RSpec.describe QuestionsController, type: :controller do
   it_behaves_like 'commented' do
     let!(:user) { create(:user) }
     let(:commented) { create(:question, user: user) }
+    let(:another_user) { create(:user) }
   end
 
   describe 'GET #index' do

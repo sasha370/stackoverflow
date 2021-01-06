@@ -1,8 +1,15 @@
-loadGist();
-// Необходимо придумать вариант подгрузки ссылок, после добавления ответа или выбора Лучшего ответа
-// в обоих случаях нужно отправлять запрос на сервер, чтобы перерисовать ссылки заново
-// может быть есть варинт сохранять контент, если он уже был загружен, аналогично методу  ||=
+var loadGists;
 
+$(function() {
+  loadGists();
+  return $(document).on('turbolinks:load', loadGists);
+});
+
+loadGists = function() {
+  return $('.gist').each(function() {
+    return loadGist();
+  });
+};
 
 function loadGist() {
 

@@ -21,6 +21,8 @@ gem "font-awesome-rails"
 gem 'gon'
 gem 'handlebars_assets'
 gem 'coffee-rails'
+gem 'faker'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

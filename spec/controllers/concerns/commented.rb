@@ -16,7 +16,17 @@ RSpec.shared_examples 'commented' do
     let!(:comment) { commented.comments.create(body: 'Test commit', user: user) }
 
     it 'destroy comment' do
-      expect { delete :destroy_comment, params: { id: commented.id , comment_id: comment.id }, format: :js  }.to change(Comment, :count).by(-1)
+      expect { delete :destroy_comment, params: { id: commented.id, comment_id: comment.id }, format: :js }.to change(Comment, :count).by(-1)
+    end
+
+    context 'Not Author' do
+      before do
+        login(another_user)
+      end
+
+      it 'can`t destroy comment' do
+        expect { delete :destroy_comment, params: { id: commented.id, comment_id: comment.id }, format: :js }.to change(Comment, :count).by(0)
+      end
     end
   end
 end

@@ -1,28 +1,30 @@
 .card
   .card-header
-    %p.card-title
+    .card-title
       .row
         .col-10
           = @question.title
         .col-2
           = render 'shared/rating', resource: @question
+          %br
+          .span.small
+            = 'Reward for best answer:' if @question.reward
+            = render 'rewards/reward', resource: @question.reward
+            = @question.user.email
+            = time_ago_in_words(@question.created_at)
   .card-body
     %p.card-text
       = @question.body
       = render 'shared/link', resource: @question
       %br/
       = render 'attachments/attach', resource: @question
-      %br/
-      .text-left
-        = render 'rewards/reward', resource: @question.reward
 
     - if current_user&.author?(@question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr/
 
-    .container.border.border-secondary.p-2.bg-light
-      %small Comments:
+    .container.border.border-secondary.p-2.bg-light.rounded-lg
       = render 'comments/comments', resource: @question
       %br/
       - if current_user
