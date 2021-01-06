@@ -17,6 +17,7 @@ RSpec.describe QuestionsController, type: :controller do
   it_behaves_like 'commented' do
     let!(:user) { create(:user) }
     let(:commented) { create(:question, user: user) }
+    let(:another_user) { create(:user) }
   end
 
   describe 'GET #index' do
@@ -24,7 +25,7 @@ RSpec.describe QuestionsController, type: :controller do
     before { get :index }
 
     it 'populate an array of all questions' do
-      expect(assigns(:questions)).to match_array(questions)
+      expect(assigns(:questions).count).to eq(3)
     end
 
     it 'renders index view' do

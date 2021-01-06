@@ -5,8 +5,7 @@
         .border-right
           = render 'shared/rating', resource: answer
           - if answer.best
-            .row
-              = render 'rewards/reward', resource: answer.question.reward
+            = render 'rewards/reward', resource: answer.question.reward
       .col-9
         = answer.body
         %ul
@@ -29,8 +28,7 @@
     .row
       .col-1
       .col-11
-        .container.border.border-secondary.p-2.bg-light
-          %small Comments:
+        .container.border.border-secondary.p-2.bg-light.rounded-lg
           = render 'comments/comments', resource: answer
           %br/
           - if current_user
