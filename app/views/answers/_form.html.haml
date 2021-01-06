@@ -8,14 +8,14 @@
   .row
     %hr/
     .col-6
-      Links:
-      = form.fields_for :links do |link|
-        = render 'shared/link_fields', f: link
-      .links
-        = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
-    .col-6
       %br
       = form.label :files
       = form.file_field :files, class: 'form-control-file', multiple: true, direct_upload: true
       %br
       = form.submit 'Create answer', class: "actions btn  btn-sm btn-primary"
+    .col-6
+      Links:
+      = form.fields_for :links do |link|
+        = render 'shared/link_fields', f: link
+      .links
+        = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'

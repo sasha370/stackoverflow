@@ -21,6 +21,8 @@ gem "font-awesome-rails"
 gem 'gon'
 gem 'handlebars_assets'
 gem 'coffee-rails'
+gem 'faker'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -42,16 +44,14 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper', require: false
-  gem 'selenium-webdriver', require: false
-  # gem 'poltergeist'
-  # gem 'phantomjs', :require => 'phantomjs/poltergeist'
-  # gem 'webdrivers', '~> 4.0', require: false
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'webdrivers', '~> 4.0', require: false
   gem 'shoulda-matchers'
   gem "rails-controller-testing"
   gem 'launchy'
   gem 'database_cleaner-active_record'
-  gem 'watir'
+  # gem "chromedriver-helper"
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

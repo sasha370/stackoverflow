@@ -36,7 +36,6 @@ feature 'User can create comment', %q{
     end
   end
 
-  # TODO
   describe 'multiple sessions ' do
     scenario 'comment added on another user`s page', js: true do
 

@@ -40,7 +40,7 @@ feature 'User can create question', %q{
     end
   end
 
-  context 'multiple sessions ' do
+  context 'multiple sessions ', js: true do
     scenario 'question added on another user`s page', js: true do
 
       Capybara.using_session('user') do
@@ -64,6 +64,7 @@ feature 'User can create question', %q{
       end
 
       Capybara.using_session('another_user') do
+
         expect(page).to have_content 'Test question'
       end
     end
