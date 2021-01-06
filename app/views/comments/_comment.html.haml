@@ -1,8 +1,8 @@
 %li{id: "comment_#{comment.id}"}
-  .row
+  .row.small
     .col-10
       = comment.body
-    .col-2
+    .col-2.text-right
       = comment.user.email
       - if current_user && current_user&.author?(comment)
         = link_to  polymorphic_path(resource, action: :destroy_comment, comment_id: comment.id), method: :delete, remote: true,  id: "delete_comment_#{comment.id}", data: {confirm: 'Are your sure?'} do

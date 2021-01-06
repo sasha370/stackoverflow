@@ -4,6 +4,7 @@ module Commented
   included do
     before_action :authenticate_user!
     before_action :setup_resource, only: [:add_comment]
+    after_action :publish_comment, only: [:add_comment]
   end
 
   def add_comment
@@ -13,10 +14,7 @@ module Commented
       if @comment.save
         format.js do
           render partial: 'comments/add_comment', layout: false
-          flash[:notice] = 'Your comment successfully created.'
         end
-      else
-        format.js { flash[:alert] = 'Your have an errors!' }
       end
     end
   end
@@ -25,7 +23,7 @@ module Commented
     @comment = Comment.find(params[:comment_id])
     if current_user.author?(@comment)
       render partial: 'comments/destroy_comment', layout: false
-      @comment.destroy { flash[:notice] = 'Your comment successfully deleted.' }
+      @comment.destroy
     end
   end
 
@@ -43,4 +41,12 @@ module Commented
     @commented = model_klass.find(params[:id])
   end
 
+  def publish_comment
+    return if @commented.errors.any?
+    ActionCable.server.broadcast(
+        'comments',
+        comment: @comment,
+        user: current_user.email
+    )
+  end
 end

@@ -38,13 +38,12 @@ class AnswersController < ApplicationController
 
   def publish_answer
     return if @answer.errors.any?
-    ActionCable.server.broadcast( "answers_question_#{@answer.question_id}",
-                                  answer: @answer,
-                                  html: html(@answer)
-                                  )
-
-
+    ActionCable.server.broadcast("answers_question_#{@answer.question_id}",
+                                 answer: @answer,
+                                 html: html(@answer)
+    )
   end
+
   def html(answer)
     wardenize
     @job_renderer.render(

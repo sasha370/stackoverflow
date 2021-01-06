@@ -18,7 +18,7 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to question' do
-      within(id: "new_#{question.name_id}_comment_field") do
+      within(id: "new_#{question.name_id}_comment_fields") do
         fill_in id: "comment_body", with: 'My comment'
         click_on 'Commit'
       end
@@ -27,12 +27,41 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to answer' do
-      within(id: "new_#{answer.name_id}_comment_field") do
+      within(id: "new_#{answer.name_id}_comment_fields") do
         fill_in id: "comment_body", with: 'My comment for answer'
         click_on 'Commit'
       end
 
       expect(page).to have_content 'My comment for answer'
+    end
+  end
+
+  # TODO
+  describe 'multiple sessions ' do
+    scenario 'comment added on another user`s page', js: true do
+
+      Capybara.using_session('user') do
+        sign_in(user)
+        visit question_path(question)
+      end
+
+      Capybara.using_session('another_user') do
+        sign_in(another_user)
+        visit question_path(question)
+      end
+
+      Capybara.using_session('user') do
+        within(id: "new_#{question.name_id}_comment_fields") do
+          fill_in id: "comment_body", with: 'My comment'
+          click_on 'Commit'
+        end
+
+        expect(page).to have_content 'My comment'
+      end
+
+      Capybara.using_session('another_user') do
+        expect(page).to have_content 'My comment'
+      end
     end
   end
 
