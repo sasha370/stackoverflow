@@ -41,11 +41,10 @@ I`d like to be able to edit my answer
       within(:xpath, '//ul[@id="answers"]') do
         fill_in "Edit answer", with: 'Edited Answer'
         # attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb"]
-        find("#answer_files").send_keys("D://test.txt")
+        find("#answer_files").send_keys("#{Rails.root}/spec/rails_helper.rb")
         click_on 'Save'
 
-        # expect(page).to have_link 'rails_helper.rb'
-        expect(page).to have_link 'test.txt'
+        expect(page).to have_link 'rails_helper.rb'
       end
     end
 
