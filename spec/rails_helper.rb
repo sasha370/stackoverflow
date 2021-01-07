@@ -10,7 +10,7 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'phantomjs'
 require 'webdrivers'
-# require "chromedriver-helper"
+
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 begin
@@ -25,23 +25,29 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app,
                                     :phantomjs_options => ['--debug=no', '--load-images=yes', '--ignore-ssl-errors=yes', '--ssl-protocol=TLSv1'],
                                     js_errors: false
-                                    )
+  )
 end
 
 #Use with test in WSL + Windows Chrome
 Capybara.register_driver :windows_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      'goog:chromeOptions': { args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor ) } )
-  Capybara::Selenium::Driver.new(app,browser: :chrome,
+      'goog:chromeOptions': { args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor ) })
+  Capybara::Selenium::Driver.new(app, browser: :chrome,
                                  # url: 'http://localhost:9515', # remove for NON Windows
                                  desired_capabilities: capabilities
   )
 end
 
 RSpec.configure do |config|
-Capybara.javascript_driver = :windows_chrome
-Capybara.default_max_wait_time = 10 # Seconds
-DatabaseCleaner[:active_record].strategy = :truncation
+  Capybara.javascript_driver = :windows_chrome
+  Capybara.default_max_wait_time = 10 # Seconds
+
+  config.before(:suite) { DatabaseCleaner.clean_with :truncation }
+  config.before(:each) { DatabaseCleaner.strategy = :truncation }
+  config.before(:each) { DatabaseCleaner.start }
+  config.after(:each) { DatabaseCleaner.clean }
+
+
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
