@@ -26,13 +26,11 @@ feature 'User can create answer', %q{
     scenario 'ask an answer with attached files', js: true do
 
       fill_in 'new_form', with: 'Answer for question'
-      # page.attach_file( 'File', "#{Rails.root}/spec/rails_helper.rb", make_visible: true)
-      find("#answer_files").send_keys("D://test.txt")
-
+      # page.attach_file(  "#{Rails.root}/spec/rails_helper.rb", make_visible: true)
+      find("#answer_files").send_keys("#{Rails.root}/spec/rails_helper.rb")
       click_on 'Create answer'
 
-      # expect(page).to have_link 'rails_helper.rb'
-      expect(page).to have_link 'test.txt'
+      expect(page).to have_link 'rails_helper.rb'
     end
 
     scenario 'answers the question with errors', js: true do
