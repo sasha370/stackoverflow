@@ -15,4 +15,5 @@ import './styles.scss';
 import './answers'
 import './gist'
 import './rating'
+import './comment_form'
 

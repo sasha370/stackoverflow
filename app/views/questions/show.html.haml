@@ -2,21 +2,27 @@
   .card-header
     .card-title
       .row
-        .col-10
-          = @question.title
-        .col-2
-          = render 'shared/rating', resource: @question
-          %br
-          .span.small
-            = 'Reward for best answer:' if @question.reward
-            = render 'rewards/reward', resource: @question.reward
-            = @question.user.email
+        .col-md-10
+          .small
+            %span.font-weight-bold= @question.user.email
+            ask
             = time_ago_in_words(@question.created_at)
+            ago
+        .col-md-2
+          = render 'shared/rating', resource: @question
+      %hr
+      .row
+        .col-md-10
+          = @question.title
+        .col-md-2.span.small
+          - if @question.reward
+            .small.text-center Reward for best answer:
+          = render 'rewards/reward', resource: @question.reward
+
   .card-body
     %p.card-text
       = @question.body
       = render 'shared/link', resource: @question
-      %br/
       = render 'attachments/attach', resource: @question
 
     - if current_user&.author?(@question)

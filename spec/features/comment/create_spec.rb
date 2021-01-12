@@ -18,19 +18,17 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to question' do
-      within(id: "new_#{question.name_id}_comment_fields") do
+        click_link 'Add comment'
         fill_in id: "comment_body", with: 'My comment'
         click_on 'Commit'
-      end
 
       expect(page).to have_content 'My comment'
     end
 
     scenario 'to answer' do
-      within(id: "new_#{answer.name_id}_comment_fields") do
+        click_link 'Add comment'
         fill_in id: "comment_body", with: 'My comment for answer'
         click_on 'Commit'
-      end
 
       expect(page).to have_content 'My comment for answer'
     end
@@ -50,10 +48,9 @@ feature 'User can create comment', %q{
       end
 
       Capybara.using_session('user') do
-        within(id: "new_#{question.name_id}_comment_fields") do
+        click_link 'Add comment'
           fill_in id: "comment_body", with: 'My comment'
           click_on 'Commit'
-        end
 
         expect(page).to have_content 'My comment'
       end
@@ -67,7 +64,7 @@ feature 'User can create comment', %q{
   describe 'NonAuth user can`t add comment' do
     scenario 'and don`t see any button' do
       visit question_path(question)
-      expect(page).to have_no_field(id: "new_question_comment")
+      expect(page).to have_no_link 'Add comment'
     end
   end
 end

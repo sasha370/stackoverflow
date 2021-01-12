@@ -1,6 +1,4 @@
-document.addEventListener('turbolinks:load', setRating())
-
-function setRating() {
+document.addEventListener('turbolinks:load', function () {
 
   let ratingLinks = document.querySelectorAll('.rating-link');
 
@@ -24,4 +22,4 @@ function setRating() {
       })
     })
   }
-}
+})

@@ -1,4 +1,5 @@
-= form_with(model:  @comment || resource.comments.new  , url: polymorphic_path(resource, action: :add_comment), id: "new_#{resource.name_id}_comment_fields", data: {type: :json}) do |form|
+= form_with(model:  @comment || resource.comments.new  , url: polymorphic_path(resource, action: :add_comment),
+ id: "new_#{resource.name_id}_comment_fields", data: {type: :json}, class: 'hidden') do |form|
   .input-group.input-group-sm.mb-3
     = form.text_field :body, class: 'form-control'
     = form.submit 'Commit', class: "actions btn  btn-sm btn-primary"

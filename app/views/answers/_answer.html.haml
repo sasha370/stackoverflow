@@ -1,20 +1,12 @@
 %div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
   %li.list-group-item
     .row
-      .col-1
+      .col-2
         .border-right
           = render 'shared/rating', resource: answer
           - if answer.best
             = render 'rewards/reward', resource: answer.question.reward
-      .col-9
-        = answer.body
-        %ul
-          = render 'shared/link', resource: answer
-        #answer_attached_
-          = render 'attachments/attach', resource: answer
-
-      .col-2.ml_auto
-        .row
+        .row.mx-auto
           - if answer.persisted?
             - if current_user&.author?(answer.question)
               = link_to ' Make best ', choose_best_answer_path(answer), method: :put, remote: true,
@@ -25,13 +17,21 @@
               |
               = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
                class: 'delete_link', id: "#{answer.id}"
+
+      .col-10
+        = answer.body
+        %ul
+          = render 'shared/link', resource: answer
+        #answer_attached_
+          = render 'attachments/attach', resource: answer
     .row
-      .col-1
-      .col-11
+      .col-2
+      .col-10
         %hr
         = render 'comments/comments', resource: answer
-        .mt-1
+        .mt-1.text-right
           - if current_user
+            = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
             = render 'comments/form', resource: answer
 
 
