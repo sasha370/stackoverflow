@@ -33,7 +33,7 @@ Capybara.register_driver :windows_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
       'goog:chromeOptions': { args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor ) })
   Capybara::Selenium::Driver.new(app, browser: :chrome,
-                                 url: 'http://localhost:9515', # remove for NON Windows
+                                 # url: 'http://localhost:9515', # remove for NON Windows
                                  desired_capabilities: capabilities
   )
 end
