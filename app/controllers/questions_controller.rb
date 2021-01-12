@@ -67,8 +67,8 @@ class QuestionsController < ApplicationController
     return if @question.errors.any?
     ActionCable.server.broadcast(
         'questions',
-        content: { title: @question.title,
-                   url: question_url(@question) }
+        title: @question.title,
+        url: question_url(@question)
     )
   end
 

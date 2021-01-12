@@ -1,8 +1,10 @@
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbolinks:load', setRating())
+
+function setRating() {
 
   let ratingLinks = document.querySelectorAll('.rating-link');
 
-  //listening all links with ajax
+//listening all links with ajax
   if (ratingLinks) {
 
     ratingLinks.forEach((link) => {
@@ -22,4 +24,4 @@ document.addEventListener('turbolinks:load', function () {
       })
     })
   }
-})
+}

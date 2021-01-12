@@ -24,11 +24,10 @@
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
     %hr/
 
-    .container.border.border-secondary.p-2.bg-light.rounded-lg
-      = render 'comments/comments', resource: @question
-      %br/
-      - if current_user
-        = render 'comments/form', resource: @question
+    = render 'comments/comments', resource: @question
+    %br/
+    - if current_user
+      = render 'comments/form', resource: @question
 
     %h4.text-center
       Answers

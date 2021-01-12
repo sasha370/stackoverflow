@@ -28,9 +28,9 @@
     .row
       .col-1
       .col-11
-        .container.border.border-secondary.p-2.bg-light.rounded-lg
-          = render 'comments/comments', resource: answer
-          %br/
+        %hr
+        = render 'comments/comments', resource: answer
+        .mt-1
           - if current_user
             = render 'comments/form', resource: answer
 

@@ -38,25 +38,20 @@ class AnswersController < ApplicationController
 
   def publish_answer
     return if @answer.errors.any?
-    ActionCable.server.broadcast("answers_question_#{@answer.question_id}",
-                                 answer: @answer,
-                                 html: html(@answer)
+    ActionCable.server.broadcast(
+        "answers_question_#{@answer.question_id}",
+        answer: @answer,
+        links: @answer.links,
+        attachments: set_attachments(@answer)
     )
   end
 
-  def html(answer)
-    wardenize
-    @job_renderer.render(
-        partial: 'answers/answer',
-        locals: { answer: answer }
-    )
-  end
-
-  def wardenize
-    @job_renderer = ::AnswersController.renderer.new
-    renderer_env = @job_renderer.instance_eval { @env }
-    warden = ::Warden::Proxy.new(renderer_env, ::Warden::Manager.new(Rails.application))
-    renderer_env['warden'] = warden
+  def set_attachments(answer)
+    attachments = []
+    answer.files.each do |file|
+      attachments << {name: file.filename, url: url_for(file)}
+    end
+    attachments
   end
 
   def set_answer

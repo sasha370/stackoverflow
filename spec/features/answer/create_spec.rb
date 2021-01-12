@@ -26,7 +26,6 @@ feature 'User can create answer', %q{
     scenario 'ask an answer with attached files', js: true do
 
       fill_in 'new_form', with: 'Answer for question'
-      # page.attach_file(  "#{Rails.root}/spec/rails_helper.rb", make_visible: true)
       find("#answer_files").send_keys("#{Rails.root}/spec/rails_helper.rb")
       click_on 'Create answer'
 
@@ -63,6 +62,8 @@ feature 'User can create answer', %q{
 
       Capybara.using_session('another_user') do
         expect(page).to have_content 'Answer for question'
+        expect(page).to have_no_link 'Edit'
+        expect(page).to have_no_link 'Delete'
       end
     end
   end

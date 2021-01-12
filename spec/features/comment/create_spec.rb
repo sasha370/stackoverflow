@@ -59,7 +59,7 @@ feature 'User can create comment', %q{
       end
 
       Capybara.using_session('another_user') do
-        expect(page).to have_content 'My comment'
+        expect(page).to have_content( 'My comment').once
       end
     end
   end

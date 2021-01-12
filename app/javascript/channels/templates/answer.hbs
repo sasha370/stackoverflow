@@ -1,0 +1,65 @@
+<div id="answer_{{answer.id}}">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-1">
+        <div class="border-right">
+          <div class='small text-center'>Rating: 0</div>
+        </div>
+        {{#if current_user}}
+        <span class="rating_buttons_answer_{{answer.id}}">
+          <a class="rating-link" id="thumb_up_answer_{{answer.id}}" data-remote="true" rel="nofollow" data-method="post" href="/answers/{{answer.id}}/thumb_up">
+            <i class="fa fa-thumbs-up"></i>
+          </a>
+          <a class="rating-link" id="thumb_down_answer_{{answer.id}}" data-remote="true" rel="nofollow" data-method="post" href="/answers/{{answer.id}}/thumb_down">
+            <i class="fa fa-thumbs-down"></i>
+          </a>
+        </span>
+        {{/if}}
+      </div>
+      <div class="col-9">
+        {{answer.body}}
+        <ul>
+          <div class="links_list">
+            {{#each links}}
+               <li>
+                 <a href="{{this.url}}">{{this.name}}</a>
+               </li>
+            {{/each}}
+          </div>
+        </ul>
+        <div id="answer_attached_">
+          {{#if attachments}}
+            <div>Прикрепленные файлы:</div>
+          {{/if}}
+          {{#each attachments}}
+            <em id='attached_file_{{this.id}}'>
+              <a href="{{this.url}}">{{this.name}}</a>
+            </em>
+            <br/>
+          {{/each}}
+        </div>
+      </div>
+      <div class="col-2 ml_auto">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-11">
+        <ul id="answer_{{answer.id}}_comments">
+        </ul>
+        <div class="mt-1">
+          {{#if current_user}}
+            <form id="new_answer_{{answer.id}}_comment_fields" data-type="json" action="/answers/{{answer.id}}/add_comment" accept-charset="UTF-8" data-remote="true" method="post">
+            <div class="input-group input-group-sm mb-3">
+            <input class="form-control" type="text" name='comment[body]' id="comment_body">
+            <input type="submit" name="commit" value="Commit" class="actions btn  btn-sm btn-primary" data-disable-with="Commit">
+            </div>
+            </form>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </li>
+</div>
