@@ -7,14 +7,13 @@ $(document).on('turbolinks:load', function () {
     consumer.subscriptions.create({channel: "CommentsChannel"}, {
 
         received(data) {
+          if (gon.current_user_id === data.comment.user_id) return
 
-          if (gon.current_user_id != data.comment.user_id) {
-            let id = data.comment.commentable_type.toLowerCase() + '_' + data.comment.commentable_id + '_comments'
+          let id = data.comment.commentable_type.toLowerCase() + '_' + data.comment.commentable_id + '_comments'
+          let template = require('./templates/comment.hbs')
+          let result = template(data)
+          document.getElementById(id).innerHTML += result
 
-            let template = require('./templates/comment.hbs')
-            let result = template(data)
-            document.getElementById(id).innerHTML += result
-          }
         }
       }
     );
