@@ -19,10 +19,7 @@ gem 'aws-sdk-s3', require: false
 gem "cocoon"
 gem "font-awesome-rails"
 gem 'gon'
-gem 'handlebars_assets'
-gem 'coffee-rails'
 gem 'faker'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -51,7 +48,6 @@ group :test do
   gem "rails-controller-testing"
   gem 'launchy'
   gem 'database_cleaner-active_record'
-  # gem "chromedriver-helper"
 end
 
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

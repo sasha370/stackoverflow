@@ -22,8 +22,8 @@ module Commented
   def destroy_comment
     @comment = Comment.find(params[:comment_id])
     if current_user.author?(@comment)
-      render partial: 'comments/destroy_comment', layout: false
       @comment.destroy
+      render partial: 'comments/destroy_comment', layout: false
     end
   end
 

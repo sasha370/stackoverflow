@@ -5,7 +5,13 @@ environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
   jQuery: 'jquery/src/jquery',
   jquery: 'jquery',
   'window.jQuery': 'jquery',
-  handlebars: /\.handlebars$/, loader: "handlebars-loader",
-  Popper: ['popper.js', 'default']
+  Popper: ['popper.js', 'default'],
+
 }))
+
+const handlebarsLoader = {
+  test: /\.hbs$/,
+  loader: 'handlebars-loader'
+}
+environment.loaders.append('hbs', handlebarsLoader)
 module.exports = environment
