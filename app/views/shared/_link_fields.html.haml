@@ -1,9 +1,10 @@
 .nested-fields
-  .form-row
-    .col-6
-      = f.label :name
-      = f.text_field :name, class: 'form-control  form-control-sm'
-    .col-6
-      = f.label :url
-      = f.text_field :url, class: 'form-control  form-control-sm'
-    = link_to_remove_association "remove task", f, class: 'btn btn-sm btn-danger mb-1 mt-1 ml-auto'
+  .input-group.input-group-sm.mb-1
+    .input-group-prepend
+      = f.label :name, class: 'input-group-text'
+    = f.text_field :name, class: 'form-control'
+  .input-group.input-group-sm
+    .input-group-prepend
+      = f.label :url, class: 'input-group-text'
+    = f.text_field :url, class: 'form-control'
+  = link_to_remove_association "remove fields", f, class: 'btn btn-sm btn-danger mb-1 mt-1 ml-auto'

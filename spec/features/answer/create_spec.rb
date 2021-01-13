@@ -6,6 +6,7 @@ feature 'User can create answer', %q{
 } do
 
   given!(:user) { create(:user) }
+  given!(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
   describe 'Auth user' do
@@ -23,18 +24,47 @@ feature 'User can create answer', %q{
     end
 
     scenario 'ask an answer with attached files', js: true do
+
       fill_in 'new_form', with: 'Answer for question'
-      attach_file 'File', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+      find("#answer_files").send_keys("#{Rails.root}/spec/rails_helper.rb")
       click_on 'Create answer'
 
       expect(page).to have_link 'rails_helper.rb'
-      expect(page).to have_link 'spec_helper.rb'
     end
 
     scenario 'answers the question with errors', js: true do
       click_on 'Create answer'
       expect(page).to have_content "Body can't be blank"
       expect(page).to have_content 'Your have an errors!'
+    end
+  end
+
+  describe 'multiple sessions ' do
+    scenario 'answer added on another user`s page', js: true do
+
+      Capybara.using_session('user') do
+        sign_in(user)
+        visit question_path(question)
+      end
+
+      Capybara.using_session('another_user') do
+        sign_in(another_user)
+        visit question_path(question)
+      end
+
+      Capybara.using_session('user') do
+        fill_in 'new_form', with: 'Answer for question'
+        click_on 'Create answer'
+
+        expect(page).to have_content 'Your answer successfully created.'
+        expect(page).to have_content 'Answer for question'
+      end
+
+      Capybara.using_session('another_user') do
+        expect(page).to have_content 'Answer for question'
+        expect(page).to have_no_link 'Edit'
+        expect(page).to have_no_link 'Delete'
+      end
     end
   end
 

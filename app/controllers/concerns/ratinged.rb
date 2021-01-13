@@ -3,7 +3,7 @@ module Ratinged
 
   included do
     before_action :authenticate_user!
-    before_action :set_resource, only: [:thumb_up, :thumb_down, :cancel_voice]
+    before_action :resource_set, only: [:thumb_up, :thumb_down, :cancel_voice]
   end
 
   def thumb_up
@@ -37,7 +37,8 @@ module Ratinged
     controller_name.classify.constantize
   end
 
-  def set_resource
+  def resource_set
     @ratinged = model_klass.find(params[:id])
   end
+
 end

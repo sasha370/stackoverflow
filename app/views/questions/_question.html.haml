@@ -1,0 +1,13 @@
+.row
+  .col-1.small.border-right
+    Rating:
+    = question.rating
+  .col-9
+    = link_to question.title, question_path(question)
+  .col-2.border-left.small
+    .font-weight-bold
+      = question.user.email
+    %span
+      = distance_of_time_in_words(question.created_at, Time.now)
+      ago
+%hr

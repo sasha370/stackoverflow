@@ -1,4 +1,5 @@
 - if resource
-  %p
+  %p.text-center.small
     = resource.title
+    %br
     = image_tag url_for(resource.image), size: "30", alt: "#{resource.image.filename}"
