@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def voted?(resource)
     resource.ratings.exists?(user_id: id)
   end
+
+  def self.find_for_oauth(data)
+
+  end
 end
