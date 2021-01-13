@@ -20,7 +20,8 @@ gem "cocoon"
 gem "font-awesome-rails"
 gem 'gon'
 gem 'faker'
-gem 'handlebars_assets'
+gem 'omniauth', '~> 1.9', '>= 1.9.1'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
