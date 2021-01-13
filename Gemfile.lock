@@ -162,6 +162,10 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    handlebars_assets (0.23.8)
+      execjs (~> 2.0)
+      sprockets (>= 2.0.0)
+      tilt (>= 1.2)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -377,6 +381,7 @@ DEPENDENCIES
   guard
   guard-rspec
   haml-rails
+  handlebars_assets
   jbuilder (~> 2.7)
   jquery-rails
   launchy

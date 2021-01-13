@@ -16,6 +16,8 @@ module Stackoverflow
     ActiveSupport::Deprecation.silenced = true
     config.active_storage.replace_on_assign_to_many = false
 
+
+
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,

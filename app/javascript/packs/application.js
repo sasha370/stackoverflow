@@ -9,11 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 require("@nathanvda/cocoon")
 
-require("handlebars-loader")
 import 'bootstrap'
 import './styles.scss';
 import './answers'
 import './gist'
 import './rating'
 import './comment_form'
-
