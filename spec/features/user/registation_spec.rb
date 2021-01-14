@@ -13,7 +13,6 @@ feature 'Guest can sign up', %q{
     open_email('tests@test.ru')
     current_email.click_on 'Confirm my account'
 
-
     fill_in 'Email', with: 'tests@test.ru'
     fill_in 'Password', with: '123456'
     click_on 'Log in'

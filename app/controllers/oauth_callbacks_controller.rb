@@ -25,7 +25,7 @@ class OauthCallbacksController < Devise::OmniauthCallbacksController
       session[:auth] = auth.except('extra')
       redirect_to get_email_url, alert: 'We don`t found you email, please register and fill it!'
     else
-      redirect_to root_path, alert: 'SMT went wrong'
+      redirect_to root_path, alert: 'Something went wrong'
     end
   end
 end
