@@ -8,10 +8,9 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
-require 'phantomjs'
 require 'webdrivers'
 require 'capybara/email/rspec'
-require_relative 'omniauth_macros'
+
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
@@ -55,7 +54,7 @@ RSpec.configure do |config|
   config.include ControllerHelpers, type: :controller
   config.include FeatureHelpers, type: :feature
   config.include ActiveStorageHelpers
-  config.include OmniauthMacros
+  config.include OmniauthHelpers
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true

@@ -276,11 +276,14 @@ Devise.setup do |config|
                   Rails.application.credentials[Rails.env.to_sym][:github][:app_secret],
                   scope: 'user:email, read:user'
 
-
   config.omniauth :google_oauth2,
                   Rails.application.credentials[Rails.env.to_sym][:google_oauth2][:app_id],
                   Rails.application.credentials[Rails.env.to_sym][:google_oauth2][:app_secret],
                   scope: 'userinfo.email, userinfo.profile'
+
+  config.omniauth :vkontakte,
+                  Rails.application.credentials[Rails.env.to_sym][:vkontakte][:app_id],
+                  Rails.application.credentials[Rails.env.to_sym][:vkontakte][:app_secret]
 
 
   # ==> Warden configuration

@@ -23,6 +23,8 @@ gem 'faker'
 gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

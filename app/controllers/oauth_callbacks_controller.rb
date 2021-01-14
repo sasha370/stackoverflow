@@ -1,22 +1,29 @@
 class OauthCallbacksController < Devise::OmniauthCallbacksController
 
   def github
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
-
-    if @user&.persisted?
-      sign_in_and_redirect @user, event: :authenticate
-      set_flash_message(:notice, :success, kind: 'GitHub') if is_navigational_format?
-    else
-      redirect_to root_path, alert: 'SMT went wrong'
-    end
+    connect_to('GitHub')
   end
 
   def google_oauth2
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
+    connect_to('Google')
+  end
+
+  def vkontakte
+    connect_to('Vkontakte')
+  end
+
+  private
+
+  def connect_to(provider)
+    auth = request.env['omniauth.auth']
+    @user = User.find_for_oauth(auth)
 
     if @user&.persisted?
       sign_in_and_redirect @user, event: :authenticate
-      set_flash_message(:notice, :success, kind: 'Google') if is_navigational_format?
+      set_flash_message(:notice, :success, kind: "#{provider}") if is_navigational_format?
+    elsif auth != :invalid_credential && auth != nil
+      session[:auth] = auth.except('extra')
+      redirect_to get_email_url, alert: 'We don`t found you email, please register and fill it!'
     else
       redirect_to root_path, alert: 'SMT went wrong'
     end

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'oauth_callbacks'}
 
+  get '/user/get_email', to: 'users#get_email', as: 'get_email'
+  post '/user/set_email', to: 'users#set_email', as: 'set_email'
+
   root to: "questions#index"
 
   resources :attachments, only: :destroy
