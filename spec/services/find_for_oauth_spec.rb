@@ -9,7 +9,6 @@ RSpec.describe FindForOauthService do
 
   context 'user already has authorization' do
     it 'returns the user' do
-      puts user
       user.authorizations.create(provider: auth[:provider], uid: auth[:uid])
       expect(subject.call).to eq user
     end

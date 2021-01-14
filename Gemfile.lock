@@ -94,6 +94,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    capybara-email (3.0.2)
+      capybara (>= 2.4, < 4.0)
+      mail
     childprocess (3.0.0)
     cliver (0.3.2)
     cocoon (1.2.15)
@@ -191,6 +194,8 @@ GEM
       actionpack (>= 5.0)
       less (~> 2.6.0)
       sprockets (~> 3.0)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.4.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -231,6 +236,11 @@ GEM
     omniauth-github (1.4.0)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
+    omniauth-google-oauth2 (0.8.1)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
@@ -392,6 +402,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  capybara-email
   cocoon
   database_cleaner-active_record
   devise
@@ -407,9 +418,11 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   launchy
+  letter_opener
   listen (~> 3.2)
   omniauth (~> 1.9, >= 1.9.1)
   omniauth-github
+  omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
   phantomjs
   poltergeist

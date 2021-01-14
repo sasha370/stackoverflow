@@ -22,6 +22,7 @@ gem 'gon'
 gem 'faker'
 gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -39,10 +40,12 @@ group :development do
   gem "binding_of_caller"
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem "letter_opener"
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'capybara-email'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'webdrivers', '~> 4.0', require: false

@@ -10,6 +10,8 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'phantomjs'
 require 'webdrivers'
+require 'capybara/email/rspec'
+require_relative 'omniauth_macros'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
@@ -31,9 +33,9 @@ end
 #Use with test in WSL + Windows Chrome
 Capybara.register_driver :windows_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      'goog:chromeOptions': { args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor ) })
+      'goog:chromeOptions': {args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor )})
   Capybara::Selenium::Driver.new(app, browser: :chrome,
-                                 # url: 'http://localhost:9515', # remove for NON Windows
+                                 url: 'http://localhost:9515', # remove for NON Windows
                                  desired_capabilities: capabilities
   )
 end
@@ -53,6 +55,8 @@ RSpec.configure do |config|
   config.include ControllerHelpers, type: :controller
   config.include FeatureHelpers, type: :feature
   config.include ActiveStorageHelpers
+  config.include OmniauthMacros
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
@@ -70,3 +74,5 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+
