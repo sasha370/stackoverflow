@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  check_authorization unless :devise_controller?
+  load_and_authorize_resource unless: :devise_controller?
 
 end

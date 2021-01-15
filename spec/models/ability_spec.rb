@@ -31,7 +31,6 @@ describe Ability do
 
     it { should be_able_to :create, Question }
     it { should be_able_to :create, Answer }
-    it { should be_able_to :create, Comment }
 
     it { should be_able_to :update, create(:question, user: user) }
     it { should_not be_able_to :update, create(:question, user: other_user) }
@@ -63,13 +62,10 @@ describe Ability do
 
     it { should be_able_to :index, Reward }
 
-    it { should be_able_to :thumb_up, another_question }
-    it { should_not be_able_to :thumb_up, question }
+    it { should be_able_to :vote, another_question }
+    it { should_not be_able_to :vote, question }
 
-    it { should be_able_to :thumb_down, another_question }
-    it { should_not be_able_to :thumb_down, question }
-
-    it { should be_able_to :cancel_voice, another_question }
-    it { should_not be_able_to :cancel_voice, question }
+    it { should be_able_to :vote, another_answer }
+    it { should_not be_able_to :vote, answer }
   end
 end

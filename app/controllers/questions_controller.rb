@@ -36,15 +36,15 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if current_user.author?(@question)
+    # if current_user.author?(@question)
       if @question.update(question_params)
         redirect_to @question
       else
         render :edit
       end
-    else
-      redirect_to @question
-    end
+    # else
+    #   redirect_to @question
+    # end
   end
 
   def destroy

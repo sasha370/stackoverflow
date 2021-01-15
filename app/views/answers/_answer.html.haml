@@ -8,15 +8,16 @@
             = render 'rewards/reward', resource: answer.question.reward
         .row.mx-auto
           - if answer.persisted?
-            - if current_user&.author?(answer.question)
+            - if can?( :choose_best, answer )
               = link_to ' Make best ', choose_best_answer_path(answer), method: :put, remote: true,
-              class: 'best_link', id: "best_#{answer.id}"
-            - if current_user&.author?(answer)
+                class: 'best_link', id: "best_#{answer.id}"
+            -  if can?( :update, answer )
               |
               = link_to ' Edit', '#', class: 'edit_link', id: "#{answer.id}"
+            - if can?( :destroy, answer )
               |
               = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
-               class: 'delete_link', id: "#{answer.id}"
+              class: 'delete_link', id: "#{answer.id}"
 
       .col-10
         = answer.body
@@ -35,7 +36,7 @@
             = render 'comments/form', resource: answer
 
 
-  - if  current_user&.author?(answer)
+  - if can?( :update, answer )
     = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
       .answer-errors{id: "errors_#{answer.id}"}
         = render 'shared/error', resource: answer
