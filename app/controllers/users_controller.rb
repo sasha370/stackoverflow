@@ -11,7 +11,8 @@ class UsersController < ApplicationController
         password: password,
         password_confirmation: password
     )
-    create_authorization({provider: session[:auth]['provider'], uid: session[:auth]['uid']}, user)
+    user.authorizations.create(provider: session[:auth]['provider'],  uid: session[:auth]['uid'])
+    # create_authorization({provider: session[:auth]['provider'], uid: session[:auth]['uid']}, user)
     redirect_to root_path, alert: 'Account create! Please confirm your Email!'
   end
 

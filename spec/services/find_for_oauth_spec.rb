@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FindForOauthService do
 
   let!(:user) { create(:user, email: 'jackson.keeling@example.com') }
-  let(:auth) { Faker::Omniauth.github }
+  let(:auth) { mock_auth_hash('test_provider', email: 'test@test.ru') }
 
   subject {FindForOauthService.new(auth)}
 
@@ -16,7 +16,7 @@ RSpec.describe FindForOauthService do
 
   context 'user has not authorization' do
     context 'user already exist' do
-      let!(:auth) { Faker::Omniauth.github }
+      let!(:auth) { mock_auth_hash('test_provider', email: 'test@test.ru')}
       let!(:user) { create(:user, email: auth[:info][:email]) }
 
       it 'does not create new user' do
@@ -41,7 +41,7 @@ RSpec.describe FindForOauthService do
   end
 
   context 'user does not exist' do
-    let!(:auth) { Faker::Omniauth.github }
+    let!(:auth) { mock_auth_hash('test_provider', email: 'test@test.ru')}
 
     it 'creates new user' do
       expect { subject.call }.to change(User, :count).by 1
