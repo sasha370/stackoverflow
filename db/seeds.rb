@@ -1,4 +1,4 @@
-admin = User.create!(email: 'admin@admin.ru', password: '123456', confirmed_at: Time.now)
+admin = User.create!(email: 'admin@admin.ru', password: '123456', confirmed_at: Time.now, admin: true)
 rewards = ['spec/fixtures/files/reward_1.jpg',
            'spec/fixtures/files/reward_2.jpg',
            'spec/fixtures/files/reward_3.jpg']
