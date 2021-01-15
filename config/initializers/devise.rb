@@ -278,7 +278,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2,
                   "#{Rails.application.credentials.dig(:google_oauth2, :app_id)}",
-                  "#{Rails.application.credentialsdig.dig(:google_oauth2, :app_secret)}",
+                  "#{Rails.application.credentials.dig(:google_oauth2, :app_secret)}",
                   scope: 'userinfo.email, userinfo.profile'
 
   config.omniauth :vkontakte,
