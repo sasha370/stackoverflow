@@ -16,7 +16,7 @@ class OauthCallbacksController < Devise::OmniauthCallbacksController
 
   def connect_to(provider)
     auth = request.env['omniauth.auth']
-    @user = User.find_for_oauth(auth)
+    @user = FindForOauthService.new(auth).call
 
     if @user&.persisted?
       sign_in_and_redirect @user, event: :authenticate

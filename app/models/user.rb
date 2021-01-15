@@ -19,12 +19,4 @@ class User < ApplicationRecord
   def voted?(resource)
     resource.ratings.exists?(user_id: id)
   end
-
-  def self.find_for_oauth(auth)
-    FindForOauthService.new(auth).call
-  end
-
-  def create_authorization(auth)
-    self.authorizations.create(provider: auth[:provider], uid: auth[:uid].to_s)
-  end
 end

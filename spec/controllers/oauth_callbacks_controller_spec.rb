@@ -7,27 +7,31 @@ RSpec.describe OauthCallbacksController, type: :controller do
 
   shared_examples_for 'providers' do |provider|
     describe '#{provider} test' do
-      let(:oauth_data) { {'provider' => provider, 'uid' => '123'} }
 
-      it 'finds user from oauth data' do
-        allow(request.env).to receive(:[]).and_call_original
-        allow(request.env).to receive(:[]).with('omniauth.auth').and_return(oauth_data)
-        expect(User).to receive(:find_for_oauth).with(oauth_data)
-        get provider.to_sym
-      end
+      let(:oauth_data) { {
+          'provider' => provider,
+          'uid' => '123545',
+          'info' => {
+              'email' => 'test@test.ru',
+          }} }
+      let(:oauth_data_without_email) { {
+          'provider' => provider,
+          'uid' => '123545'
+          } }
 
       context 'when user exist' do
-        let!(:user) { create(:user) }
+        let!(:user) { create(:user, email: 'test@test.ru') }
 
         before do
-          allow(User).to receive(:find_for_oauth).and_return(user)
+          allow(request.env).to receive(:[]).and_call_original
+          allow(request.env).to receive(:[]).with('omniauth.auth').and_return(oauth_data)
           get provider.to_sym
         end
 
         it 'login user if it exist' do
           expect(subject.current_user).to eq user
         end
-
+        #
         it 'redirect to root path' do
           expect(response).to redirect_to root_path
         end
@@ -35,16 +39,25 @@ RSpec.describe OauthCallbacksController, type: :controller do
 
       context 'user does not exist' do
         before do
-          allow(User).to receive(:find_for_oauth)
+          allow(request.env).to receive(:[]).and_call_original
+          allow(request.env).to receive(:[]).with('omniauth.auth').and_return(oauth_data)
           get provider.to_sym
         end
 
         it 'redirect to root path if user does not exist' do
           expect(response).to redirect_to root_path
         end
+      end
 
-        it 'does not login user if it does not exist' do
-          expect(subject.current_user).to_not be
+      context 'user does not exist and responce don`t have Email' do
+        before do
+          allow(request.env).to receive(:[]).and_call_original
+          allow(request.env).to receive(:[]).with('omniauth.auth').and_return(oauth_data_without_email)
+          get provider.to_sym
+        end
+
+        it 'redirect to get_email_path' do
+          expect(response).to redirect_to get_email_url
         end
       end
     end
