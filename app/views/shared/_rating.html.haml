@@ -5,11 +5,11 @@
 
   - if can?(:vote, resource)
     %span{class:  "rating_buttons_#{resource.name_id} #{current_user&.voted?(resource) ?  'hidden' : ''}"}
-      = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true, class: 'rating-link', id: "thumb_up_#{resource.class.name.downcase}_#{resource.id}" do
-        %i.fa.fa-thumbs-up
-      = link_to polymorphic_path(resource, action: :thumb_down),  method: :post, remote: true, class: 'rating-link', id: "thumb_down_#{resource.class.name.downcase}_#{resource.id}"  do
-        %i.fa.fa-thumbs-down
+      = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true, class: '', id: "thumb_up_#{resource.class.name.downcase}_#{resource.id}" do
+        %i.fa.fa-thumbs-up.rating-link
+      |
+      = link_to polymorphic_path(resource, action: :thumb_down),  method: :post, remote: true, class: '', id: "thumb_down_#{resource.class.name.downcase}_#{resource.id}"  do
+        %i.fa.fa-thumbs-down.rating-link
     %span{class:  "cancel_rating_#{resource.name_id} #{current_user&.voted?(resource) ? '': 'hidden'}"}
-      = link_to polymorphic_path(resource, action: :cancel_voice),  method: :post, remote: true, class: 'rating-link', id: "cancel_voice_#{resource.class.name.downcase}_#{resource.id}"  do
-        %i.fa.fa-ban
-
+      = link_to polymorphic_path(resource, action: :cancel_voice),  method: :post, remote: true, class: '', id: "cancel_voice_#{resource.class.name.downcase}_#{resource.id}"  do
+        %i.fa.fa-ban.rating-link
