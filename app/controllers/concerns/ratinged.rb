@@ -7,24 +7,18 @@ module Ratinged
   end
 
   def thumb_up
-    unless current_user.author?(@ratinged)
       @ratinged.vote_plus(current_user)
       json_template
-    end
   end
 
   def thumb_down
-    unless current_user.author?(@ratinged)
       @ratinged.vote_minus(current_user)
       json_template
-    end
   end
 
   def cancel_voice
-    unless current_user.author?(@ratinged)
       @ratinged.cancel_voice(current_user)
       json_template
-    end
   end
 
   private

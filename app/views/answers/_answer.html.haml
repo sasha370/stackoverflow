@@ -31,7 +31,7 @@
         %hr
         = render 'comments/comments', resource: answer
         .mt-1.text-right
-          - if current_user
+          - if can?( :add_comment, answer)
             = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
             = render 'comments/form', resource: answer
 

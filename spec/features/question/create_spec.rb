@@ -32,7 +32,7 @@ feature 'User can create question', %q{
     scenario 'ask a question with attached files' do
       fill_in 'question[title]', with: 'Test question'
       fill_in 'question[body]', with: 'text text text'
-      attach_file 'question[files][]', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+      attach_file 'question[files][]', ["spec/rails_helper.rb", "spec/spec_helper.rb"]
       click_on 'Ask'
 
       expect(page).to have_link 'rails_helper.rb'
@@ -73,6 +73,6 @@ feature 'User can create question', %q{
   scenario 'UnAuth user tried asks a question' do
     visit questions_path
     click_on 'Ask question'
-    expect(page).to have_content 'You need to sign in or sign up before continuing.'
+    expect(page).to have_content 'You are not authorized to access this page.'
   end
 end

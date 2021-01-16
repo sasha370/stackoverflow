@@ -14,6 +14,8 @@ class Ability
 
   def guest_abilities
     can :read, :all
+    can :get_email, User
+    can :set_email, User
   end
 
   def admin_abilities
@@ -24,15 +26,13 @@ class Ability
     guest_abilities
     can :create, [Question, Answer]
     can :update, [Question, Answer], user_id: user.id
-
-    can :destroy, [Question, Answer], user: user
-
-    can :add_comment, Question
-    can :destroy_comment, Comment, user_id: user.id
-
+    can :destroy, [Question, Answer], user_id: user.id
     can :choose_best, Answer do |answer|
       user.author?(answer.question)
     end
+
+    can :add_comment, [Question, Answer]
+    can :destroy_comment, Comment, user_id: user.id
 
     alias_action :thumb_up, :thumb_down, :cancel_voice, to: :vote
 
@@ -42,5 +42,6 @@ class Ability
 
     can :index, Reward
 
+    can :destroy, ActiveStorage::Attachment, record: {user_id: user.id}
   end
 end

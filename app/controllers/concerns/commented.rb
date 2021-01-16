@@ -4,7 +4,9 @@ module Commented
   included do
     before_action :authenticate_user!
     before_action :setup_resource, only: [:add_comment]
+    before_action :set_comment, only: [:destroy_comment]
     after_action :publish_comment, only: [:add_comment]
+    skip_load_and_authorize_resource only: [:destroy_comment]
   end
 
   def add_comment
@@ -20,11 +22,9 @@ module Commented
   end
 
   def destroy_comment
-    @comment = Comment.find(params[:comment_id])
-    if current_user.author?(@comment)
-      @comment.destroy
-      render partial: 'comments/destroy_comment', layout: false
-    end
+    authorize! :destroy_comment, @comment
+    @comment.destroy
+    render partial: 'comments/destroy_comment', layout: false
   end
 
   private
@@ -48,5 +48,9 @@ module Commented
         comment: @comment,
         user: current_user.email
     )
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:comment_id])
   end
 end

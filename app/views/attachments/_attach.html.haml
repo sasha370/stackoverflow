@@ -4,7 +4,7 @@
   - resource.files.each do |file|
     %em{id: "attached_file_#{file.id}"}
       = link_to file.filename.to_s, url_for(file)
-      - if current_user&.author?(resource) && current_page?(action:'edit')
+      - if can?(:update, resource) && current_page?(action:'edit')
         = link_to 'Delete', attachment_url(file.id), { method: :delete,
                                                      data: { confirm: 'Are you sure?' },
                                                      id: "delete_link_#{file.id}",

@@ -37,7 +37,7 @@ I`d like to be able to edit my question
     scenario 'edit a question with attached files' do
       fill_in 'question[title]', with: 'Test question'
       fill_in 'question[body]', with: 'text text text'
-      attach_file 'question[files][]', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+      attach_file 'question[files][]', ["spec/rails_helper.rb", "spec/spec_helper.rb"]
       click_on 'Ask'
 
       expect(page).to have_link 'rails_helper.rb'
@@ -57,6 +57,6 @@ I`d like to be able to edit my question
   scenario 'UnAuth can not edit answer' do
     sign_in(another_user)
     visit edit_question_path(question)
-    expect(page).to_not have_link 'Ask'
+    expect(page).to have_content 'You are not authorized to access this page.'
   end
 end

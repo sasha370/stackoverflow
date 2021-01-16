@@ -3,7 +3,7 @@
   %span{id: "rating_#{resource.name_id}"}
     =  resource.rating || '0'
 
-  - if current_user && !current_user&.author?(resource)
+  - if can?(:vote, resource)
     %span{class:  "rating_buttons_#{resource.name_id} #{current_user&.voted?(resource) ?  'hidden' : ''}"}
       = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true, class: 'rating-link', id: "thumb_up_#{resource.class.name.downcase}_#{resource.id}" do
         %i.fa.fa-thumbs-up
