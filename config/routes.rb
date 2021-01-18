@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
+  namespace :api do
+    namespace :v1 do
+      resources :profiles, only: [] do
+        get :me, on: :collection
+      end
+    end
+  end
+
   devise_for :users, controllers: {omniauth_callbacks: 'oauth_callbacks'}
 
   get '/user/get_email', to: 'users#get_email', as: 'get_email'
@@ -16,7 +26,6 @@ Rails.application.routes.draw do
       post :thumb_down
     end
   end
-
 
   concern :commentable do
     member do
