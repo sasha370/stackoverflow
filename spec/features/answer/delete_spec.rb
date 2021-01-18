@@ -14,6 +14,7 @@ I want to be able to delete it
     sign_in(user)
     visit question_path(question)
     click_link(class: 'delete_link', id: answer.id)
+    accept_alert
 
     expect(page).to have_no_content answer.body
   end

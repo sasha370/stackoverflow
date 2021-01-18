@@ -82,9 +82,9 @@ RSpec.describe AnswersController, type: :controller do
         end.to_not change(answer, :body)
       end
 
-      it 'render update view' do
+      it 'redirect to root' do
         patch :update, params: { id: answer, answer: attributes_for(:answer) }, format: :js
-        expect(response).to render_template :update
+        expect(response.status).to eq 403
       end
     end
   end

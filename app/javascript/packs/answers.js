@@ -1,5 +1,7 @@
 document.addEventListener('turbolinks:load', function () {
+
   let el = document.getElementById('answers')
+
   if (el) {
     el.addEventListener('click', setter);
   }

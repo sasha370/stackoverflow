@@ -8,10 +8,8 @@ class AnswersController < ApplicationController
   after_action :publish_answer, only: [:create]
 
   def update
-    if current_user.author?(@answer)
-      @answer.update(answer_params)
-      @question = @answer.question
-    end
+    @answer.update(answer_params)
+    @question = @answer.question
   end
 
   def create
@@ -27,11 +25,11 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer.destroy if current_user.author?(@answer)
+    @answer.destroy
   end
 
   def choose_best
-    @answer.set_best if current_user.author?(@answer.question)
+    @answer.set_best
   end
 
   private
@@ -42,7 +40,8 @@ class AnswersController < ApplicationController
         "answers_question_#{@answer.question_id}",
         answer: @answer,
         links: @answer.links,
-        attachments: set_attachments(@answer)
+        attachments: set_attachments(@answer),
+        author: @answer.user.email
     )
   end
 

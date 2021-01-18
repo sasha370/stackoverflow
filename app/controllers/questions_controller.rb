@@ -36,24 +36,16 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if current_user.author?(@question)
       if @question.update(question_params)
         redirect_to @question
       else
         render :edit
       end
-    else
-      redirect_to @question
-    end
   end
 
   def destroy
-    if current_user.author?(@question)
       @question.destroy
       redirect_to questions_path, notice: 'Question was successfully deleted.'
-    else
-      redirect_to @question, alert: 'Your have`n permission for this action'
-    end
   end
 
   private

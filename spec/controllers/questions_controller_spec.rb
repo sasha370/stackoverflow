@@ -164,7 +164,7 @@ RSpec.describe QuestionsController, type: :controller do
 
       it 'redirect to question' do
         patch :update, params: { id: question, question: { title: 'TitleTest_another', body: 'BodyTest_another' } }
-        expect(response).to redirect_to question
+        expect(response).to redirect_to root_path
       end
     end
   end
@@ -190,7 +190,7 @@ RSpec.describe QuestionsController, type: :controller do
 
       it 'redirect to question' do
         delete :destroy, params: { id: question }
-        expect(response).to redirect_to question_path(question)
+        expect(response).to redirect_to root_path
       end
     end
   end

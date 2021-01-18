@@ -25,14 +25,15 @@
       = render 'shared/link', resource: @question
       = render 'attachments/attach', resource: @question
 
-    - if current_user&.author?(@question)
+    - if can?(:update, @question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
-      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
+    - if can?(:destroy, @question)
+      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
     %hr/
 
     = render 'comments/comments', resource: @question
     %br/
-    - if current_user
+    - if can?(:add_comment, @question)
       = render 'comments/form', resource: @question
 
     %h4.text-center
@@ -43,7 +44,7 @@
           = render answer
     %hr/
 
-    - if current_user
+    - if can?(:create, @answer)
       .container.border.border-success.p-2.bg-light
         = render 'answers/form'
     - else

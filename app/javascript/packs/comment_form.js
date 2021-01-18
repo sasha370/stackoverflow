@@ -1,15 +1,19 @@
 document.addEventListener('turbolinks:load', function () {
-  let commentButtons = document.querySelectorAll('.add_commit_btn');
 
-  if (commentButtons) {
-    commentButtons.forEach((btn) => {
-      btn.addEventListener('click', removeBtn)
-    })
-  }
+  let el = document.getElementById('answers')
 
-  function removeBtn(e) {
-    e.target.nextElementSibling.classList.remove('hidden')
-    e.target.classList.add('hidden')
-    e.preventDefault()
-  }
+  if (el) {
+    el.addEventListener('click', setter);
+    }
+
+  function setter(e){
+    if (e.target.classList.contains('add_commit_btn')) {
+      removeBtn(e)
+    }}
+
+    function removeBtn(e) {
+      e.target.nextElementSibling.classList.remove('hidden')
+      e.target.classList.add('hidden')
+      e.preventDefault()
+    }
 })

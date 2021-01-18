@@ -6,17 +6,17 @@
           = render 'shared/rating', resource: answer
           - if answer.best
             = render 'rewards/reward', resource: answer.question.reward
-        .row.mx-auto
+        .mx-auto
           - if answer.persisted?
-            - if current_user&.author?(answer.question)
+            - if can?( :choose_best, answer )
               = link_to ' Make best ', choose_best_answer_path(answer), method: :put, remote: true,
-              class: 'best_link', id: "best_#{answer.id}"
-            - if current_user&.author?(answer)
-              |
-              = link_to ' Edit', '#', class: 'edit_link', id: "#{answer.id}"
-              |
+                class: 'best_link', id: "best_#{answer.id}"
+            %br/
+            -  if can?( :update, answer )
+              = link_to ' Edit', '#', class: 'edit_link btn btn-outline-warning btn-sm', id: "#{answer.id}"
+            - if can?( :destroy, answer )
               = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
-               class: 'delete_link', id: "#{answer.id}"
+              class: 'delete_link btn btn-outline-danger btn-sm', id: "#{answer.id}", data: { confirm: 'Are you sure?'}
 
       .col-10
         = answer.body
@@ -24,18 +24,24 @@
           = render 'shared/link', resource: answer
         #answer_attached_
           = render 'attachments/attach', resource: answer
+        .small.text-right
+          %span.font-weight-bold
+            = answer.user.email
+          |
+          = time_ago_in_words(answer.created_at)
+          ago
     .row
       .col-2
       .col-10
         %hr
         = render 'comments/comments', resource: answer
         .mt-1.text-right
-          - if current_user
+          - if can?( :add_comment, answer)
             = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
             = render 'comments/form', resource: answer
 
 
-  - if  current_user&.author?(answer)
+  - if can?( :update, answer )
     = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
       .answer-errors{id: "errors_#{answer.id}"}
         = render 'shared/error', resource: answer

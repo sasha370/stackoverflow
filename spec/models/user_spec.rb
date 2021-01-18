@@ -12,14 +12,6 @@ RSpec.describe User, type: :model do
     let!(:question) { create(:question, user: user) }
     let(:another_user) { create(:user) }
 
-    it 'should be correct if user is author' do
-      expect(user.author?(question)).to eq(true)
-    end
-
-    it 'shouldn`t not be correct if user are not author' do
-      expect(another_user.author?(question)).to eq(false)
-    end
-
     it 'already add voice for resource' do
       question.vote_plus(user)
       expect(user.voted?(question)).to eq true

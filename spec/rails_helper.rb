@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'webdrivers'
 require 'capybara/email/rspec'
+require 'cancan/matchers'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
@@ -33,8 +34,7 @@ Capybara.register_driver :windows_chrome do |app|
       'goog:chromeOptions': {args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor )})
   Capybara::Selenium::Driver.new(app, browser: :chrome,
                                  # url: 'http://localhost:9515', # remove for NON Windows
-                                 desired_capabilities: capabilities
-  )
+                                 desired_capabilities: capabilities  )
 end
 
 RSpec.configure do |config|
@@ -54,7 +54,8 @@ RSpec.configure do |config|
   config.include ActiveStorageHelpers
   config.include OmniauthHelpers
 
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{Rails.root}/spec/fixtures"
+
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.include Capybara::DSL
