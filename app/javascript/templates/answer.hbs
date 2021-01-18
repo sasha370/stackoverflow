@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-10">
         {{answer.body}}
         <ul>
           <div class="links_list">
@@ -41,15 +41,20 @@
           <br/>
           {{/each}}
         </div>
-      </div>
-      <div class="col-2 ml_auto">
-        <div class="row">
+        <div class="small text-right">
+          <span class="font-weight-bold">
+          {{this.author}}
+          </span>
+          |
+          1 minute
+          ago
         </div>
       </div>
-    </div>
+      </div>
     <div class="row">
       <div class="col-2"></div>
       <div class="col-10">
+        <hr/>
         <ul id="answer_{{answer.id}}_comments">
         </ul>
         <div class="mt-1 text-right">

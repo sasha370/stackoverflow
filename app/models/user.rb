@@ -12,10 +12,6 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :authorizations, dependent: :destroy
 
-  def author?(resource)
-    id == resource.user_id
-  end
-
   def voted?(resource)
     resource.ratings.exists?(user_id: id)
   end

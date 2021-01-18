@@ -28,7 +28,7 @@
     - if can?(:update, @question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
     - if can?(:destroy, @question)
-      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger'
+      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
     %hr/
 
     = render 'comments/comments', resource: @question

@@ -8,8 +8,8 @@ class AnswersController < ApplicationController
   after_action :publish_answer, only: [:create]
 
   def update
-      @answer.update(answer_params)
-      @question = @answer.question
+    @answer.update(answer_params)
+    @question = @answer.question
   end
 
   def create
@@ -40,7 +40,8 @@ class AnswersController < ApplicationController
         "answers_question_#{@answer.question_id}",
         answer: @answer,
         links: @answer.links,
-        attachments: set_attachments(@answer)
+        attachments: set_attachments(@answer),
+        author: @answer.user.email
     )
   end
 

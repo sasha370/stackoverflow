@@ -28,7 +28,7 @@ class Ability
     can :update, [Question, Answer], user_id: user.id
     can :destroy, [Question, Answer], user_id: user.id
     can :choose_best, Answer do |answer|
-      user.author?(answer.question)
+      answer.question.user_id == user.id
     end
 
     can :add_comment, [Question, Answer]
