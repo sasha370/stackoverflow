@@ -2,11 +2,7 @@ class Api::V1::BaseController < ApplicationController
   skip_load_and_authorize_resource
 
   before_action :doorkeeper_authorize!
-  authorize_resource
-
-  def me
-    render json: current_resource_owner
-  end
+  # load_and_authorize_resource
 
   protected
 

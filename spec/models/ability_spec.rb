@@ -11,6 +11,8 @@ describe Ability do
     it { should be_able_to :read, Comment }
     it { should be_able_to :get_email, User }
     it { should be_able_to :set_email, User }
+    # it { should be_able_to :me_api_v1_profiles, User }  TODO
+    # it { should be_able_to :api_v1_profiles, User }
 
     it { should_not be_able_to :manage, :all }
   end

@@ -44,6 +44,8 @@ class Ability
 
     can :destroy, ActiveStorage::Attachment, record: {user_id: user.id}
 
-    can :me, User
+    #API
+    can :me_api_v1_profiles, User
+    can :api_v1_profiles, User
   end
 end
