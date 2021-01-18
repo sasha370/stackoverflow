@@ -27,6 +27,8 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-twitter'
 gem 'cancancan'
 gem 'doorkeeper'
+gem 'active_model_serializers'
+gem 'oj'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
