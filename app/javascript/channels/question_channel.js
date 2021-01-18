@@ -8,8 +8,11 @@ $(document).on('turbolinks:load', function () {
 
     consumer.subscriptions.create("QuestionChannel", {
       received(data) {
-        var result = template(data);
-        document.getElementById('questions').innerHTML += result
+        let result = template(data);
+        let questions = document.getElementById('questions')
+        if (questions) {
+          questions.innerHTML += result
+        }
       }
     });
   }
