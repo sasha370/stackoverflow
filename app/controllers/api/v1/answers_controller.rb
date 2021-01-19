@@ -24,6 +24,21 @@ class Api::V1::AnswersController < Api::V1::BaseController
     end
   end
 
+  def update
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      render json: @answer
+    else
+      head 422
+    end
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    head :ok
+  end
+
   private
 
   def answer_params

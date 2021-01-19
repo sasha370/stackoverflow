@@ -128,14 +128,90 @@ describe 'Questions API', type: :request do
 
       context 'with incorrect data' do
 
-        before { post api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers}
+        before { post api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers }
 
         it 'don`t save question in DB' do
-          expect { post api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers}.to_not change(Answer, :count)
+          expect { post api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers }.to_not change(Answer, :count)
         end
 
         it 'return 422 status' do
           expect(response).to have_http_status(422)
+        end
+      end
+    end
+  end
+
+  describe 'PATCH /api/v1/answers/:id' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question) }
+    let!(:answer) { create(:answer, question: question, user: user) }
+
+    let(:api_path) { "/api/v1/answers/#{answer.id}" }
+
+    it_behaves_like 'API Authorizable' do
+      let(:method) { :patch }
+    end
+
+    context 'authorized' do
+      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
+      let(:answer_response) { json['answer'] }
+      let(:answer_attr) { {body: 'New Body'} }
+      let(:answer_attr_incorrect) { {body: ''} }
+
+      context 'with correct data' do
+        before { patch api_path, params: {answer: answer_attr, access_token: access_token.token}, headers: headers }
+
+        it 'return 200 status' do
+          expect(response).to be_successful
+        end
+
+        it 'return correct answer' do
+          expect(['answer'].size).to eq 1
+          expect(answer_response['id']).to eq answer.id
+        end
+
+        it 'returns correct fields' do
+          expect(answer_response['body']).to eq answer_attr[:body]
+        end
+      end
+
+      context 'with incorrect data' do
+        before {  patch api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers }
+
+        it 'don`t save question in DB' do
+          expect {  patch api_path, params: {answer: answer_attr_incorrect, access_token: access_token.token}, headers: headers}.to_not change(Answer, :count)
+        end
+
+        it 'return 422 status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+    end
+  end
+
+  describe 'DESTROY /api/v1/answers/:id' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question, user: user) }
+    let!(:answer) { create(:answer, question: question, user: user) }
+
+    let(:api_path) { "/api/v1/answers/#{answer.id}" }
+
+    it_behaves_like 'API Authorizable' do
+      let(:method) { :delete }
+    end
+
+    context 'authorized' do
+      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
+
+      context 'with correct data' do
+
+        it 'return 200 status' do
+          delete api_path, params: { access_token: access_token.token}, headers: headers
+          expect(response).to be_successful
+        end
+
+        it 'delete question in DB' do
+          expect { delete api_path, params: { access_token: access_token.token}, headers: headers }.to change(Answer, :count).by(-1)
         end
       end
     end

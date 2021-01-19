@@ -213,12 +213,12 @@ describe 'Questions API', type: :request do
       context 'with correct data' do
 
         it 'return 200 status' do
-          delete api_path, params: {question: question, access_token: access_token.token}, headers: headers
+          delete api_path, params: { access_token: access_token.token}, headers: headers
           expect(response).to be_successful
         end
 
         it 'delete question in DB' do
-          expect { delete api_path, params: {question: question, access_token: access_token.token}, headers: headers }.to change(Question, :count).by(-1)
+          expect { delete api_path, params: { access_token: access_token.token}, headers: headers }.to change(Question, :count).by(-1)
         end
       end
     end
