@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function () {
 
-  let el = document.getElementById('answers')
+  let el = document.getElementById('question_card')
 
   if (el) {
     el.addEventListener('click', setter);

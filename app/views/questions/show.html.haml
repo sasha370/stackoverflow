@@ -1,4 +1,4 @@
-.card
+.card#question_card
   .card-header
     .card-title
       .row
@@ -33,7 +33,8 @@
 
     = render 'comments/comments', resource: @question
     %br/
-    - if can?(:add_comment, @question)
+    - if can?( :add_comment, @question)
+      = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
       = render 'comments/form', resource: @question
 
     %h4.text-center

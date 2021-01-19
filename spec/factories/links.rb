@@ -13,4 +13,16 @@ FactoryBot.define do
       url { "https://gist.github.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43.js" }
     end
   end
+
+  factory :question_link, class: "Link" do
+    name { "gist_url" }
+    url { "https://gist.githu0b.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43" }
+    linkable_type { "Question" }
+  end
+
+  factory :answer_link, class: "Link" do
+    name { "gist_url" }
+    url { "https://gist.githu0b.com/sasha370/370381473ad4e3cd5fc9eda5691b3c43" }
+    linkable_type { "Answer" }
+  end
 end

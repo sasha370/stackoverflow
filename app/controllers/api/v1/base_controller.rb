@@ -1,8 +1,11 @@
-class Api::V1::BaseController < ApplicationController
-  skip_load_and_authorize_resource
+class Api::V1::BaseController < ActionController::Base
 
   before_action :doorkeeper_authorize!
-  # load_and_authorize_resource
+  authorize_resource
+
+  rescue_from CanCan::AccessDenied do
+    head :forbidden
+  end
 
   protected
 
