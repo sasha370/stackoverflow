@@ -1,7 +1,6 @@
 class Api::V1::BaseController < ActionController::Base
 
   before_action :doorkeeper_authorize!
-  authorize_resource
 
   rescue_from CanCan::AccessDenied do
     head :forbidden

@@ -18,18 +18,20 @@ feature 'User can create comment', %q{
     end
 
     scenario 'to question' do
+      within(id: "question_comments") do
         click_link 'Add comment'
         fill_in id: "comment_body", with: 'My comment'
         click_on 'Commit'
-
+      end
       expect(page).to have_content 'My comment'
     end
 
     scenario 'to answer' do
+      within(class: "answer_comments") do
         click_link 'Add comment'
         fill_in id: "comment_body", with: 'My comment for answer'
         click_on 'Commit'
-
+      end
       expect(page).to have_content 'My comment for answer'
     end
   end
@@ -48,15 +50,17 @@ feature 'User can create comment', %q{
       end
 
       Capybara.using_session('user') do
-        click_link 'Add comment'
+        within(id: "question_comments") do
+          click_link 'Add comment'
           fill_in id: "comment_body", with: 'My comment'
           click_on 'Commit'
+        end
 
         expect(page).to have_content 'My comment'
       end
 
       Capybara.using_session('another_user') do
-        expect(page).to have_content( 'My comment').once
+        expect(page).to have_content('My comment').once
       end
     end
   end

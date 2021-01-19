@@ -46,7 +46,6 @@ group :development do
   gem "binding_of_caller"
   gem 'guard'
   gem 'guard-rspec', require: false
-  gem "letter_opener"
 end
 
 group :test do
