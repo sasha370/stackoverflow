@@ -1,4 +1,7 @@
 require 'rails_helper'
+require_relative './shared/api_authorization'
+require_relative './shared/api_destroy'
+require_relative './shared/api_update'
 
 describe 'Questions API', type: :request do
 
@@ -6,10 +9,10 @@ describe 'Questions API', type: :request do
 
   describe 'GET /api/v1/questions' do
     let(:api_path) { '/api/v1/questions' }
+    let(:method_name) { :get }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :get }
-    end
+    it_behaves_like 'API Authorizer'
+
 
     context 'authorized' do
       let(:access_token) { create(:access_token) }
@@ -43,8 +46,8 @@ describe 'Questions API', type: :request do
     let!(:question) { create(:question, :with_file) }
     let(:api_path) { "/api/v1/questions/#{question.id}" }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :get }
+    it_behaves_like 'API Authorizer' do
+      let(:method_name) { :get }
     end
 
     context 'authorized' do
@@ -53,7 +56,7 @@ describe 'Questions API', type: :request do
       let!(:answers) { create_list(:answer, 3, question: question) }
       let!(:comments) { create_list(:comment, 3, commentable_type: 'Question', commentable_id: question.id) }
 
-      before { get api_path, params: { access_token: access_token.token}, headers: headers }
+      before { get api_path, params: {access_token: access_token.token}, headers: headers }
 
       it 'return 200 status' do
         expect(response).to be_successful
@@ -96,131 +99,50 @@ describe 'Questions API', type: :request do
   end
 
   describe 'POST /api/v1/questions' do
+    let(:user) { create(:user) }
+    let(:access_token) { create(:access_token, resource_owner_id: user.id) }
     let(:api_path) { "/api/v1/questions" }
+    let(:method_name) { :post }
+    let(:resource) { 'question' }
+    let(:resource_attr_incorrect) { {title: '', body: ''} }
+    let(:model) { Question }
+    let(:resource_attr) { attributes_for(resource.to_sym) }
+    let(:resource_response) { json[resource] }
+    let(:attributes) { %w[title body] }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :post }
-    end
+    it_behaves_like 'API Authorizer'
+    it_behaves_like 'API Updatable'
 
-    context 'authorized' do
-      let(:user) { create(:user) }
-      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
-      let(:question_responce) { json['question'] }
-      let(:question_attr) { attributes_for(:question) }
-      let(:question_attr_incorrect) { {title: '', body: ''} }
-
-      context 'with correct data' do
-        before { post api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }
-
-        it 'return 200 status' do
-          expect(response).to be_successful
-        end
-
-        it 'save question in DB' do
-          expect { post api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }.to change(Question, :count).by(1)
-        end
-
-        it 'return questions' do
-          expect(['question'].size).to eq 1
-        end
-
-        it 'return questions with correct user' do
-          expect(question_responce['user']['id']).to eq user.id
-        end
-
-        it 'returns correct fields' do
-          expect(question_responce['title']).to eq question_attr[:title]
-          expect(question_responce['body']).to eq question_attr[:body]
-        end
-      end
-
-      context 'with incorrect data' do
-
-        before { post api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }
-
-        it 'don`t save question in DB' do
-          expect { post api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }.to_not change(Question, :count)
-        end
-
-        it 'return 422 status' do
-          expect(response).to have_http_status(422)
-        end
-      end
+    it 'save resource in DB' do
+      expect { do_request(method_name, api_path, params: {resource => resource_attr, access_token: access_token.token}, headers: headers) }.to change(model, :count).by(1)
     end
   end
 
   describe 'PATCH /api/v1/questions/:id' do
     let(:user) { create(:user) }
+    let(:access_token) { create(:access_token, resource_owner_id: user.id) }
     let!(:question) { create(:question, user: user) }
-
+    let(:method_name) { :patch }
+    let(:resource) { 'question' }
     let(:api_path) { "/api/v1/questions/#{question.id}" }
+    let(:model) { Question }
+    let(:resource_attr) { {title: 'New Title', body: 'New body'} }
+    let(:resource_response) { json[resource] }
+    let(:resource_attr_incorrect) { {title: '', body: ''} }
+    let(:attributes) { %w[title body] }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :patch }
-    end
-
-    context 'authorized' do
-      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
-      let(:question_responce) { json['question'] }
-      let(:question_attr) { {title: 'New Title'} }
-      let(:question_attr_incorrect) { {title: ''} }
-
-      context 'with correct data' do
-        before { patch api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }
-
-        it 'return 200 status' do
-          expect(response).to be_successful
-        end
-
-        it 'return correct questions' do
-          expect(['question'].size).to eq 1
-          expect(question_responce['id']).to eq question.id
-        end
-
-        it 'returns correct fields' do
-          expect(question_responce['title']).to eq question_attr[:title]
-        end
-      end
-
-      context 'with incorrect data' do
-
-        before { patch api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }
-
-        it 'don`t save question in DB' do
-          expect { patch api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }.to_not change(Question, :count)
-        end
-
-        it 'return 422 status' do
-          expect(response).to have_http_status(422)
-        end
-      end
-    end
+    it_behaves_like 'API Authorizer'
+    it_behaves_like 'API Updatable'
   end
 
   describe 'DESTROY /api/v1/questions/:id' do
     let(:user) { create(:user) }
     let!(:question) { create(:question, user: user) }
-
+    let!(:model) { Question }
+    let(:method_name) { :delete }
     let(:api_path) { "/api/v1/questions/#{question.id}" }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :delete }
-    end
-
-    context 'authorized' do
-      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
-
-      context 'with correct data' do
-
-        it 'return 200 status' do
-          delete api_path, params: { access_token: access_token.token}, headers: headers
-          expect(response).to be_successful
-        end
-
-        it 'delete question in DB' do
-          expect { delete api_path, params: { access_token: access_token.token}, headers: headers }.to change(Question, :count).by(-1)
-        end
-      end
-    end
+    it_behaves_like 'API Authorizer'
+    it_behaves_like 'API Destroyable'
   end
 end

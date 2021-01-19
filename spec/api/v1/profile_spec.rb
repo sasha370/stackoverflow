@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative './shared/api_authorization'
 
 describe 'Profiles API', type: :request do
 
@@ -7,10 +8,10 @@ describe 'Profiles API', type: :request do
 
   describe 'GET /api/v1/profiles/me' do
     let(:api_path) { '/api/v1/profiles/me' }
+    let(:method_name) { :get }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :get }
-    end
+    it_behaves_like 'API Authorizer'
+
 
     context 'authorized' do
       let!(:me) { create(:user) }
@@ -38,10 +39,9 @@ describe 'Profiles API', type: :request do
 
   describe 'GET /api/v1/profiles' do
     let(:api_path) { '/api/v1/profiles' }
+    let(:method_name) { :get }
 
-    it_behaves_like 'API Authorizable' do
-      let(:method) { :get }
-    end
+    it_behaves_like 'API Authorizer'
 
     context 'authorized' do
       let(:me) { create(:user) }
