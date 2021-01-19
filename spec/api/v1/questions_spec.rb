@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'Questions API', type: :request do
 
-  let(:headers) { {'CONTENT_TYPE' => 'application/json',
-                   'ACCEPT' => 'application/json'} }
+  let(:headers) { {'ACCEPT' => 'application/json'} }
 
   describe 'GET /api/v1/questions' do
     let(:api_path) { '/api/v1/questions' }
@@ -40,7 +39,7 @@ describe 'Questions API', type: :request do
     end
   end
 
-  describe 'GET /api/v1/questions' do
+  describe 'GET /api/v1/questions/:id' do
     let!(:question) { create(:question, :with_file) }
     let(:api_path) { "/api/v1/questions/#{question.id}" }
 
@@ -60,7 +59,7 @@ describe 'Questions API', type: :request do
         expect(response).to be_successful
       end
 
-      it 'return list of questions' do
+      it 'return question' do
         expect(['question'].size).to eq 1
       end
 
@@ -77,7 +76,7 @@ describe 'Questions API', type: :request do
       it 'contains list of answers' do
         expect(question_responce['answers'].size).to eq question.answers.count
         expect(question_responce['answers'].first['id']).to eq question.answers.first.id
-        end
+      end
 
       it 'contains list of links' do
         expect(question_responce['links'].size).to eq question.links.count
@@ -93,24 +92,69 @@ describe 'Questions API', type: :request do
         expect(question_responce['comments'].size).to eq question.comments.count
         expect(question_responce['comments'].first['id']).to eq question.comments.first.id
       end
-
-
-
-      # describe 'answers' do
-      #   let(:answer) { answers.first }
-      #   let(:answer_response) { question_response['answers'].first }
-      #
-      #   it 'return list of answers' do
-      #     expect(question_response['answers'].size).to eq 3
-      #   end
-      #
-      #   it 'returns public fields' do
-      #     %w[id body user_id created_at updated_at].each do |attr|
-      #       expect(answer_response[attr]).to eq answer.send(attr).as_json
-      #     end
-      #   end
-      # end
     end
   end
 
+  describe 'POST /api/v1/questions' do
+    let(:api_path) { "/api/v1/questions" }
+
+    it_behaves_like 'API Authorizable' do
+      let(:method) { :post }
+    end
+
+    context 'authorized' do
+      let(:access_token) { create(:access_token) }
+      let(:question_responce) { json['question'] }
+      let(:question_attr) { attributes_for(:question) }
+      let(:question_attr_incorrect) { {title: '', body: ''} }
+
+      context 'with correct data' do
+        before { post api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }
+
+        it 'return 201 status' do
+          expect(response).to be_successful
+        end
+
+        it 'save question in DB' do
+          expect { post api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }.to change(Question, :count).by(1)
+        end
+
+        it 'return questions' do
+          expect(['question'].size).to eq 1
+        end
+
+        it 'returns correct fields' do
+          expect(question_responce['title']).to eq question_attr[:title]
+          expect(question_responce['body']).to eq question_attr[:body]
+        end
+      end
+
+      context 'with incorrect data' do
+
+        before { post api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }
+
+        it 'don`t save question in DB' do
+          expect { post api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }.to_not change(Question, :count)
+        end
+
+        it 'return 422 status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+    end
+  end
 end
+# describe 'answers' do
+#   let(:answer) { answers.first }
+#   let(:answer_response) { question_response['answers'].first }
+#
+#   it 'return list of answers' do
+#     expect(question_response['answers'].size).to eq 3
+#   end
+#
+#   it 'returns public fields' do
+#     %w[id body user_id created_at updated_at].each do |attr|
+#       expect(answer_response[attr]).to eq answer.send(attr).as_json
+#     end
+#   end
+# end
