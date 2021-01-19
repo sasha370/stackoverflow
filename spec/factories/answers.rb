@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :answer do
     body { "My Answer" }
+    best { false }
     question
     user
 

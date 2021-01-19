@@ -1,5 +1,4 @@
 class Api::V1::BaseController < ActionController::Base
-
   before_action :doorkeeper_authorize!
 
   rescue_from CanCan::AccessDenied do

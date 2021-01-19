@@ -1,5 +1,5 @@
 shared_examples_for 'API Updatable' do
-
+  let(:resource_response) { json[resource] }
 
   context 'with correct data' do
     before { do_request(method_name, api_path, params: {resource => resource_attr, access_token: access_token.token}, headers: headers) }
@@ -22,12 +22,14 @@ shared_examples_for 'API Updatable' do
       end
     end
   end
+end
 
+shared_examples_for 'API NOT Updatable with another_user' do
   context 'with incorrect data' do
-    before { do_request(method_name, api_path, params: {resource.to_sym => resource_attr_incorrect, access_token: access_token.token}, headers: headers )}
+    before { do_request(method_name, api_path, params: {resource.to_sym => resource_attr_incorrect, access_token: access_token.token}, headers: headers) }
 
     it 'don`t save resource in DB' do
-      expect { do_request(method_name, api_path, params: {resource.to_sym => resource_attr_incorrect, access_token: access_token.token}, headers: headers )}.to_not change(model, :count)
+      expect { do_request(method_name, api_path, params: {resource.to_sym => resource_attr_incorrect, access_token: access_token.token}, headers: headers) }.to_not change(model, :count)
     end
 
     it 'return 422 status' do
