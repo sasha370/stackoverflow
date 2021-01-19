@@ -4,8 +4,8 @@ FactoryBot.define do
     body { "My Question Body" }
     user
 
-    after :create do |q|
-      create_list :question_link, 3, linkable_id: q.id
+    after :create do |question|
+      create_list :question_link, 3, linkable_id: question.id
     end
 
     trait :invalid do

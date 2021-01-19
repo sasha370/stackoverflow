@@ -53,7 +53,7 @@ describe 'Questions API', type: :request do
       let!(:answers) { create_list(:answer, 3, question: question) }
       let!(:comments) { create_list(:comment, 3, commentable_type: 'Question', commentable_id: question.id) }
 
-      before { get api_path, params: {id: question.id, access_token: access_token.token}, headers: headers }
+      before { get api_path, params: { access_token: access_token.token}, headers: headers }
 
       it 'return 200 status' do
         expect(response).to be_successful
@@ -224,17 +224,3 @@ describe 'Questions API', type: :request do
     end
   end
 end
-# describe 'answers' do
-#   let(:answer) { answers.first }
-#   let(:answer_response) { question_response['answers'].first }
-#
-#   it 'return list of answers' do
-#     expect(question_response['answers'].size).to eq 3
-#   end
-#
-#   it 'returns public fields' do
-#     %w[id body user_id created_at updated_at].each do |attr|
-#       expect(answer_response[attr]).to eq answer.send(attr).as_json
-#     end
-#   end
-# end
