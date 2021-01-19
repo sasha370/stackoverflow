@@ -103,7 +103,8 @@ describe 'Questions API', type: :request do
     end
 
     context 'authorized' do
-      let(:access_token) { create(:access_token) }
+      let(:user) { create(:user) }
+      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
       let(:question_responce) { json['question'] }
       let(:question_attr) { attributes_for(:question) }
       let(:question_attr_incorrect) { {title: '', body: ''} }
@@ -111,7 +112,7 @@ describe 'Questions API', type: :request do
       context 'with correct data' do
         before { post api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }
 
-        it 'return 201 status' do
+        it 'return 200 status' do
           expect(response).to be_successful
         end
 
@@ -121,6 +122,10 @@ describe 'Questions API', type: :request do
 
         it 'return questions' do
           expect(['question'].size).to eq 1
+        end
+
+        it 'return questions with correct user' do
+          expect(question_responce['user']['id']).to eq user.id
         end
 
         it 'returns correct fields' do
@@ -139,6 +144,81 @@ describe 'Questions API', type: :request do
 
         it 'return 422 status' do
           expect(response).to have_http_status(422)
+        end
+      end
+    end
+  end
+
+  describe 'PATCH /api/v1/questions/:id' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question, user: user) }
+
+    let(:api_path) { "/api/v1/questions/#{question.id}" }
+
+    it_behaves_like 'API Authorizable' do
+      let(:method) { :patch }
+    end
+
+    context 'authorized' do
+      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
+      let(:question_responce) { json['question'] }
+      let(:question_attr) { {title: 'New Title'} }
+      let(:question_attr_incorrect) { {title: ''} }
+
+      context 'with correct data' do
+        before { patch api_path, params: {question: question_attr, access_token: access_token.token}, headers: headers }
+
+        it 'return 200 status' do
+          expect(response).to be_successful
+        end
+
+        it 'return correct questions' do
+          expect(['question'].size).to eq 1
+          expect(question_responce['id']).to eq question.id
+        end
+
+        it 'returns correct fields' do
+          expect(question_responce['title']).to eq question_attr[:title]
+        end
+      end
+
+      context 'with incorrect data' do
+
+        before { patch api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }
+
+        it 'don`t save question in DB' do
+          expect { patch api_path, params: {question: question_attr_incorrect, access_token: access_token.token}, headers: headers }.to_not change(Question, :count)
+        end
+
+        it 'return 422 status' do
+          expect(response).to have_http_status(422)
+        end
+      end
+    end
+  end
+
+  describe 'DESTROY /api/v1/questions/:id' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question, user: user) }
+
+    let(:api_path) { "/api/v1/questions/#{question.id}" }
+
+    it_behaves_like 'API Authorizable' do
+      let(:method) { :delete }
+    end
+
+    context 'authorized' do
+      let(:access_token) { create(:access_token, resource_owner_id: user.id) }
+
+      context 'with correct data' do
+
+        it 'return 200 status' do
+          delete api_path, params: {question: question, access_token: access_token.token}, headers: headers
+          expect(response).to be_successful
+        end
+
+        it 'delete question in DB' do
+          expect { delete api_path, params: {question: question, access_token: access_token.token}, headers: headers }.to change(Question, :count).by(-1)
         end
       end
     end

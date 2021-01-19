@@ -1,5 +1,6 @@
 class Api::V1::QuestionsController < Api::V1::BaseController
-  authorize_resource
+  before_action :set_question, only: [:show, :destroy, :update]
+  load_and_authorize_resource
 
   def index
     @questions = Question.all
@@ -7,7 +8,6 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   end
 
   def show
-    @question = Question.find(params[:id])
     render json: @question
   end
 
@@ -20,7 +20,24 @@ class Api::V1::QuestionsController < Api::V1::BaseController
     end
   end
 
+  def update
+    if @question.update(question_params)
+      render json: @question
+    else
+      head 422
+    end
+  end
+
+  def destroy
+    @question.destroy
+    head :ok
+  end
+
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
   def question_params
     params.require(:question).permit(:title, :body)
