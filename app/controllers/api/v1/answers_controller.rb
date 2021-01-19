@@ -1,20 +1,18 @@
 class Api::V1::AnswersController < Api::V1::BaseController
-  # before_action :set_question, only: [:show, :destroy, :update]
+  before_action :find_question, only: [:index, :create]
+  before_action :set_answer, only: [:destroy, :show, :update]
   load_and_authorize_resource
 
   def index
-    @question = Question.find(params[:question_id])
     @answers = @question.answers
-    render json: @answers,  each_serializer: AnswerCollectionSerializer
+    render json: @answers, each_serializer: AnswerCollectionSerializer
   end
 
   def show
-    @answer = Answer.find(params[:id])
     render json: @answer
   end
 
   def create
-    @question = Question.find(params[:question_id])
     @answer = @question.answers.new(answer_params)
     @answer.user = current_resource_owner
     if @question.save
@@ -25,7 +23,6 @@ class Api::V1::AnswersController < Api::V1::BaseController
   end
 
   def update
-    @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
       render json: @answer
     else
@@ -34,7 +31,6 @@ class Api::V1::AnswersController < Api::V1::BaseController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
     @answer.destroy
     head :ok
   end
@@ -43,5 +39,13 @@ class Api::V1::AnswersController < Api::V1::BaseController
 
   def answer_params
     params.require(:answer).permit(:body)
+  end
+
+  def find_question
+    @question = Question.find(params[:question_id])
+  end
+
+  def set_answer
+    @answer = Answer.find(params[:id])
   end
 end
