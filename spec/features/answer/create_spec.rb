@@ -24,7 +24,6 @@ feature 'User can create answer', %q{
     end
 
     scenario 'ask an answer with attached files', js: true do
-
       fill_in 'new_form', with: 'Answer for question'
       find("#answer_files").send_keys("#{Rails.root}/spec/rails_helper.rb")
       click_on 'Create answer'

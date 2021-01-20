@@ -1,4 +1,4 @@
-.card
+.card#question_card
   .card-header
     .card-title
       .row
@@ -30,11 +30,11 @@
     - if can?(:destroy, @question)
       = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
     %hr/
-
-    = render 'comments/comments', resource: @question
-    %br/
-    - if can?(:add_comment, @question)
-      = render 'comments/form', resource: @question
+    #question_comments
+      = render 'comments/comments', resource: @question
+      - if can?( :add_comment, @question)
+        = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
+        = render 'comments/form', resource: @question
 
     %h4.text-center
       Answers

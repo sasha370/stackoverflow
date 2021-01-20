@@ -31,7 +31,7 @@ end
 #Use with test in WSL + Windows Chrome
 Capybara.register_driver :windows_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      'goog:chromeOptions': {args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor )})
+      'goog:chromeOptions': {args: %w(no-sandbox headless disable-gpu window-size=1280,1024 disable-features=VizDisplayCompositor enable-features=NetworkService,NetworkServiceInProcess )})
   Capybara::Selenium::Driver.new(app, browser: :chrome,
                                  # url: 'http://localhost:9515', # remove for NON Windows
                                  desired_capabilities: capabilities  )
@@ -53,6 +53,7 @@ RSpec.configure do |config|
   config.include FeatureHelpers, type: :feature
   config.include ActiveStorageHelpers
   config.include OmniauthHelpers
+  config.include ApiHelpers, type: :request
 
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 

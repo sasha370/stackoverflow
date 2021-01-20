@@ -41,7 +41,9 @@ class Ability
     end
 
     can :index, Reward
+    can :me, User
 
     can :destroy, ActiveStorage::Attachment, record: {user_id: user.id}
+
   end
 end

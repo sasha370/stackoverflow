@@ -34,11 +34,12 @@
       .col-2
       .col-10
         %hr
-        = render 'comments/comments', resource: answer
-        .mt-1.text-right
-          - if can?( :add_comment, answer)
-            = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
-            = render 'comments/form', resource: answer
+        .answer_comments
+          = render 'comments/comments', resource: answer
+          .mt-1.text-right
+            - if can?( :add_comment, answer)
+              = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
+              = render 'comments/form', resource: answer
 
 
   - if can?( :update, answer )

@@ -6,7 +6,7 @@
     %li.nav-item
       = link_to "My rewards", rewards_path, class: 'nav-link'
     %li.nav-item
-      %a.nav-link{:href => "#"} Link
+      = link_to "My API", oauth_applications_path, class: 'nav-link'
   .form-inline.my-2.my-lg-0
     - if current_user
       %span.nav-link= current_user.email

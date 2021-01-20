@@ -12,5 +12,5 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :reward, reject_if: :all_blank
 
   validates :title, :body, presence: true
-  validates :title, length: { minimum: 5 }
+  validates :title, :body, length: { minimum: 5 }
 end
