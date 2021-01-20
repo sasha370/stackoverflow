@@ -59,13 +59,13 @@ describe 'Profiles API', type: :request do
     end
 
     it 'returns public fields' do
-      %w[id email admin created_at updated_at].each do |attr|
+      %w[id email created_at updated_at].each do |attr|
         expect(user_response[attr]).to eq users.first.send(attr).as_json
       end
     end
 
     it 'does not returns private fields' do
-      %w[password encrypted_password].each do |attr|
+      %w[password admin encrypted_password].each do |attr|
         expect(user_response).to_not have_key(attr)
       end
     end

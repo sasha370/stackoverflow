@@ -1,4 +1,4 @@
-class Api::V1::AnswersController < Api::V1::BaseController
+class API::V1::AnswersController < API::V1::BaseController
   before_action :find_question, only: [:index, :create]
   before_action :set_answer, only: [:destroy, :show, :update]
   load_and_authorize_resource

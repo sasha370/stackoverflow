@@ -1,4 +1,4 @@
-class Api::V1::ProfilesController < Api::V1::BaseController
+class API::V1::ProfilesController < API::V1::BaseController
   authorize_resource class: User
 
   def me
@@ -6,7 +6,7 @@ class Api::V1::ProfilesController < Api::V1::BaseController
   end
 
   def index
-    @users = User.where.not('id = ?', current_resource_owner.id)
+    @users = User.where.not(id: current_resource_owner.id)
     render json: @users
   end
 end

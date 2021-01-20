@@ -3,7 +3,6 @@ shared_examples_for 'API Authorizable' do
   context 'unauthorized' do
     it 'returns 401 status if there is no access_token' do
       do_request(method_name, api_path, headers: headers)
-      puts response.status
       expect(response.status).to eq 401
     end
 

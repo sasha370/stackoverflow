@@ -1,4 +1,4 @@
-class Api::V1::QuestionsController < Api::V1::BaseController
+class API::V1::QuestionsController < API::V1::BaseController
   before_action :set_question, only: [:show, :destroy, :update]
   load_and_authorize_resource
 
