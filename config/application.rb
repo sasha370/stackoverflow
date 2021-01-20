@@ -15,6 +15,7 @@ module Stackoverflow
     config.i18n.fallbacks = true
     ActiveSupport::Deprecation.silenced = true
     config.active_storage.replace_on_assign_to_many = false
+    config.active_job.queue_adapter = :sidekiq
 
     config.generators do |g|
       g.test_framework :rspec,
