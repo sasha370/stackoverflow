@@ -1,13 +1,13 @@
 class DailyDigestMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.daily_digest_mailer.digest.subject
-  #
   def digest(user)
-    @greeting = "Hi"
+    @questions = Question.created_in_last_day
 
-    mail to: user.email
+    if @questions.empty?
+      mail template_name: 'empty_digest'
+    end
+
+    mail to: user.email,
+         subject: 'Daily Digest from Stackoverflow'
   end
 end

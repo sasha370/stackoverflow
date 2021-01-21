@@ -15,6 +15,8 @@ class Question < ApplicationRecord
   validates :title, :body, length: {minimum: 5}
   after_create :calculate_reputation
 
+  scope :created_in_last_day, -> { where('created_at >= ?' , 1.day.ago) }
+
   private
 
   def calculate_reputation

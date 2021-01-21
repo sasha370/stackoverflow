@@ -1,3 +1,5 @@
-DailyDigest#digest
+Hello! It`s a daily digest from Stackoverflow
+Here are the latest questions from the last 24 hours
 
-= @greeting + ", find me in app/views/daily_digest_mailer/digest.text.haml"
+- @questions.each do |question|
+  "#{question.title},   #{truncate(question.body, length: 20 )}"

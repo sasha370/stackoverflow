@@ -1,4 +1,10 @@
-%h1= class_name + "#" + @action
+%h1 Hello! It`s a daily digest from Stackoverflow
+%p Here are the latest questions from the last 24 hours
 
 %p
-  = @greeting + ", find me in app/views/daily_digest_mailer/digest.html.haml"
+  %ul
+    - @questions.each do |question|
+      %li
+        = link_to "#{question.title}", question_url(question)
+        Автор:
+        = question.user.email

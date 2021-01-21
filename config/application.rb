@@ -16,6 +16,7 @@ module Stackoverflow
     ActiveSupport::Deprecation.silenced = true
     config.active_storage.replace_on_assign_to_many = false
     config.active_job.queue_adapter = :sidekiq
+    config.action_mailer.default_url_options = { host: 'stackoverflow.ru' }
 
     config.generators do |g|
       g.test_framework :rspec,
