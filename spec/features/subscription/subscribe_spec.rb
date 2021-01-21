@@ -22,10 +22,10 @@ User can subscribe\unsubscribe  to update question
       expect(page).to have_content "You were subscribed to this question"
     end
 
-    context 'if user already subscribe ' do
+    context 'if already subscribe ' do
       given!(:subscription) { question.subscriptions.create(user: user) }
 
-      it 'notified after subscribing' do
+      it 'notified after unsubscribing' do
         click_link 'Subscribe'
         expect(page).to have_content "You were Unsubscribed from this question"
       end

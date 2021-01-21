@@ -17,4 +17,8 @@ every 1.days do
   runner 'DailyDigestJob.perform_now'
 end
 
+every 15.minute do
+  runner 'NotificationJob.perform_now'
+end
+
 # Learn more: http://github.com/javan/whenever
