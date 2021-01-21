@@ -9,6 +9,9 @@
             = time_ago_in_words(@question.created_at)
             ago
         .col-md-2
+          -if can?(:subscribe, @question)
+            = link_to subscribe_question_path(@question) , data_toggle: "tooltip", title: "Subscribe", remote: true  do
+              %i{ id: 'subscribe_link', class: "fa #{current_user.subscribed?(@question) ? 'fa-bell-slash' : 'fa-bell' }"}
           = render 'shared/rating', resource: @question
       %hr
       .row

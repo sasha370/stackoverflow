@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   include Commented
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :subscribe]
   after_action :publish_question, only: [:create]
 
   def index
@@ -36,16 +36,27 @@ class QuestionsController < ApplicationController
   end
 
   def update
-      if @question.update(question_params)
-        redirect_to @question
-      else
-        render :edit
-      end
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy
-      @question.destroy
-      redirect_to questions_path, notice: 'Question was successfully deleted.'
+    @question.destroy
+    redirect_to questions_path, notice: 'Question was successfully deleted.'
+  end
+
+  def subscribe
+    @subscription = @question.subscriptions.find_by(user: current_user)
+    if @subscription
+      @subscription.destroy
+      flash.now[:alert] = 'You were Unsubscribed from this question'
+    else
+      @question.subscriptions.create(user: current_user)
+      flash.now[:notice] = 'You were subscribed to this question'
+    end
   end
 
   private

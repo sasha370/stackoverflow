@@ -42,6 +42,7 @@ class Ability
 
     can :index, Reward
     can :me, User
+    can :subscribe, Question
 
     can :destroy, ActiveStorage::Attachment, record: {user_id: user.id}
 
