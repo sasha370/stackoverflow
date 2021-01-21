@@ -41,9 +41,9 @@ jobs:
           ruby-version: 2.7.2
 
       - name: Connect to Redis
-        run: node client.js
+        run: yarn --frozen-lockfile
         env:
-          REDIS_HOST: redis
+          REDIS_HOST: localhost
           REDIS_PORT: 6379
 
       - name: Build and test with Rake
@@ -58,7 +58,7 @@ jobs:
 
         run: |
           sudo apt-get -yqq install libpq-dev
-          yarn --frozen-lockfile
+
           gem install bundler --no-document
           bundle install --jobs 4 --retry 3
           bundle exec rails db:setup
