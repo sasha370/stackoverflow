@@ -6,19 +6,19 @@
 
     .dropdown-menu{"aria-labelledby" => "dropdownMenu2"}
       .custom-control.custom-radio
-        = form.radio_button :options,  "all",   class: 'custom-control-input', checked: "checked"
+        = form.radio_button :options,  "All",   class: 'custom-control-input', checked: "checked"
         = form.label 'options_all',  "Везде", class: 'custom-control-label small'
       .custom-control.custom-radio
-        = form.radio_button :options, "question", class: 'custom-control-input'
+        = form.radio_button :options, "Question", class: 'custom-control-input'
         = form.label 'options_question',  "По вопросам", class: 'custom-control-label small'
       .custom-control.custom-radio
-        = form.radio_button :options, "answer", class: 'custom-control-input'
+        = form.radio_button :options, "Answer", class: 'custom-control-input'
         = form.label 'options_answer',  "По ответам", class: 'custom-control-label small'
       .custom-control.custom-radio
-        = form.radio_button :options,  "comment", class: 'custom-control-input'
+        = form.radio_button :options,  "Comment", class: 'custom-control-input'
         = form.label 'options_comment',  "По комментариям", class: 'custom-control-label small'
       .custom-control.custom-radio
-        = form.radio_button :options, "author", class: 'custom-control-input'
-        = form.label 'options_author',  "По пользователям", class: 'custom-control-label small'
+        = form.radio_button :options, "User", class: 'custom-control-input'
+        = form.label 'options_user',  "По пользователям", class: 'custom-control-label small'
 
   = form.submit "Search", class:'btn btn-outline-success my-2 my-sm-0'
