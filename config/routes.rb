@@ -16,8 +16,7 @@ Rails.application.routes.draw do
 
   get '/user/get_email', to: 'users#get_email', as: 'get_email'
   post '/user/set_email', to: 'users#set_email', as: 'set_email'
-
-  root to: "questions#index"
+  get '/search', to: "searches#search"
 
   resources :attachments, only: :destroy
   resources :rewards, only: :index
@@ -46,4 +45,5 @@ Rails.application.routes.draw do
   end
 
   mount ActionCable.server => '/cable'
+  root to: "questions#index"
 end

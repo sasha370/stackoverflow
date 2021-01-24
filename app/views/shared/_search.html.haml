@@ -1,0 +1,24 @@
+= form_with url: search_path, method: :get, class: 'form-inline', local: true do |form|
+  = form.search_field :query, class: 'form-control', aria_label: "search", placeholder: "Search", type: "search", minlength: "3"
+
+  .dropdown
+    %button#dropdownMenu2.btn.btn-success-sm.input-group-prepend.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+
+    .dropdown-menu{"aria-labelledby" => "dropdownMenu2"}
+      .custom-control.custom-radio
+        = form.radio_button :options,  "all",   class: 'custom-control-input', checked: "checked"
+        = form.label 'options_all',  "Везде", class: 'custom-control-label small'
+      .custom-control.custom-radio
+        = form.radio_button :options, "question", class: 'custom-control-input'
+        = form.label 'options_question',  "По вопросам", class: 'custom-control-label small'
+      .custom-control.custom-radio
+        = form.radio_button :options, "answer", class: 'custom-control-input'
+        = form.label 'options_answer',  "По ответам", class: 'custom-control-label small'
+      .custom-control.custom-radio
+        = form.radio_button :options,  "comment", class: 'custom-control-input'
+        = form.label 'options_comment',  "По комментариям", class: 'custom-control-label small'
+      .custom-control.custom-radio
+        = form.radio_button :options, "user", class: 'custom-control-input'
+        = form.label 'options_user',  "По пользователям", class: 'custom-control-label small'
+
+  = form.submit "Search", class:'btn btn-outline-success my-2 my-sm-0'
