@@ -1,19 +1,23 @@
 class SearchesController < ApplicationController
+  before_action :search_params, only: [:search]
+
 
   def search
-    puts params
-    @query = params.permit(:query, :options)
-
-    if params[:query].blank?
-      redirect_to root_path, alert: 'Can`t be blanc`'
+    redirect_to root_path, alert: 'Search can`t be blanc' if params[:query].blank?
+    if @search[:options] == 'all'
+      @results = ThinkingSphinx.search @search[:query]
     else
-
+      @results = klass_name.search @search[:query]
     end
   end
 
   private
 
+  def klass_name
+    @search[:options].capitalize.constantize
+  end
+
   def search_params
-    @query = params.permit(:query, :options)
+    @search = params.permit(:query, :options, :commit)
   end
 end

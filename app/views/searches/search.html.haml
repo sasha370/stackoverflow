@@ -1,1 +1,24 @@
-Hello
+.card
+  .card-header
+    .card-title.text-center
+      %h1 Search result
+  .card-body
+    %ul
+    - @results.each do |item|
+      .row
+        .col-9
+          %li
+            - if @search[:options] == 'all' ||  @search[:options] == 'question'
+              = link_to item.title.truncate(100), question_path(item)
+            - if @search[:options] == 'answer'
+              = link_to item.body.truncate(100), question_path(item.question)
+            - if @search[:options] == 'comment'
+              = link_to item.body.truncate(100), (item.question)
+              = link_to  item.body.truncate(100), question_path()
+            -# - if @search[:options] == 'user'
+            -#   = link_to item.body.truncate(100), question_path(item.question)
+        .col-3.small.border-left
+          = item.user.email
+          ask
+          = time_ago_in_words(item.created_at)
+          ago
