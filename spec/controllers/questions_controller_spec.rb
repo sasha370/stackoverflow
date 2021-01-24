@@ -36,7 +36,7 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #show' do
-    before { get :show, params: { id: question } }
+    before { get :show, params: {id: question} }
 
     it 'assigns the requested question to @question' do
       expect(assigns(:question)).to eq(question)
@@ -78,7 +78,7 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe 'GET #edit' do
     before { login(user) }
-    before { get :edit, params: { id: question } }
+    before { get :edit, params: {id: question} }
 
     it 'assigns the requested question to @question' do
       expect(assigns(:question)).to eq(question)
@@ -94,22 +94,22 @@ RSpec.describe QuestionsController, type: :controller do
 
     context 'with valid attributes' do
       it 'saves a new question on the database' do
-        expect { post :create, params: { question: attributes_for(:question) } }.to change(Question, :count).by(1)
+        expect { post :create, params: {question: attributes_for(:question)} }.to change(Question, :count).by(1)
       end
 
       it 'redirect to show' do
-        post :create, params: { question: attributes_for(:question) }
+        post :create, params: {question: attributes_for(:question)}
         expect(response).to redirect_to(assigns(:question))
       end
     end
 
     context 'with invalid attributes' do
       it 'does not save the question' do
-        expect { post :create, params: { question: attributes_for(:question, :invalid) } }.to_not change(Question, :count)
+        expect { post :create, params: {question: attributes_for(:question, :invalid)} }.to_not change(Question, :count)
       end
 
       it 'render show view' do
-        post :create, params: { question: attributes_for(:question, :invalid) }
+        post :create, params: {question: attributes_for(:question, :invalid)}
         expect(response).to render_template :new
       end
     end
@@ -120,12 +120,12 @@ RSpec.describe QuestionsController, type: :controller do
 
     context 'with valid attributes' do
       it 'assigns the requested question to @question' do
-        patch :update, params: { id: question, question: attributes_for(:question) }
+        patch :update, params: {id: question, question: attributes_for(:question)}
         expect(assigns(:question)).to eq question
       end
 
       it 'change question attributes' do
-        patch :update, params: { id: question, question: { title: 'TitleTest', body: 'BodyTest' } }
+        patch :update, params: {id: question, question: {title: 'TitleTest', body: 'BodyTest'}}
         question.reload
 
         expect(question.title).to eq 'TitleTest'
@@ -133,13 +133,13 @@ RSpec.describe QuestionsController, type: :controller do
       end
 
       it 'redirect to updated question' do
-        patch :update, params: { id: question, question: attributes_for(:question) }
+        patch :update, params: {id: question, question: attributes_for(:question)}
         expect(response).to redirect_to question
       end
     end
 
     context 'with invalid attributes' do
-      before { patch :update, params: { id: question, question: attributes_for(:question, :invalid) } }
+      before { patch :update, params: {id: question, question: attributes_for(:question, :invalid)} }
 
       it 'does not change question attributes' do
         question.reload
@@ -156,14 +156,14 @@ RSpec.describe QuestionsController, type: :controller do
       before { login(another_user) }
 
       it 'does not change question attributes' do
-        patch :update, params: { id: question, question: { title: 'TitleTest_another', body: 'BodyTest_another' } }
+        patch :update, params: {id: question, question: {title: 'TitleTest_another', body: 'BodyTest_another'}}
         question.reload
         expect(question.title).to_not eq 'TitleTest_another'
         expect(question.body).to_not eq 'BodyTest_another'
       end
 
       it 'redirect to question' do
-        patch :update, params: { id: question, question: { title: 'TitleTest_another', body: 'BodyTest_another' } }
+        patch :update, params: {id: question, question: {title: 'TitleTest_another', body: 'BodyTest_another'}}
         expect(response).to redirect_to root_path
       end
     end
@@ -174,23 +174,57 @@ RSpec.describe QuestionsController, type: :controller do
     before { login(question.user) }
 
     it 'delete the question' do
-      expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(-1)
+      expect { delete :destroy, params: {id: question} }.to change(Question, :count).by(-1)
     end
 
     it 'redirect to index' do
-      delete :destroy, params: { id: question }
+      delete :destroy, params: {id: question}
       expect(response).to redirect_to questions_path
     end
 
     context 'NOT Author of question' do
       before { login(another_user) }
       it 'can`t delete' do
-        expect { delete :destroy, params: { id: question } }.to change(Question, :count).by(0)
+        expect { delete :destroy, params: {id: question} }.to change(Question, :count).by(0)
       end
 
       it 'redirect to question' do
-        delete :destroy, params: { id: question }
+        delete :destroy, params: {id: question}
         expect(response).to redirect_to root_path
+      end
+    end
+  end
+
+  describe 'GET #subscribe' do
+    let!(:user) { create(:user) }
+    let!(:question) { create(:question) }
+
+    before { login(user) }
+
+    it 'assigns the requested question to @question' do
+      get :subscribe, params: {id: question.id}, xhr: :js
+      expect(assigns(:question)).to eq(question)
+    end
+
+    it 'should create new Subscription for user' do
+      expect { get :subscribe, params: {id: question.id}, xhr: :js }.to change(Subscription, :count).by(1)
+    end
+
+    it 'should notify user' do
+      get :subscribe, params: {id: question.id}, xhr: :js
+      expect(response).to render_template :subscribe
+    end
+
+    context 'if user already subscribed' do
+      let!(:subscription) { question.subscriptions.create(user: user) }
+
+      it 'should unsubscribe ' do
+        expect { get :subscribe, params: {id: question.id}, xhr: :js }.to change(Subscription, :count).by(-1)
+      end
+
+      it 'should notify user ' do
+        get :subscribe, params: {id: question.id}, xhr: :js
+        expect(response).to render_template :subscribe
       end
     end
   end

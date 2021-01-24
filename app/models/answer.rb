@@ -13,11 +13,19 @@ class Answer < ApplicationRecord
   scope :sort_by_best, -> { order(best: :desc) }
   scope :best, -> { where(best: true) }
 
+  after_create :send_notifications
+
   def set_best
     transaction do
       self.class.where(question_id: self.question_id).update_all(best: false)
       update(best: true)
       question.reward&.update!(user_id: user_id)
     end
+  end
+
+  private
+
+  def send_notifications
+    NotificationJob.perform_later(self)
   end
 end

@@ -73,5 +73,7 @@ describe Ability do
     context 'remove attachment' do
       it { should be_able_to :destroy, question_with_attach.files.first, record: question_with_attach }
     end
+
+    it { should be_able_to :subscribe, Question }
   end
 end

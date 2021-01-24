@@ -5,8 +5,8 @@ feature 'User can create answer', %q{
     I must be able to fill out a answer form
 } do
 
-  given!(:user) { create(:user) }
-  given!(:another_user) { create(:user) }
+  given(:user) { create(:user) }
+  given(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
   describe 'Auth user' do

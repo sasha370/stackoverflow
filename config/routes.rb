@@ -1,4 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => 'sidekiq'
+  end
+
   use_doorkeeper
 
   namespace :api do
@@ -38,6 +44,7 @@ Rails.application.routes.draw do
   end
 
   resources :questions, concerns: [:ratingable, :commentable] do
+    member {get :subscribe}
     resources :answers, concerns: [:ratingable, :commentable], shallow: true, only: [:create, :edit, :destroy, :update] do
       member do
         put :choose_best

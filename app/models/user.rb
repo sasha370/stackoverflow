@@ -11,6 +11,11 @@ class User < ApplicationRecord
   has_many :rewards
   has_many :ratings
   has_many :authorizations, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+
+  def subscribed?(question)
+    subscriptions.find_by(question_id: question.id)
+  end
 
   def voted?(resource)
     resource.ratings.exists?(user_id: id)
