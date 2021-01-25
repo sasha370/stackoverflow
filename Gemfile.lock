@@ -190,9 +190,12 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    innertube (1.1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
+    joiner (0.5.0)
+      activerecord (>= 6.0.0.rc2)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -219,6 +222,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+    middleware (0.1.0)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
@@ -229,6 +233,7 @@ GEM
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.3)
     nenv (0.3.0)
     nio4r (2.5.4)
     nokogiri (1.11.1)
@@ -329,6 +334,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    riddle (2.4.2)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -392,6 +398,13 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.2)
+    thinking-sphinx (5.1.0)
+      activerecord (>= 4.2.0)
+      builder (>= 2.1.2)
+      innertube (>= 1.0.2)
+      joiner (>= 0.3.4)
+      middleware (>= 0.1.0)
+      riddle (~> 2.3)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -459,6 +472,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen (~> 3.2)
+  mysql2 (~> 0.4)
   oj
   omniauth (~> 1.9, >= 1.9.1)
   omniauth-github
@@ -478,6 +492,7 @@ DEPENDENCIES
   sinatra
   spring
   spring-watcher-listen (~> 2.0.0)
+  thinking-sphinx (~> 5.1)
   turbolinks (~> 5)
   twitter-bootstrap-rails
   web-console (>= 3.3.0)
@@ -489,4 +504,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.1.4
+   2.2.6
