@@ -39,9 +39,8 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-      - run:
-        name: Install sphinx dependencies
-        command: sudo apt-get install sphinxsearch
+      - name: Install sphinx dependencies
+        run: sudo apt-get install sphinxsearch
 
       - name: Connect to Redis
         run: yarn --frozen-lockfile
