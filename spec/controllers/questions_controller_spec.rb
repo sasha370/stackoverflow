@@ -25,8 +25,7 @@ RSpec.describe QuestionsController, type: :controller do
     before { get :index }
 
     it 'populate an array of all questions' do
-      puts questions
-      puts assigns(:questions)
+      questions << question
       expect(assigns(:questions)).to match_array(questions)
     end
 

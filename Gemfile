@@ -32,6 +32,8 @@ gem 'oj'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'whenever', require: false
+gem 'mysql2',          '~> 0.4'
+gem 'thinking-sphinx', '~> 5.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -62,5 +64,3 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner-active_record'
 end
-
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

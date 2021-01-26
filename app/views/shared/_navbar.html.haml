@@ -7,6 +7,9 @@
       = link_to "My rewards", rewards_path, class: 'nav-link'
     %li.nav-item
       = link_to "My API", oauth_applications_path, class: 'nav-link'
+
+  = render 'shared/search'
+
   .form-inline.my-2.my-lg-0
     - if current_user
       %span.nav-link= current_user.email
