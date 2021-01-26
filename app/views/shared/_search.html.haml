@@ -1,5 +1,5 @@
 = form_with url: search_path, method: :get, class: 'form-inline mr-2', local: true do |form|
-  = form.search_field :query, class: 'form-control', aria_label: "search", placeholder: "Search", type: "search", minlength: "3"
+  = form.search_field :query, class: 'form-control', aria_label: "search", placeholder: "Search", minlength: "3"
 
   .dropdown
     %button#dropdownMenu2.btn.btn-success-sm.input-group-prepend.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}

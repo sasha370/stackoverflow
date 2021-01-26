@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  skip_load_and_authorize_resource
   before_action :search_params, only: [:search]
   SEARCH_TYPES = %w[All Question Answer Comment User]
 
