@@ -20,6 +20,7 @@ gem "cocoon"
 gem "font-awesome-rails"
 gem 'gon'
 gem 'faker'
+gem 'rake'
 gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
@@ -32,7 +33,7 @@ gem 'oj'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'whenever', require: false
-gem 'mysql2',          '~> 0.4'
+gem 'mysql2', '~> 0.4'
 gem 'thinking-sphinx', '~> 5.1'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'

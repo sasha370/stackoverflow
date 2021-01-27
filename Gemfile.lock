@@ -515,6 +515,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-controller-testing
+  rake
   rspec-rails
   sass-rails (>= 6)
   shoulda-matchers
