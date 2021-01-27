@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 server "88.214.237.55", user: "sasha370", roles: %w{app db web}, primary: true
-set :rails_env, 'production'
+set :rails_env, :production
 
 
 # Custom SSH Options
