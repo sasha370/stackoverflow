@@ -4,11 +4,6 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 
-if ['development', 'test'].include? ENV['RAILS_ENV']
-  Dotenv::Railtie.load
-end
-
-HOSTNAME = ENV['HOSTNAME']
 module Stackoverflow
   class Application < Rails::Application
     config.load_defaults 6.0
@@ -19,7 +14,7 @@ module Stackoverflow
     config.active_storage.replace_on_assign_to_many = false
     config.active_job.queue_adapter = :sidekiq
     config.action_mailer.default_url_options = { host: 'stackoverflow.ru' }
-    config.assets.enabled = true
+
 
     config.generators do |g|
       g.test_framework :rspec,
