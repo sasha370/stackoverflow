@@ -41,23 +41,23 @@ questions.each do |question|
   end
 end
 
-#Create rewards for some Questions
-# 10.times do
-#   reward = Reward.new(title: Faker::Movies::Hobbit.location)
-#   reward.image.attach(io: File.open(rewards.sample), filename: 'file')
-#   reward.question = questions.sample
-#   reward.save
-# end
+# Create rewards for some Questions
+10.times do
+  reward = Reward.new(title: Faker::Movies::Hobbit.location)
+  reward.image.attach(io: File.open(rewards.sample), filename: 'file')
+  reward.question = questions.sample
+  reward.save
+end
 
-# #Create Attachment for some Questions
-# 10.times do
-#   questions.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
-# end
-#
-# #Create Attachment for some Answer
-# 20.times do
-#   Answer.all.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
-# end
+#Create Attachment for some Questions
+10.times do
+  questions.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
+end
+
+#Create Attachment for some Answer
+20.times do
+  Answer.all.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
+end
 
 
 #Create comments for answers

@@ -5,7 +5,9 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load
+if ['development', 'test'].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load
+end
 HOSTNAME = ENV['HOSTNAME']
 module Stackoverflow
   class Application < Rails::Application

@@ -1,0 +1,800 @@
+--trace 2.7.2@ymstaging
+Ruby enVironment Manager 1.29.10 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczynski, Wayne E. Seguin
+
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:816 [32m__rvm_parse_args:746[37m while if[[ -z use ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:820 [32m__rvm_parse_args:750[37m while if[[ error == use || 0 -eq 1 || -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:86 [32m__rvm_parse_args:16[37m while[[ -n 2.7.2@ymstaging ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:88 [32m__rvm_parse_args:18[37m whilervm_token=2.7.2@ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:90 [32m__rvm_parse_args:20[37m while if((  0 > 0  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:95 [32m__rvm_parse_args:25[37m while elsenext_token='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:98 [32m__rvm_parse_args:28[37m while casecase 2.7.2@ymstaging ([0-9a-zA-ZuU]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (use)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (install | uninstall | reinstall | try_install)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (gemset)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (gemdir | gempath | gemhome)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (pkg)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (do | exec)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (gem | rake | ruby)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (fetch | version | remote_version | reset | debug | reload | update | monitor | notes | implode | seppuku | env | unexport | automount | prepare)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (doctor)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (mount)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (rm | remove)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (rtfm | RTFM | rvmrc | help | inspect | list | ls | info | strings | get | current | docs | alias | rubygems | cleanup | tools | disk-usage | snapshot | repair | migrate | downgrade | upgrade | cron | group | switch | which | config-get | requirements | autolibs | osx-ssl-certs | fix-permissions)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (user)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (load-rvmrc)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (specs | tests)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (export)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (alt*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (wrapper)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (in)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (usage)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (*,*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (@*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:101 [32m__rvm_parse_args:31[37m while case casecase 2.7.2@ymstaging (*@*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:337 [32m__rvm_parse_args:267[37m while case caservm_verbose_flag=1 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:338 [32m__rvm_parse_args:268[37m while case caservm_action=use 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:339 [32m__rvm_parse_args:269[37m while case caservm_gemset_name=ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:340 [32m__rvm_parse_args:270[37m while case caservm_ruby_string=2.7.2@ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:341 [32m__rvm_parse_args:271[37m while case caservm_ruby_strings=2.7.2@ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:816 [32m__rvm_parse_args:746[37m while if[[ -z use ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:820 [32m__rvm_parse_args:750[37m while if[[ error == use || 0 -eq 1 || -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:86 [32m__rvm_parse_args:16[37m while[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:825 [32m__rvm_parse_args:755[37m : rvm_ruby_args:0::
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:827 [32m__rvm_parse_args:757[37m if[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:864 [32mrvm:22[37m ((  result  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:865 [32mrvm:23[37m cmdor casecase use (use)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:867 [32mrvm:25[37m cmdor case ifrvm_is_a_shell_function
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:110 [32mrvm_is_a_shell_function:2[37m typeset _message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:112 [32mrvm_is_a_shell_function:4[37m if((  0  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:137 [32mrvm_is_a_shell_function:29[37m return 0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/cli:868 [32mrvm:26[37m cmdor case then__rvm_use
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:148 [32m__rvm_use:2[37m typeset binary full_binary_path rvm_ruby_gem_home __path_prefix __path_suffix
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:150 [32m__rvm_use:4[37m __rvm_select
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:87 [32m__rvm_select:2[37m true ymstaging
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:89 [32m__rvm_select:4[37m __rvm_select_set_variable_defaults
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:10 [32m__rvm_select_set_variable_defaults:2[37m export GEM_HOME GEM_PATH MY_RUBY_HOME RUBY_VERSION IRBRC
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:11 [32m__rvm_select_set_variable_defaults:3[37m export rvm_env_string rvm_action rvm_alias_expanded rvm_archive_extension rvm_bin_flag rvm_bin_path rvm_debug_flag rvm_default_flag rvm_delete_flag rvm_docs_type rvm_dump_environment_flag rvm_error_message rvm_expanding_aliases rvm_file_name rvm_gemdir_flag rvm_gemset_name rvm_gemstone_package_file rvm_gemstone_url rvm_head_flag rvm_hook rvm_install_on_use_flag rvm_llvm_flag rvm_loaded_flag rvm_niceness rvm_nightly_flag rvm_only_path_flag rvm_parse_break rvm_patch_original_pwd rvm_pretty_print_flag rvm_proxy rvm_quiet_flag rvm_reload_flag rvm_remove_flag rvm_ruby_alias rvm_ruby_args rvm_ruby_binary rvm_ruby_bits rvm_ruby_configure rvm_ruby_file rvm_ruby_gem_home rvm_ruby_gem_path rvm_ruby_global_gems_path rvm_ruby_home rvm_ruby_interpreter rvm_ruby_irbrc rvm_ruby_major_version rvm_ruby_make rvm_ruby_make_install rvm_ruby_minor_version rvm_ruby_mode rvm_ruby_name rvm_ruby_package_file rvm_ruby_package_name rvm_ruby_patch rvm_ruby_patch_level rvm_ruby_release_version rvm_ruby_repo_url rvm_ruby_revision rvm_ruby_selected_flag rvm_ruby_sha rvm_ruby_string rvm_ruby_strings rvm_ruby_tag rvm_ruby_url rvm_ruby_user_tag rvm_ruby_version rvm_script_name rvm_sdk rvm_silent_flag rvm_sticky_flag rvm_system_flag rvm_token rvm_trace_flag rvm_use_flag rvm_user_flag rvm_verbose_flag rvm_ruby_repo_tag
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:90 [32m__rvm_select:5[37m cmdand__rvm_select_detect_ruby_string ''
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:16 [32m__rvm_select_detect_ruby_string:2[37m rvm_ruby_string=2.7.2@ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:18 [32m__rvm_select_detect_ruby_string:4[37m if[[ -z 2.7.2@ymstaging ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:91 [32m__rvm_select:6[37m cmdand cmdand__rvm_ruby_string
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:305 [32m__rvm_ruby_string:10[37m true 0 0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:306 [32m__rvm_ruby_string:11[37m rvm_expanding_aliases='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:307 [32m__rvm_ruby_string:12[37m true '' ymstaging '' '' '' '' '' @ 2.7.2@ymstaging 0 0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:314 [32m__rvm_ruby_string:19[37m if[[ 2.7.2@ymstaging == *@* ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:316 [32m__rvm_ruby_string:21[37m thenrvm_gemset_name=ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:317 [32m__rvm_ruby_string:22[37m thenrvm_ruby_string=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:321 [32m__rvm_ruby_string:26[37m if((  rvm_expanding_aliases == 0  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:322 [32m__rvm_ruby_string:27[37m if cmdand[[ -n 2.7.2 && 2.7.2 != system ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:325 [32m__rvm_ruby_string:30[37m then if[[ -f /home/sasha370/.rvm/config/known_aliases && -s /home/sasha370/.rvm/config/known_aliases ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:326 [32m__rvm_ruby_string:31[37m then if cmdandexpanded_alias_name=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:326 [32m__rvm_ruby_string:31[37m then if cmdand cmdsubst__rvm_db_ /home/sasha370/.rvm/config/known_aliases 2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/known_aliases 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/known_aliases 2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/known_aliases ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^2.7.2=# { s#^2.7.2=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^2.7.2=# { s#^2.7.2=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:326 [32m__rvm_ruby_string:31[37m then if cmdandexpanded_alias_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:327 [32m__rvm_ruby_string:32[37m then if cmdand cmdand[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:334 [32m__rvm_ruby_string:39[37m if((  rvm_expanding_aliases == 0  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:335 [32m__rvm_ruby_string:40[37m if cmdand[[ -n 2.7.2 && 2.7.2 != system ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:338 [32m__rvm_ruby_string:43[37m then if[[ -f /home/sasha370/.rvm/config/alias && -s /home/sasha370/.rvm/config/alias ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:339 [32m__rvm_ruby_string:44[37m then if cmdandexpanded_alias_name=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:339 [32m__rvm_ruby_string:44[37m then if cmdand cmdsubst__rvm_db_ /home/sasha370/.rvm/config/alias 2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/alias 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/alias 2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/alias ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^2.7.2=# { s#^2.7.2=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^2.7.2=# { s#^2.7.2=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:339 [32m__rvm_ruby_string:44[37m then if cmdandexpanded_alias_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:340 [32m__rvm_ruby_string:45[37m then if cmdand cmdand[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:344 [32m__rvm_ruby_string:49[37m then elif[[ 2.7.2 == default ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:350 [32m__rvm_ruby_string:55[37m then if[[ 2.7.2 == *@* ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:357 [32m__rvm_ruby_string:62[37m if[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:363 [32m__rvm_ruby_string:68[37m __rvm_ruby_string_parse
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:283 [32m__rvm_ruby_string_parse:3[37m __rvm_ruby_string_parse_
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:49 [32m__rvm_ruby_string_parse_:2[37m typeset ruby_string gemset_name expanded_alias_name repo_url branch_name ruby_name tag_name
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:52 [32m__rvm_ruby_string_parse_:5[37m ruby_string=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:53 [32m__rvm_ruby_string_parse_:6[37m gemset_name=ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:54 [32m__rvm_ruby_string_parse_:7[37m repo_url='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:55 [32m__rvm_ruby_string_parse_:8[37m branch_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:56 [32m__rvm_ruby_string_parse_:9[37m ruby_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:57 [32m__rvm_ruby_string_parse_:10[37m tag_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:59 [32m__rvm_ruby_string_parse_:12[37m __rvm_unset_ruby_variables
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/env:16 [32m__rvm_unset_ruby_variables:3[37m unset rvm_env_string rvm_ruby_string rvm_ruby_strings rvm_ruby_binary rvm_ruby_gem_home rvm_ruby_gem_path rvm_ruby_home rvm_ruby_interpreter rvm_ruby_irbrc rvm_ruby_log_path rvm_ruby_major_version rvm_ruby_minor_version rvm_ruby_package_name rvm_ruby_patch_level rvm_ruby_release_version rvm_ruby_repo_url rvm_ruby_repo_branch rvm_ruby_revision rvm_ruby_selected_flag rvm_ruby_tag rvm_ruby_version rvm_head_flag rvm_ruby_package_file rvm_ruby_configure rvm_ruby_name rvm_ruby_url rvm_ruby_global_gems_path rvm_ruby_args rvm_ruby_name rvm_llvm_flag rvm_ruby_repo_tag
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/env:17 [32m__rvm_unset_ruby_variables:4[37m __rvm_load_rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:5 [32m__rvm_load_rvmrc:2[37m typeset _file
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:6 [32m__rvm_load_rvmrc:3[37m typeset -a rvm_rvmrc_files
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:7 [32m__rvm_load_rvmrc:4[37m if((  0 == 1  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:12 [32m__rvm_load_rvmrc:9[37m [[ -n 000 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:14 [32m__rvm_load_rvmrc:11[37m rvm_rvmrc_files=( /etc/rvmrc /home/sasha370/.rvmrc ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:15 [32m__rvm_load_rvmrc:12[37m if[[ -n /home/sasha370 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:15 [32m__rvm_load_rvmrc:12[37m if cmdand[[ /home/sasha370/.rvmrc -ef /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:16 [32m__rvm_load_rvmrc:13[37m thenrvm_rvmrc_files+=( /home/sasha370/.rvmrc ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/etc/rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /etc/rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/home/sasha370/.rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/home/sasha370/.rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:35 [32m__rvm_load_rvmrc:32[37m return 0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:61 [32m__rvm_ruby_string_parse_:14[37m rvm_ruby_repo_url='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:62 [32m__rvm_ruby_string_parse_:15[37m rvm_ruby_repo_branch='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:63 [32m__rvm_ruby_string_parse_:16[37m rvm_ruby_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:64 [32m__rvm_ruby_string_parse_:17[37m rvm_ruby_repo_tag='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:66 [32m__rvm_ruby_string_parse_:19[37m export rvm_head_flag=0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:69 [32m__rvm_ruby_string_parse_:22[37m if[[ -z 2.7.2 || 2.7.2 == current ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:82 [32m__rvm_ruby_string_parse_:35[37m strings=( ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:83 [32m__rvm_ruby_string_parse_:36[37m __rvm_custom_separated_array strings - 2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:210 [32m__rvm_custom_separated_array:2[37m typeset IFS
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:211 [32m__rvm_custom_separated_array:3[37m IFS=- 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:212 [32m__rvm_custom_separated_array:4[37m if[[ -n 5.8 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:213 [32m__rvm_custom_separated_array:5[37m theneval 'strings+=( ${=3} )'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:214 [32m(eval):0[37m thenstrings+=( 2.7.2 ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:84 [32m__rvm_ruby_string_parse_:37[37m rvm_ruby_string=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:87 [32m__rvm_ruby_string_parse_:40[37m if[[ -n 5.8 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:88 [32m__rvm_ruby_string_parse_:41[37m thensetopt LOCAL_OPTIONS KSH_GLOB
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:91 [32m__rvm_ruby_string_parse_:44[37m forstring=2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (head)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (system)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (ext|external)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (nightly|weekly|monthly)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (nightly*|weekly*|monthly*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (preview*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (rc[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (+([0-9]).+([0-9]).[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:149 [32m__rvm_ruby_string_parse_:102[37m for caservm_ruby_version=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:150 [32m__rvm_ruby_string_parse_:103[37m for caservm_ruby_revision='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:151 [32m__rvm_ruby_string_parse_:104[37m for caservm_ruby_tag='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:235 [32m__rvm_ruby_string_parse_:188[37m if[[ -z '' && -n 2.7.2 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:237 [32m__rvm_ruby_string_parse_:190[37m then casecase 2.7.2 (1.[5-7]*|9*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:237 [32m__rvm_ruby_string_parse_:190[37m then casecase 2.7.2 (1.[8-9]*|2*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:239 [32m__rvm_ruby_string_parse_:192[37m then caservm_ruby_interpreter=ruby 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:241 [32m__rvm_ruby_string_parse_:194[37m then if[[ -n ruby ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:242 [32m__rvm_ruby_string_parse_:195[37m then thenrvm_ruby_string=ruby-2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:245 [32m__rvm_ruby_string_parse_:198[37m true
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:286 [32m__rvm_ruby_string_parse:6[37m if((  0 == 1  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:301 [32m__rvm_ruby_string_parse:21[37m __rvm_ruby_string_parse_
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:49 [32m__rvm_ruby_string_parse_:2[37m typeset ruby_string gemset_name expanded_alias_name repo_url branch_name ruby_name tag_name
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:52 [32m__rvm_ruby_string_parse_:5[37m ruby_string=ruby-2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:53 [32m__rvm_ruby_string_parse_:6[37m gemset_name=ymstaging 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:54 [32m__rvm_ruby_string_parse_:7[37m repo_url='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:55 [32m__rvm_ruby_string_parse_:8[37m branch_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:56 [32m__rvm_ruby_string_parse_:9[37m ruby_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:57 [32m__rvm_ruby_string_parse_:10[37m tag_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:59 [32m__rvm_ruby_string_parse_:12[37m __rvm_unset_ruby_variables
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/env:16 [32m__rvm_unset_ruby_variables:3[37m unset rvm_env_string rvm_ruby_string rvm_ruby_strings rvm_ruby_binary rvm_ruby_gem_home rvm_ruby_gem_path rvm_ruby_home rvm_ruby_interpreter rvm_ruby_irbrc rvm_ruby_log_path rvm_ruby_major_version rvm_ruby_minor_version rvm_ruby_package_name rvm_ruby_patch_level rvm_ruby_release_version rvm_ruby_repo_url rvm_ruby_repo_branch rvm_ruby_revision rvm_ruby_selected_flag rvm_ruby_tag rvm_ruby_version rvm_head_flag rvm_ruby_package_file rvm_ruby_configure rvm_ruby_name rvm_ruby_url rvm_ruby_global_gems_path rvm_ruby_args rvm_ruby_name rvm_llvm_flag rvm_ruby_repo_tag
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/env:17 [32m__rvm_unset_ruby_variables:4[37m __rvm_load_rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:5 [32m__rvm_load_rvmrc:2[37m typeset _file
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:6 [32m__rvm_load_rvmrc:3[37m typeset -a rvm_rvmrc_files
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:7 [32m__rvm_load_rvmrc:4[37m if((  0 == 1  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:12 [32m__rvm_load_rvmrc:9[37m [[ -n 000 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:14 [32m__rvm_load_rvmrc:11[37m rvm_rvmrc_files=( /etc/rvmrc /home/sasha370/.rvmrc ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:15 [32m__rvm_load_rvmrc:12[37m if[[ -n /home/sasha370 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:15 [32m__rvm_load_rvmrc:12[37m if cmdand[[ /home/sasha370/.rvmrc -ef /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:16 [32m__rvm_load_rvmrc:13[37m thenrvm_rvmrc_files+=( /home/sasha370/.rvmrc ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/etc/rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /etc/rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/home/sasha370/.rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:18 [32m__rvm_load_rvmrc:15[37m for_file=/home/sasha370/.rvmrc
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:20 [32m__rvm_load_rvmrc:17[37m for if[[ -s /home/sasha370/.rvmrc ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/init:35 [32m__rvm_load_rvmrc:32[37m return 0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:61 [32m__rvm_ruby_string_parse_:14[37m rvm_ruby_repo_url='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:62 [32m__rvm_ruby_string_parse_:15[37m rvm_ruby_repo_branch='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:63 [32m__rvm_ruby_string_parse_:16[37m rvm_ruby_name='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:64 [32m__rvm_ruby_string_parse_:17[37m rvm_ruby_repo_tag='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:66 [32m__rvm_ruby_string_parse_:19[37m export rvm_head_flag=0
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:69 [32m__rvm_ruby_string_parse_:22[37m if[[ -z ruby-2.7.2 || ruby-2.7.2 == current ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:82 [32m__rvm_ruby_string_parse_:35[37m strings=( ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:83 [32m__rvm_ruby_string_parse_:36[37m __rvm_custom_separated_array strings - ruby-2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:210 [32m__rvm_custom_separated_array:2[37m typeset IFS
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:211 [32m__rvm_custom_separated_array:3[37m IFS=- 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:212 [32m__rvm_custom_separated_array:4[37m if[[ -n 5.8 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:213 [32m__rvm_custom_separated_array:5[37m theneval 'strings+=( ${=3} )'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/utility:214 [32m(eval):0[37m thenstrings+=( ruby 2.7.2 ) 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:84 [32m__rvm_ruby_string_parse_:37[37m rvm_ruby_string=ruby-2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:87 [32m__rvm_ruby_string_parse_:40[37m if[[ -n 5.8 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:88 [32m__rvm_ruby_string_parse_:41[37m thensetopt LOCAL_OPTIONS KSH_GLOB
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:91 [32m__rvm_ruby_string_parse_:44[37m forstring=ruby
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (head)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (system)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (ext|external)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (nightly|weekly|monthly)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (nightly*|weekly*|monthly*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (preview*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (rc[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (+([0-9]).+([0-9]).[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby ([0-9][0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby ([0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (p[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (r[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (s[0-9a-zA-ZuU]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (tag[0-9])
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (tv[0-9]*|t[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (m[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (u[0-9a-zA-ZuU]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (b[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (rubinius)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase ruby (opal|ruby|rbx|jruby|macruby|ree|maglev|ironruby|mruby|topaz|truffleruby)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:221 [32m__rvm_ruby_string_parse_:174[37m for caservm_ruby_interpreter=ruby 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:91 [32m__rvm_ruby_string_parse_:44[37m forstring=2.7.2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (head)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (system)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (ext|external)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (nightly|weekly|monthly)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (nightly*|weekly*|monthly*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (preview*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (rc[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:93 [32m__rvm_ruby_string_parse_:46[37m for casecase 2.7.2 (+([0-9]).+([0-9]).[0-9]*)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:149 [32m__rvm_ruby_string_parse_:102[37m for caservm_ruby_version=2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:150 [32m__rvm_ruby_string_parse_:103[37m for caservm_ruby_revision='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:151 [32m__rvm_ruby_string_parse_:104[37m for caservm_ruby_tag='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:235 [32m__rvm_ruby_string_parse_:188[37m if[[ -z ruby ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:245 [32m__rvm_ruby_string_parse_:198[37m true
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector_parse:304 [32m__rvm_ruby_string_parse:24[37m if[[ -z ruby ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:364 [32m__rvm_ruby_string:69[37m __rvm_ruby_string_find
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:376 [32m__rvm_ruby_string_find:3[37m if__rvm_ruby_string_installed
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:276 [32m__rvm_ruby_string_installed:2[37m typeset '__ruby_inst_dir=/home/sasha370/.rvm/rubies/ruby-2.7.2'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:277 [32m__rvm_ruby_string_installed:3[37m if[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:280 [32m__rvm_ruby_string_installed:6[37m [[ -n ruby && -n ruby-2.7.2 && -d /home/sasha370/.rvm/rubies/ruby-2.7.2 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:283 [32m__rvm_ruby_string_installed:9[37m cmdand[[ -z ymstaging || 0 -eq 1 || -d /home/sasha370/.rvm/rubies/ruby-2.7.2@ymstaging ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:380 [32m__rvm_ruby_string_find:7[37m elif__rvm_ruby_string_remotely_available
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:290 [32m__rvm_ruby_string_remotely_available:2[37m ((  0 == 1  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:384 [32m__rvm_ruby_string_find:11[37m else__rvm_ruby_string_autodetect
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:401 [32m__rvm_ruby_string_autodetect:3[37m if[[ -z 2.7.2 ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:423 [32m__rvm_ruby_string_autodetect:25[37m if((  0  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:429 [32m__rvm_ruby_string_autodetect:31[37m rvm_ruby_string=ruby-2.7.2 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:431 [32m__rvm_ruby_string_autodetect:33[37m if[[ ruby == ext ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:435 [32m__rvm_ruby_string_autodetect:37[37m elif[[ 0 == 1 || -n '' || -n '' || -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:461 [32m__rvm_ruby_string_autodetect:63[37m elif[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:465 [32m__rvm_ruby_string_autodetect:67[37m elif[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:469 [32m__rvm_ruby_string_autodetect:71[37m elif[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:474 [32m__rvm_ruby_string_autodetect:76[37m else if((  0 == 1  ))
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:485 [32m__rvm_ruby_string_autodetect:87[37m else[[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/selector:486 [32m__rvm_ruby_string_autodetect:88[37m else cmdor__rvm_db_system ruby_2.7.2_patch_level rvm_ruby_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:7 [32m__rvm_db_system:2[37m typeset __key __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:8 [32m__rvm_db_system:3[37m for__key=Ubuntu_20.04_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:10 [32m__rvm_db_system:5[37m for if__rvm_db Ubuntu_20.04_ruby_2.7.2_patch_level_error __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_20.04_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:13 [32m__rvm_db_system:8[37m for if__rvm_db Ubuntu_20.04_ruby_2.7.2_patch_level_warn __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_20.04_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:16 [32m__rvm_db_system:11[37m for if__rvm_db Ubuntu_20.04_ruby_2.7.2_patch_level rvm_ruby_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_20.04_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=rvm_ruby_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_20.04_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_20.04_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_20.04_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_20.04_ruby_2.7.2_patch_level=# { s#^Ubuntu_20.04_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:8 [32m__rvm_db_system:3[37m for__key=Ubuntu_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:10 [32m__rvm_db_system:5[37m for if__rvm_db Ubuntu_ruby_2.7.2_patch_level_error __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_error=# { s#^Ubuntu_ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:13 [32m__rvm_db_system:8[37m for if__rvm_db Ubuntu_ruby_2.7.2_patch_level_warn __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level_warn=# { s#^Ubuntu_ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:16 [32m__rvm_db_system:11[37m for if__rvm_db Ubuntu_ruby_2.7.2_patch_level rvm_ruby_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=Ubuntu_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=rvm_ruby_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db Ubuntu_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level=# { s#^Ubuntu_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level=# { s#^Ubuntu_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=Ubuntu_ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db Ubuntu_ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level=# { s#^Ubuntu_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^Ubuntu_ruby_2.7.2_patch_level=# { s#^Ubuntu_ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:8 [32m__rvm_db_system:3[37m for__key=ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:10 [32m__rvm_db_system:5[37m for if__rvm_db ruby_2.7.2_patch_level_error __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level_error=# { s#^ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level_error=# { s#^ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level_error 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level_error
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level_error=# { s#^ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level_error=# { s#^ruby_2.7.2_patch_level_error=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:13 [32m__rvm_db_system:8[37m for if__rvm_db ruby_2.7.2_patch_level_warn __message
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=__message 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level_warn=# { s#^ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level_warn=# { s#^ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level_warn 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level_warn
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level_warn=# { s#^ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level_warn=# { s#^ruby_2.7.2_patch_level_warn=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:16 [32m__rvm_db_system:11[37m for if__rvm_db ruby_2.7.2_patch_level rvm_ruby_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable=rvm_ruby_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db ruby_2.7.2_patch_level
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level=# { s#^ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level=# { s#^ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:48 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_2.7.2_patch_level 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db ruby_2.7.2_patch_level
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_2.7.2_patch_level=# { s#^ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_2.7.2_patch_level=# { s#^ruby_2.7.2_patch_level=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m cmdorreturn 1
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:20 [32m__rvm_db_system:15[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:489 [32m__rvm_ruby_string_autodetect:91[37m else if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:493 [32m__rvm_ruby_string_autodetect:95[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:385 [32m__rvm_ruby_string_find:12[37m else casecase ruby-2.7.2 (ruby-+([1-9])|ruby-+([1-9]).+([0-9])|ruby-1.+([1-9]).+([0-9])|jruby-[19]*)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:393 [32m__rvm_ruby_string_find:20[37m if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:367 [32m__rvm_ruby_string:72[37m detected_rvm_ruby_name='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:369 [32m__rvm_ruby_string:74[37m rvm_ruby_name='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:370 [32m__rvm_ruby_string:75[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:92 [32m__rvm_select:7[37m cmdand cmdand cmdand__rvm_select_after_parse
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:98 [32m__rvm_select_after_parse:2[37m __rvm_select_interpreter_variables
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:32 [32m__rvm_select_interpreter_variables:2[37m rvm_archive_extension=tar.gz 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:34 [32m__rvm_select_interpreter_variables:4[37m if[[ -z ruby ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:38 [32m__rvm_select_interpreter_variables:8[37m rvm_ruby_interpreter=ruby 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:41 [32m__rvm_select_interpreter_variables:11[37m ifis_a_function __rvm_select_interpreter_ruby
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/support:5 [32mis_a_function:2[37m typeset -f __rvm_select_interpreter_ruby
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:43 [32m__rvm_select_interpreter_variables:13[37m then__rvm_select_interpreter_ruby
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:424 [32m__rvm_select_interpreter_ruby:3[37m if[[ '' == p0 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:432 [32m__rvm_select_interpreter_ruby:11[37m rvm_ruby_package_name=ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:433 [32m__rvm_select_interpreter_ruby:12[37m rvm_ruby_package_file=ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:436 [32m__rvm_select_interpreter_ruby:15[37m if[[ -z 2.7.2 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:441 [32m__rvm_select_interpreter_ruby:20[37m elservm_ruby_repo_url=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:441 [32m__rvm_select_interpreter_ruby:20[37m else cmdsubst__rvm_db ruby_repo_url
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:27 [32m__rvm_db:2[37m typeset value key variable
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:28 [32m__rvm_db:3[37m key=ruby_repo_url 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:29 [32m__rvm_db:4[37m variable='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:30 [32m__rvm_db:5[37m value='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:32 [32m__rvm_db:7[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/user/db ruby_repo_url
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/user/db 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_repo_url 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/user/db ruby_repo_url
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/user/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_repo_url=# { s#^ruby_repo_url=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_repo_url=# { s#^ruby_repo_url=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:33 [32m__rvm_db:8[37m thenvalue='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:35 [32m__rvm_db:10[37m if[[ -z '' && -f /home/sasha370/.rvm/config/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m then cmdsubst__rvm_db_ /home/sasha370/.rvm/config/db ruby_repo_url
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:77 [32m__rvm_db_:2[37m typeset __db __key __value
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:78 [32m__rvm_db_:3[37m __db=/home/sasha370/.rvm/config/db 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:79 [32m__rvm_db_:4[37m __key=ruby_repo_url 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:80 [32m__rvm_db_:5[37m shift 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:81 [32m__rvm_db_:6[37m __value='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  (unset|delete)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:82 [32m__rvm_db_:7[37m casecase  ()
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:87 [32m__rvm_db_:12[37m case__rvm_db_get /home/sasha370/.rvm/config/db ruby_repo_url
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:69 [32m__rvm_db_get:2[37m if[[ -f /home/sasha370/.rvm/config/db ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:70 [32m__rvm_db_get:3[37m then__rvm_sed -n -e '\#^ruby_repo_url=# { s#^ruby_repo_url=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/support:278 [32m__rvm_sed:0[37m sed -n -e '\#^ruby_repo_url=# { s#^ruby_repo_url=##;; p; }' -e '/^$/d'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:36 [32m__rvm_db:11[37m thenvalue=https://github.com/ruby/ruby.git 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:38 [32m__rvm_db:13[37m [[ -n https://github.com/ruby/ruby.git ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:39 [32m__rvm_db:14[37m if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:41 [32m__rvm_db:16[37m elseecho https://github.com/ruby/ruby.git
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/db:43 [32m__rvm_db:18[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:441 [32m__rvm_select_interpreter_ruby:20[37m elservm_ruby_repo_url=https://github.com/ruby/ruby.git 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:444 [32m__rvm_select_interpreter_ruby:23[37m else if((  0 == 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:446 [32m__rvm_select_interpreter_ruby:25[37m else then if__rvm_version_compare 2.7.2 -lt 1.8.5
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:161 [32m__rvm_version_compare:2[37m typeset first
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m first=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m cmdsubstprintf %b '2.7.2\n1.8.5\n'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m first=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m first=+ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m cmdsubst pipe pipehead -n1
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:142 [32m__rvm_version_sort:2[37m awk '-F[.-]' -v 'OFS=.' $'{                   # split on "." and "-", merge back with "."\n    original=$0                                        # save original to preserve it before the line is changed\n    for (n=1; n<10; n++) {                             # iterate through max 9 components of version\n      $n=tolower($n)                                   # ignore case for sorting\n      if ($n == "")                 $n="0"             # treat non existing parts as 0\n      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation\n      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation\n      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string\n      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space\n    }\n    print $0"\\t"original                               # print the transformed version and original separated by \\t\n                                                       # so we can extract original after sorting\n  }'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:155 [32m__rvm_version_sort:15[37m pipeLC_ALL=C sort -t. -k 1,1d -k 2,2n -k 3,3n -k 4,4n -k 5,5n -k 6,6n -k 7,7n -k 8,8n -k 9,9n
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:156 [32m__rvm_version_sort:16[37m pipe pipeawk '-F\t' '{print $2}'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:164 [32m__rvm_version_compare:5[37m first=1.8.5 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:166 [32m__rvm_version_compare:7[37m casecase -lt (-eq|==|=)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:166 [32m__rvm_version_compare:7[37m casecase -lt (-ne|!=)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:166 [32m__rvm_version_compare:7[37m casecase -lt (-gt|\>)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:166 [32m__rvm_version_compare:7[37m casecase -lt (-ge|\>=)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:166 [32m__rvm_version_compare:7[37m casecase -lt (-lt|\<)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:186 [32m__rvm_version_compare:27[37m case if[[ 1.8.5 == head ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:188 [32m__rvm_version_compare:29[37m case else[[ 1.8.5 == 2.7.2 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/utility:188 [32m__rvm_version_compare:29[37m case else cmdorreturn 1
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:448 [32m__rvm_select_interpreter_ruby:27[37m else then elservm_archive_extension=tar.bz2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_interpreters:455 [32m__rvm_select_interpreter_ruby:34[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:99 [32m__rvm_select_after_parse:3[37m cmdand__rvm_select_version_variables
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:58 [32m__rvm_select_version_variables:2[37m casecase 2.7.2 (+([0-9]).+([0-9]).+([0-9]))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:60 [32m__rvm_select_version_variables:4[37m caservm_ruby_release_version=2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:61 [32m__rvm_select_version_variables:5[37m caservm_ruby_major_version=2.7 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:62 [32m__rvm_select_version_variables:6[37m caservm_ruby_major_version=7 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:63 [32m__rvm_select_version_variables:7[37m caservm_ruby_minor_version=2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:100 [32m__rvm_select_after_parse:4[37m cmdand cmdand__rvm_select_default_variables
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:75 [32m__rvm_select_default_variables:2[37m if[[ ruby != ext ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:76 [32m__rvm_select_default_variables:3[37m thenrvm_ruby_package_name=ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:79 [32m__rvm_select_default_variables:6[37m rvm_ruby_home=/home/sasha370/.rvm/rubies/ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:80 [32m__rvm_select_default_variables:7[37m rvm_ruby_binary=/home/sasha370/.rvm/rubies/ruby-2.7.2/bin/ruby 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:81 [32m__rvm_select_default_variables:8[37m rvm_ruby_irbrc=/home/sasha370/.rvm/rubies/ruby-2.7.2/.irbrc 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:103 [32m__rvm_select_after_parse:7[37m [[ system == ruby ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:103 [32m__rvm_select_after_parse:7[37m cmdor__rvm_gemset_select
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:140 [32m__rvm_gemset_select:2[37m __rvm_gemset_select_only
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:54 [32m__rvm_gemset_select_only:2[37m rvm_ruby_gem_home=/home/sasha370/.rvm/gems/ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:56 [32m__rvm_gemset_select_only:4[37m : rvm_ignore_gemsets_flag:0:
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:57 [32m__rvm_gemset_select_only:5[37m if((  rvm_ignore_gemsets_flag  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:63 [32m__rvm_gemset_select_only:11[37m elservm_ruby_global_gems_path=/home/sasha370/.rvm/gems/ruby-2.7.2@global 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:65 [32m__rvm_gemset_select_only:13[37m else__rvm_gemset_handle_default
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:5 [32m__rvm_gemset_handle_default:2[37m rvm_gemset_name=@ymstaging@ 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:6 [32m__rvm_gemset_handle_default:3[37m rvm_gemset_name=@ymstaging@ 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:8 [32m__rvm_gemset_handle_default:5[37m rvm_gemset_name=ymstaging 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:66 [32m__rvm_gemset_select_only:14[37m else[[ -z ymstaging ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:67 [32m__rvm_gemset_select_only:15[37m else cmdorrvm_ruby_gem_home=/home/sasha370/.rvm/gems/ruby-2.7.2@ymstaging 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:69 [32m__rvm_gemset_select_only:17[37m else if[[ ymstaging == global ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:73 [32m__rvm_gemset_select_only:21[37m else elservm_ruby_gem_path=/home/sasha370/.rvm/gems/ruby-2.7.2@ymstaging:/home/sasha370/.rvm/gems/ruby-2.7.2@global 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:77 [32m__rvm_gemset_select_only:25[37m if[[ -n ymstaging ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:79 [32m__rvm_gemset_select_only:27[37m thenrvm_env_string=ruby-2.7.2@ymstaging 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:83 [32m__rvm_gemset_select_only:31[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:141 [32m__rvm_gemset_select:3[37m cmdand__rvm_gemset_select_validation
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:90 [32m__rvm_gemset_select_validation:4[37m if[[ ! -d /home/sasha370/.rvm/gems/ruby-2.7.2@ymstaging ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:93 [32m__rvm_gemset_select_validation:7[37m then if((  0 == 0 && 0 == 0 && 0 == 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:95 [32m__rvm_gemset_select_validation:9[37m then thenrvm_expected_gemset_name=ymstaging 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:96 [32m__rvm_gemset_select_validation:10[37m then thenrvm_gemset_name='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:97 [32m__rvm_gemset_select_validation:11[37m then then__rvm_gemset_select_only
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:54 [32m__rvm_gemset_select_only:2[37m rvm_ruby_gem_home=/home/sasha370/.rvm/gems/ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:56 [32m__rvm_gemset_select_only:4[37m : rvm_ignore_gemsets_flag:0:
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:57 [32m__rvm_gemset_select_only:5[37m if((  rvm_ignore_gemsets_flag  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:63 [32m__rvm_gemset_select_only:11[37m elservm_ruby_global_gems_path=/home/sasha370/.rvm/gems/ruby-2.7.2@global 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:65 [32m__rvm_gemset_select_only:13[37m else__rvm_gemset_handle_default
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:5 [32m__rvm_gemset_handle_default:2[37m rvm_gemset_name=@@ 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:6 [32m__rvm_gemset_handle_default:3[37m rvm_gemset_name=@@ 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:8 [32m__rvm_gemset_handle_default:5[37m rvm_gemset_name='' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:66 [32m__rvm_gemset_select_only:14[37m else[[ -z '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:69 [32m__rvm_gemset_select_only:17[37m else if[[ '' == global ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:73 [32m__rvm_gemset_select_only:21[37m else elservm_ruby_gem_path=/home/sasha370/.rvm/gems/ruby-2.7.2:/home/sasha370/.rvm/gems/ruby-2.7.2@global 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:77 [32m__rvm_gemset_select_only:25[37m if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:81 [32m__rvm_gemset_select_only:29[37m elservm_env_string=ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:83 [32m__rvm_gemset_select_only:31[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:98 [32m__rvm_gemset_select_validation:12[37m then thenreturn 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:142 [32m__rvm_gemset_select:4[37m cmdand cmdorreturn 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:104 [32m__rvm_select_after_parse:8[37m cmdor cmdorreturn 0
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:152 [32m__rvm_use:6[37m if[[ system == ruby ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:154 [32m__rvm_use:8[37m else__rvm_use_
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:161 [32m__rvm_use_:2[37m rvm_ruby_home=/home/sasha370/.rvm/rubies/ruby-2.7.2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:164 [32m__rvm_use_:5[37m if[[ ! -d /home/sasha370/.rvm/rubies/ruby-2.7.2 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:179 [32m__rvm_use_:20[37m __rvm_gemset_use_ensure
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:148 [32m__rvm_gemset_use_ensure:3[37m if[[ ! -d /home/sasha370/.rvm/gems/ruby-2.7.2 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:149 [32m__rvm_gemset_use_ensure:4[37m if cmdor[[ -n ymstaging && ! -d /home/sasha370/.rvm/gems/ruby-2.7.2@ymstaging ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:152 [32m__rvm_gemset_use_ensure:7[37m then if((  0 == 1 || 0 == 1  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:156 [32m__rvm_gemset_use_ensure:11[37m then elservm_error 'Gemset '\''ymstaging'\'' does not exist, '\''rvm ruby-2.7.2 do rvm gemset create ymstaging'\'' first, or append '\''--create'\''.'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:166 [32mrvm_error:2[37m ifrvm_pretty_print stderr
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:86 [32mrvm_pretty_print:2[37m casecase auto (0|no)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:86 [32mrvm_pretty_print:2[37m casecase auto (1|auto)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:92 [32mrvm_pretty_print:8[37m case casecase xterm-256color (dumb|unknown)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:96 [32mrvm_pretty_print:12[37m case casecase stderr (stdout)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:96 [32mrvm_pretty_print:12[37m case casecase stderr (stderr)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:98 [32mrvm_pretty_print:14[37m case case[[ -t 2 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:98 [32mrvm_pretty_print:14[37m case case cmdorreturn 1
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:168 [32mrvm_error:4[37m elseprintf %b 'Gemset '\''ymstaging'\'' does not exist, '\''rvm ruby-2.7.2 do rvm gemset create ymstaging'\'' first, or append '\''--create'\''.\n'
+Gemset 'ymstaging' does not exist, 'rvm ruby-2.7.2 do rvm gemset create ymstaging' first, or append '--create'.
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector_gemsets:158 [32m__rvm_gemset_use_ensure:13[37m then elsereturn 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:179 [32m__rvm_use_:20[37m cmdorreturn 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/selector:154 [32m__rvm_use:8[37m else cmdorreturn 2
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1071 [32mrvm:229[37m current_result=2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1072 [32mrvm:230[37m ((  result  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1072 [32mrvm:230[37m cmdorresult=2 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1074 [32mrvm:232[37m ((  result  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1088 [32mrvm:246[37m current_result=0 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1089 [32mrvm:247[37m ((  result  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1091 [32mrvm:249[37m typeset __local_rvm_trace_flag
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1092 [32mrvm:250[37m __local_rvm_trace_flag=1 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1094 [32mrvm:252[37m __rvm_cli_autoreload
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cli:360 [32m__rvm_cli_autoreload:3[37m if[[ 0 -eq 1 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cli:372 [32m__rvm_cli_autoreload:15[37m else__rvm_teardown
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:240 [32m__rvm_teardown:2[37m ifcommand -v __rvm_cleanup_tmp
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:241 [32m__rvm_teardown:3[37m then__rvm_cleanup_tmp
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:70 [32m__rvm_cleanup_tmp:3[37m if[[ -d /home/sasha370/.rvm/tmp/ ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:72 [32m__rvm_cleanup_tmp:5[37m then casecase /home/sasha370/.rvm/tmp (*tmp)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:74 [32m__rvm_cleanup_tmp:7[37m then case__rvm_rm_rf '/home/sasha370/.rvm/tmp/4*'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:6 [32m__rvm_rm_rf:2[37m __rvm_rm_rf_verbose '/home/sasha370/.rvm/tmp/4*'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:13 [32m__rvm_rm_rf_verbose:2[37m typeset target
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:14 [32m__rvm_rm_rf_verbose:3[37m target='/home/sasha370/.rvm/tmp/4*' 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:18 [32m__rvm_rm_rf_verbose:7[37m if[[ -n 5.8 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:20 [32m__rvm_rm_rf_verbose:9[37m thensetopt extendedglob
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:28 [32m__rvm_rm_rf_verbose:17[37m casecase /home/sasha370/.rvm/tmp/4* (*(/|.)@(|/Applications|/Developer|/Guides|/Information|/Library|/Network|/System|/User|/Users|/Volumes|/backups|/bdsm|/bin|/boot|/cores|/data|/dev|/etc|/home|/lib|/lib64|/mach_kernel|/media|/misc|/mnt|/net|/opt|/private|/proc|/root|/sbin|/selinux|/srv|/sys|/tmp|/usr|/var))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:28 [32m__rvm_rm_rf_verbose:17[37m casecase /home/sasha370/.rvm/tmp/4* (*)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:35 [32m__rvm_rm_rf_verbose:24[37m case if[[ -z '/home/sasha370/.rvm/tmp/4*' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:40 [32m__rvm_rm_rf_verbose:29[37m case elif[[ -d '/home/sasha370/.rvm/tmp/4*' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:49 [32m__rvm_rm_rf_verbose:38[37m case elif[[ -f '/home/sasha370/.rvm/tmp/4*' || -L '/home/sasha370/.rvm/tmp/4*' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:58 [32m__rvm_rm_rf_verbose:47[37m case elservm_debug '__rvm_rm_rf already gone: /home/sasha370/.rvm/tmp/4*'
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:215 [32mrvm_debug:2[37m ((  0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/logging:215 [32mrvm_debug:2[37m cmdorreturn 0
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:62 [32m__rvm_rm_rf_verbose:51[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/cleanup:78 [32m__rvm_cleanup_tmp:11[37m true
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:244 [32m__rvm_teardown:6[37m export __rvm_env_loaded
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:246 [32m__rvm_teardown:8[37m : __rvm_env_loaded:1:
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:248 [32m__rvm_teardown:10[37m : __rvm_env_loaded:1:
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:250 [32m__rvm_teardown:12[37m : __rvm_env_loaded:0:
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:253 [32m__rvm_teardown:15[37m if[[ -z /home/sasha370/.rvm/tmp ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:253 [32m__rvm_teardown:15[37m if cmdor((  __rvm_env_loaded > 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:258 [32m__rvm_teardown:20[37m if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:272 [32m__rvm_teardown:34[37m if[[ -n 5.8 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:275 [32m__rvm_teardown:37[37m then((  rvm_zsh_clobber == 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:277 [32m__rvm_teardown:39[37m then((  rvm_zsh_nomatch == 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:277 [32m__rvm_teardown:39[37m then cmdorsetopt nomatch
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:279 [32m__rvm_teardown:41[37m thenunset rvm_zsh_clobber rvm_zsh_nomatch
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:283 [32m__rvm_teardown:45[37m if[[ -n 000 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:285 [32m__rvm_teardown:47[37m thenumask 000
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:286 [32m__rvm_teardown:48[37m thenunset rvm_stored_umask
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:289 [32m__rvm_teardown:51[37m ifcommand -v __rvm_cleanup_download
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:293 [32m__rvm_teardown:55[37m if[[ '' == 1 ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:297 [32m__rvm_teardown:59[37m __variables_definition unset
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:133 [32m__variables_definition:2[37m typeset -a __variables_list __array_list
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:134 [32m__variables_definition:3[37m typeset __method
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:136 [32m__variables_definition:5[37m __method=unset 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:140 [32m__variables_definition:9[37m __variables_list=( rvm_head_flag rvm_ruby_selected_flag rvm_user_install_flag rvm_path_flag rvm_cron_flag rvm_static_flag rvm_default_flag rvm_loaded_flag rvm_llvm_flag rvm_skip_autoreconf_flag rvm_dynamic_extensions_flag rvm_18_flag rvm_19_flag rvm_20_flag rvm_21_flag rvm_force_autoconf_flag rvm_dump_environment_flag rvm_curl_flags rvm_rubygems_version rvm_verbose_flag rvm_debug_flag rvm_trace_flag __array_start rvm_skip_pristine_flag rvm_create_flag rvm_remove_flag rvm_movable_flag rvm_archive_flag rvm_gemdir_flag rvm_reload_flag rvm_auto_reload_flag rvm_disable_binary_flag rvm_ignore_gemsets_flag rvm_skip_gemsets_flag rvm_install_on_use_flag rvm_remote_flag rvm_verify_downloads_flag rvm_skip_openssl_flag rvm_gems_cache_path rvm_gems_path rvm_man_path rvm_ruby_gem_path rvm_ruby_log_path rvm_gems_cache_path rvm_archives_path rvm_docs_path rvm_environments_path rvm_examples_path rvm_gems_path rvm_gemsets_path rvm_help_path rvm_hooks_path rvm_lib_path rvm_log_path rvm_patches_path rvm_repos_path rvm_rubies_path rvm_scripts_path rvm_src_path rvm_tmp_path rvm_user_path rvm_usr_path rvm_wrappers_path rvm_stored_errexit rvm_ruby_strings rvm_ruby_binary rvm_ruby_gem_home rvm_ruby_home rvm_ruby_interpreter rvm_ruby_irbrc rvm_ruby_major_version rvm_ruby_minor_version rvm_ruby_package_name rvm_ruby_patch_level rvm_ruby_release_version rvm_ruby_repo_url rvm_ruby_repo_branch rvm_ruby_revision rvm_ruby_tag rvm_ruby_sha rvm_ruby_repo_tag rvm_ruby_version rvm_ruby_package_file rvm_ruby_name rvm_ruby_name rvm_ruby_args rvm_ruby_user_tag rvm_ruby_patch detected_rvm_ruby_name __rvm_env_loaded next_token rvm_error_message rvm_gemset_name rvm_parse_break rvm_token rvm_action rvm_export_args rvm_gemset_separator rvm_expanding_aliases rvm_tar_command rvm_tar_options rvm_patch_original_pwd rvm_project_rvmrc rvm_archive_extension rvm_autoinstall_bundler_flag rvm_codesign_identity rvm_expected_gemset_name rvm_without_gems rvm_with_gems rvm_with_default_gems rvm_ignore_dotfiles_flag rvm_fuzzy_flag rvm_autolibs_flag rvm_autolibs_flag_number rvm_autolibs_flag_runner rvm_quiet_curl_flag rvm_max_time_flag rvm_error_clr rvm_warn_clr rvm_debug_clr rvm_notify_clr rvm_code_clr rvm_comment_clr rvm_reset_clr rvm_error_color rvm_warn_color rvm_debug_color rvm_notify_color rvm_code_color rvm_comment_color rvm_reset_color rvm_log_timestamp rvm_log_filesystem rvm_log_namelen rvm_show_log_lines_on_error ) 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:172 [32m__variables_definition:41[37m __array_list=( rvm_patch_names rvm_ree_options rvm_autoconf_flags rvm_architectures ) 
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:176 [32m__variables_definition:45[37m casecase unset (export)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:176 [32m__variables_definition:45[37m casecase unset (unset)
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:178 [32m__variables_definition:47[37m caseunset rvm_patch_names rvm_ree_options rvm_autoconf_flags rvm_architectures
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:185 [32m__variables_definition:54[37m unset rvm_head_flag rvm_ruby_selected_flag rvm_user_install_flag rvm_path_flag rvm_cron_flag rvm_static_flag rvm_default_flag rvm_loaded_flag rvm_llvm_flag rvm_skip_autoreconf_flag rvm_dynamic_extensions_flag rvm_18_flag rvm_19_flag rvm_20_flag rvm_21_flag rvm_force_autoconf_flag rvm_dump_environment_flag rvm_curl_flags rvm_rubygems_version rvm_verbose_flag rvm_debug_flag rvm_trace_flag __array_start rvm_skip_pristine_flag rvm_create_flag rvm_remove_flag rvm_movable_flag rvm_archive_flag rvm_gemdir_flag rvm_reload_flag rvm_auto_reload_flag rvm_disable_binary_flag rvm_ignore_gemsets_flag rvm_skip_gemsets_flag rvm_install_on_use_flag rvm_remote_flag rvm_verify_downloads_flag rvm_skip_openssl_flag rvm_gems_cache_path rvm_gems_path rvm_man_path rvm_ruby_gem_path rvm_ruby_log_path rvm_gems_cache_path rvm_archives_path rvm_docs_path rvm_environments_path rvm_examples_path rvm_gems_path rvm_gemsets_path rvm_help_path rvm_hooks_path rvm_lib_path rvm_log_path rvm_patches_path rvm_repos_path rvm_rubies_path rvm_scripts_path rvm_src_path rvm_tmp_path rvm_user_path rvm_usr_path rvm_wrappers_path rvm_stored_errexit rvm_ruby_strings rvm_ruby_binary rvm_ruby_gem_home rvm_ruby_home rvm_ruby_interpreter rvm_ruby_irbrc rvm_ruby_major_version rvm_ruby_minor_version rvm_ruby_package_name rvm_ruby_patch_level rvm_ruby_release_version rvm_ruby_repo_url rvm_ruby_repo_branch rvm_ruby_revision rvm_ruby_tag rvm_ruby_sha rvm_ruby_repo_tag rvm_ruby_version rvm_ruby_package_file rvm_ruby_name rvm_ruby_name rvm_ruby_args rvm_ruby_user_tag rvm_ruby_patch detected_rvm_ruby_name __rvm_env_loaded next_token rvm_error_message rvm_gemset_name rvm_parse_break rvm_token rvm_action rvm_export_args rvm_gemset_separator rvm_expanding_aliases rvm_tar_command rvm_tar_options rvm_patch_original_pwd rvm_project_rvmrc rvm_archive_extension rvm_autoinstall_bundler_flag rvm_codesign_identity rvm_expected_gemset_name rvm_without_gems rvm_with_gems rvm_with_default_gems rvm_ignore_dotfiles_flag rvm_fuzzy_flag rvm_autolibs_flag rvm_autolibs_flag_number rvm_autolibs_flag_runner rvm_quiet_curl_flag rvm_max_time_flag rvm_error_clr rvm_warn_clr rvm_debug_clr rvm_notify_clr rvm_code_clr rvm_comment_clr rvm_reset_clr rvm_error_color rvm_warn_color rvm_debug_color rvm_notify_color rvm_code_color rvm_comment_color rvm_reset_color rvm_log_timestamp rvm_log_filesystem rvm_log_namelen rvm_show_log_lines_on_error
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:188 [32m__variables_definition:57[37m if[[ -n '' ]]
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:299 [32m__rvm_teardown:61[37m unset _system_arch _system_name _system_type _system_version
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/functions/environment:301 [32m__rvm_teardown:63[37m return 0
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1096 [32mrvm:254[37m if((  __local_rvm_trace_flag > 0  ))
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1098 [32mrvm:256[37m thenset +o verbose
++ 12:46:49 [31m/home/sasha370/.rvm/scripts/cli:1099 [32mrvm:257[37m thenset +o xtrace

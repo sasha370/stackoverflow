@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby "2.7.2"
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -34,12 +34,14 @@ gem 'sinatra', require: false
 gem 'whenever', require: false
 gem 'mysql2',          '~> 0.4'
 gem 'thinking-sphinx', '~> 5.1'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :development do
@@ -51,6 +53,11 @@ group :development do
   gem "binding_of_caller"
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-passenger', require: false
 end
 
 group :test do
