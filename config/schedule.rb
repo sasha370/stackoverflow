@@ -21,4 +21,8 @@ every 15.minute do
   runner 'NotificationJob.perform_now'
 end
 
+every 1.hour do
+  rake 'ts:index'
+end
+
 # Learn more: http://github.com/javan/whenever
