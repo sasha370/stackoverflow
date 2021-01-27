@@ -6,7 +6,6 @@
 server "88.214.237.55", user: "sasha370", roles: %w{app db web}, primary: true
 set :rails_env, :production
 
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a

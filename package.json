@@ -8,7 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "activestorage": "^5.2.4-4",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "handlebars": "^4.7.6",
     "handlebars-layouts": "^3.1.4",
     "handlebars-loader": "^1.7.1",
