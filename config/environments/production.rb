@@ -62,18 +62,20 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "stackoverflow_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'http://88.214.237.55', :protocol => 'http' }
+  config.action_mailer.default_url_options = { host: '88.214.237.55', :protocol => 'http' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    domain: 'http://88.214.237.55',
+    domain: 'stackoverflow.ru',
     port: 587,
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
+    user_name: Rails.application.credentials.dig(:smtp_username),
+    password: Rails.application.credentials.dig(:smtp_password),
     authentication: 'plain',
     enable_starttls_auto: true }
 
+  # ENV['SMTP_USERNAME'],
+  #  ENV['SMTP_PASSWORD']
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
