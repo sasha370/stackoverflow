@@ -11,7 +11,6 @@ set :repo_url, "https://github.com/sasha370/stackoverflow.git"
 set :deploy_to, "/home/sasha370/stackoverflow"
 set :user, 'sasha370'
 set :use_sudo, true
-set :init_system, :systemd
 
 # Default value for :linked_files is []
 append :linked_files, "config/database.yml", 'config/master.key'
