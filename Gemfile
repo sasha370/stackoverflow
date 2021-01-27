@@ -37,6 +37,7 @@ gem 'mysql2', '~> 0.4'
 gem 'thinking-sphinx', '~> 5.1'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'mini_racer'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
