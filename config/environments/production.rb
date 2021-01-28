@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mail.com',
+    address: 'smtp.mail.ru',
     domain: 'http://88.214.237.55',
     port: 465,
     user_name: Rails.application.credentials.dig(:smtp_username),
