@@ -62,18 +62,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "stackoverflow_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = {host: '88.214.237.55'}
+  config.action_mailer.default_url_options = {host: 'http://88.214.237.55/'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mail.ru',
-    domain: 'mail.ru',
-    port: 465,
+    address: 'smtp.gmail.com',
+    # domain: 'localhost',
+    port: 587,
     user_name: Rails.application.credentials.dig(:smtp_username),
     password: Rails.application.credentials.dig(:smtp_password),
     authentication: 'plain',
     enable_starttls_auto: true
-    }
+
+  }
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.mailgun.org',
   #     domain: 'sandbox3c57011901204e1c986432759bbce859.mailgun.org',
