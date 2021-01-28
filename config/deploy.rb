@@ -17,7 +17,7 @@ append :linked_files, "config/database.yml", 'config/master.key'
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'storage'
 
 set :keep_assets, 2
-set :assets_roles, [:web, :app]
-set :assets_prefix, 'prepackaged-assets'
-set :assets_manifests, ['app/assets/config/manifest.js']
-set :rails_assets_groups, :assets
+# set :assets_roles, [:web, :app]
+# set :assets_prefix, 'prepackaged-assets'
+# set :assets_manifests, ['app/assets/config/manifest.js']
+# set :rails_assets_groups, :assets

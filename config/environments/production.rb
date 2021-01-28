@@ -65,23 +65,23 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {host: '88.214.237.55'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.mail.ru',
-  #   domain: '88.214.237.55',
-  #   port: 465,
-  #   user_name: Rails.application.credentials.dig(:smtp_username),
-  #   password: Rails.application.credentials.dig(:smtp_password),
-  #   authentication: 'plain',
-  #   enable_starttls_auto: true
-  #   }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-      domain: 'sandbox3c57011901204e1c986432759bbce859.mailgun.org',
-      port: 587,
-      user_name: Rails.application.credentials.dig(:smtp_mailgun_username),
-      password: Rails.application.credentials.dig(:smtp_mailgun_password),
-  authentication: 'plain'
-  }
+    address: 'smtp.mail.ru',
+    domain: 'mail.ru',
+    port: 465,
+    user_name: Rails.application.credentials.dig(:smtp_username),
+    password: Rails.application.credentials.dig(:smtp_password),
+    authentication: 'plain',
+    enable_starttls_auto: true
+    }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.mailgun.org',
+  #     domain: 'sandbox3c57011901204e1c986432759bbce859.mailgun.org',
+  #     port: 587,
+  #     user_name: Rails.application.credentials.dig(:smtp_mailgun_username),
+  #     password: Rails.application.credentials.dig(:smtp_mailgun_password),
+  # authentication: 'plain'
+  # }
   #
   # ENV['SMTP_USERNAME'],
   #  ENV['SMTP_PASSWORD']
