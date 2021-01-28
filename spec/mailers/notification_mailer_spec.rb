@@ -10,7 +10,7 @@ RSpec.describe NotificationMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("Updating by your subscription")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.from).to eq(["stackoverflow@info.com"])
     end
   end
 
