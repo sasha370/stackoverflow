@@ -5,13 +5,18 @@ class UsersController < ApplicationController
   end
 
   def set_email
-    password = Devise.friendly_token[0, 20]
-    user = User.create!(
+    user = User.find_by(email: email_params[:email])
+    if user
+      user.send_confirmation_instructions
+    else
+      password = Devise.friendly_token[0, 20]
+      user = User.create!(
         email: email_params[:email],
         password: password,
         password_confirmation: password
-    )
-    user.authorizations.create(provider: session[:auth]['provider'],  uid: session[:auth]['uid'])
+      )
+    end
+    user.authorizations.create(provider: session[:auth]['provider'], uid: session[:auth]['uid'])
     redirect_to root_path, alert: 'Account create! Please confirm your Email!'
   end
 
