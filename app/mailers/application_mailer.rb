@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'budka52@mx1.vps.ipipe.ru.mail'
+  default from: 'budka52@bk.ru'
   layout 'mailer'
 end
