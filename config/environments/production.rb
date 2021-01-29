@@ -71,6 +71,8 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+
+  config.action_cable.allowed_request_origins = ["http://88.214.237.55"]
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.mailgun.org',
   #     domain: 'sandbox3c57011901204e1c986432759bbce859.mailgun.org',
