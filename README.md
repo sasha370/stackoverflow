@@ -12,7 +12,7 @@ QnA Application (Question \ Answer). Analogue of Stackoverflow
 - REST API
 - ActiveJob (Daily Digest by mail)
 - ThinkingSphinx for search (All, by entities)
-- Capistrano for deploy
+- Capistrano for deploy (Passenger(replaced on Unicorn))
 
 __Guest can:__
 > - View all questions
@@ -31,10 +31,10 @@ __User can:__
 > - Search by parameters 
 > - Authenticate with Oauth services
 
-####GitHub:
+###GitHub:
 https://github.com/sasha370/stackoverflow
 
-####Deploy
+###Deploy
 http://88.214.237.55/
 
 

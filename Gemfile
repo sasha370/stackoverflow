@@ -38,6 +38,7 @@ gem 'thinking-sphinx', '~> 5.1'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'mini_racer'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -61,6 +62,7 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'capistrano-passenger', require: false
   gem "capistrano-sidekiq", require: false
+  gem "capistrano3-unicorn", require: false
 end
 
 group :test do

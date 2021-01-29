@@ -21,3 +21,5 @@ set :keep_assets, 2
 # set :assets_prefix, 'prepackaged-assets'
 # set :assets_manifests, ['app/assets/config/manifest.js']
 # set :rails_assets_groups, :assets
+
+after 'deploy:publishing', 'unicorn:restart'
