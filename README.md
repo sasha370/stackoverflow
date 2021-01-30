@@ -13,6 +13,7 @@ QnA Application (Question \ Answer). Analogue of Stackoverflow
 - ActiveJob (Daily Digest by mail)
 - ThinkingSphinx for search (All, by entities)
 - Capistrano for deploy (Passenger(replaced on Unicorn))
+- Caching for views
 
 __Guest can:__
 > - View all questions
@@ -45,4 +46,4 @@ Test users:
 - admin@admin.ru  123456
 ```
 
-Total work time: ~225 hour
+Total work time: ~230 hours

@@ -14,7 +14,7 @@ describe 'Questions API', type: :request do
     let!(:questions) { create_list(:question, 3) }
     let(:question) { questions.first }
     let(:question_response) { json['questions'].first }
-    let(:attributes) { %w[id title body created_at updated_at user_id] }
+    let(:attributes) { %w[id title body created_at user_id] }
 
     let(:api_path) { '/api/v1/questions' }
     let(:method_name) { :get }
@@ -50,7 +50,7 @@ describe 'Questions API', type: :request do
     let(:api_path) { "/api/v1/questions/#{resource.id}" }
     let(:method_name) { :get }
     let(:resource_name) { 'question' }
-    let(:public_fields) { %w[id title body created_at updated_at] }
+    let(:public_fields) { %w[id title body created_at] }
     let(:content_types) { %w[answers links files comments] }
 
     it_behaves_like 'API Authorizable'
