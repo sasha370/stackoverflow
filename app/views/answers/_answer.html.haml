@@ -1,76 +1,77 @@
-%div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
-  %li.list-group-item
-    .row
-      .col-2
-        .border-right
-          = render 'shared/rating', resource: answer
-          - if answer.best
-            = render 'rewards/reward', resource: answer.question.reward
-        .mx-auto
-          - if answer.persisted?
-            - if can?( :choose_best, answer )
-              = link_to ' Make best ', choose_best_answer_path(answer), method: :put, remote: true,
-                class: 'best_link', id: "best_#{answer.id}"
+- cache answer do
+  %div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
+    %li.list-group-item
+      .row
+        .col-2
+          .border-right
+            = render 'shared/rating', resource: answer
+            - if answer.best
+              = render 'rewards/reward', resource: answer.question.reward
+          .mx-auto
+            - if answer.persisted?
+              - if can?( :choose_best, answer )
+                = link_to ' Make best ', choose_best_answer_path(answer), method: :put, remote: true,
+                  class: 'best_link', id: "best_#{answer.id}"
+              %br/
+              -  if can?( :update, answer )
+                = link_to ' Edit', '#', class: 'edit_link btn btn-outline-warning btn-sm', id: "#{answer.id}"
+              - if can?( :destroy, answer )
+                = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
+                class: 'delete_link btn btn-outline-danger btn-sm', id: "#{answer.id}", data: { confirm: 'Are you sure?'}
+
+        .col-10
+          = answer.body
+          %ul
+            = render 'shared/link', resource: answer
+          #answer_attached_
+            = render 'attachments/attach', resource: answer
+          .small.text-right
+            %span.font-weight-bold
+              = answer.user.email
+            |
+            = time_ago_in_words(answer.created_at)
+            ago
+      .row
+        .col-2
+        .col-10
+          %hr
+          .answer_comments
+            = render 'comments/comments', resource: answer
+            .mt-1.text-right
+              - if can?( :add_comment, answer)
+                = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
+                = render 'comments/form', resource: answer
+
+
+    - if can?( :update, answer )
+      = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
+        .answer-errors{id: "errors_#{answer.id}"}
+          = render 'shared/error', resource: answer
+
+        %div
+          = form.label :body, "Edit answer"
+          = form.text_area :body, class: 'form-control'
+
+        %div
+          %hr/
+          Links:
+          %ul
+            = render 'shared/link', resource: answer
+          %hr/
+          = form.fields_for :links do |link|
+            = render 'shared/link_fields', f: link
+          .links
+            = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
+          %hr/
+        - answer.files.each do |file|
+          %em{id: "attached_file_#{file.id}"}
+            = link_to file.filename.to_s,  url_for(file)
+            = link_to 'Delete', attachment_url(file.id), method: :delete, data: { confirm: 'Are you sure?'}, id: "delete_link_#{file.id}" , remote: true
             %br/
-            -  if can?( :update, answer )
-              = link_to ' Edit', '#', class: 'edit_link btn btn-outline-warning btn-sm', id: "#{answer.id}"
-            - if can?( :destroy, answer )
-              = link_to ' Delete', answer_path(answer), remote:true, method: :delete,
-              class: 'delete_link btn btn-outline-danger btn-sm', id: "#{answer.id}", data: { confirm: 'Are you sure?'}
 
-      .col-10
-        = answer.body
-        %ul
-          = render 'shared/link', resource: answer
-        #answer_attached_
-          = render 'attachments/attach', resource: answer
-        .small.text-right
-          %span.font-weight-bold
-            = answer.user.email
-          |
-          = time_ago_in_words(answer.created_at)
-          ago
-    .row
-      .col-2
-      .col-10
-        %hr
-        .answer_comments
-          = render 'comments/comments', resource: answer
-          .mt-1.text-right
-            - if can?( :add_comment, answer)
-              = link_to 'Add comment', '#', class: 'add_commit_btn text-info'
-              = render 'comments/form', resource: answer
-
-
-  - if can?( :update, answer )
-    = form_with(model: answer, class: 'hidden border border-warning card-body', id: "edit_form_#{answer.id}"  )  do |form|
-      .answer-errors{id: "errors_#{answer.id}"}
-        = render 'shared/error', resource: answer
-
-      %div
-        = form.label :body, "Edit answer"
-        = form.text_area :body, class: 'form-control'
-
-      %div
-        %hr/
-        Links:
-        %ul
-          = render 'shared/link', resource: answer
-        %hr/
-        = form.fields_for :links do |link|
-          = render 'shared/link_fields', f: link
-        .links
-          = link_to_add_association 'Add link', form, :links, partial: 'shared/link_fields', class: 'btn btn-sm btn-success'
-        %hr/
-      - answer.files.each do |file|
-        %em{id: "attached_file_#{file.id}"}
-          = link_to file.filename.to_s,  url_for(file)
-          = link_to 'Delete', attachment_url(file.id), method: :delete, data: { confirm: 'Are you sure?'}, id: "delete_link_#{file.id}" , remote: true
+        %div
           %br/
-
-      %div
-        %br/
-        = form.label :files
-        = form.file_field :files, class: 'form-control-file edit_files', multiple: true
-        %br
-        = form.submit 'Save'
+          = form.label :files
+          = form.file_field :files, class: 'form-control-file edit_files', multiple: true
+          %br
+          = form.submit 'Save'

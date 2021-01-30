@@ -1,3 +1,4 @@
+
 .card#question_card
   .card-header
     .card-title
@@ -23,29 +24,30 @@
           = render 'rewards/reward', resource: @question.reward
 
   .card-body
-    %p.card-text
-      = @question.body
-      = render 'shared/link', resource: @question
-      = render 'attachments/attach', resource: @question
+    - cache @question do
+      %p.card-text
+        = @question.body
+        = render 'shared/link', resource: @question
+        = render 'attachments/attach', resource: @question
 
-    - if can?(:update, @question)
-      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
-    - if can?(:destroy, @question)
-      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
-    %hr/
-    #question_comments
-      = render 'comments/comments', resource: @question
-      - if can?( :add_comment, @question)
-        = link_to 'Add comment', '#', class: 'add_commit_btn text-info float-right'
-        = render 'comments/form', resource: @question
+      - if can?(:update, @question)
+        = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
+      - if can?(:destroy, @question)
+        = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
+      %hr/
+      #question_comments
+        = render 'comments/comments', resource: @question
+        - if can?( :add_comment, @question)
+          = link_to 'Add comment', '#', class: 'add_commit_btn text-info float-right'
+          = render 'comments/form', resource: @question
 
-    %h4.text-center
-      Answers
-    .container.border.border-info.p-2.bg-light
-      %ul#answers.list-group.list-group-flush
-        - @question.answers.sort_by_best.each do |answer|
-          = render answer
-    %hr/
+      %h4.text-center
+        Answers
+      .container.border.border-info.p-2.bg-light
+        %ul#answers.list-group.list-group-flush
+          - @question.answers.sort_by_best.each do |answer|
+            = render answer
+      %hr/
 
     - if can?(:create, @answer)
       .container.border.border-success.p-2.bg-light
