@@ -1,12 +1,13 @@
 - if resource.files.attached?
-  Прикрепленные файлы:
-  %br/
-  - resource.files.each do |file|
-    %em{id: "attached_file_#{file.id}"}
-      = link_to file.filename.to_s, url_for(file)
-      - if can?(:update, resource) && current_page?(action:'edit')
-        = link_to 'Delete', attachment_url(file.id), { method: :delete,
-                                                     data: { confirm: 'Are you sure?' },
-                                                     id: "delete_link_#{file.id}",
-                                                     remote: true }
-      %br/
+  - cache_unless can?(:update, resource), ['attachments_for', resource] do
+    Прикрепленные файлы:
+    %br/
+    - resource.files.each do |file|
+      %em{id: "attached_file_#{file.id}"}
+        = link_to file.filename.to_s, url_for(file)
+        - if can?(:update, resource) && current_page?(action:'edit')
+          = link_to 'Delete', attachment_url(file.id), { method: :delete,
+                                                       data: { confirm: 'Are you sure?' },
+                                                       id: "delete_link_#{file.id}",
+                                                       remote: true }
+        %br/

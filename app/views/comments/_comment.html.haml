@@ -1,4 +1,4 @@
-- cache comment do
+- cache [ can?(:destroy_comment, comment), comment ] do
   %li{id: "comment_#{comment.id}"}
     .row.small
       .col-10

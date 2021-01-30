@@ -1,20 +1,19 @@
-
 .card#question_card
   .card-header
     .card-title
+      .row
+        .col-md-10
+          .small
+            %span.font-weight-bold= @question.user.email
+            ask
+            = time_ago_in_words(@question.created_at)
+            ago
+        .col-md-2
+          -if can?(:subscribe, @question)
+            = link_to subscribe_question_path(@question) , data_toggle: "tooltip", title: "Subscribe", remote: true  do
+              %i{ id: 'subscribe_link', class: "fa #{current_user.subscribed?(@question) ? 'fa-bell-slash' : 'fa-bell' }"}
+          = render 'shared/rating', resource: @question
       - cache ['title_for', @question] do
-        .row
-          .col-md-10
-            .small
-              %span.font-weight-bold= @question.user.email
-              ask
-              = time_ago_in_words(@question.created_at)
-              ago
-          .col-md-2
-            -if can?(:subscribe, @question)
-              = link_to subscribe_question_path(@question) , data_toggle: "tooltip", title: "Subscribe", remote: true  do
-                %i{ id: 'subscribe_link', class: "fa #{current_user.subscribed?(@question) ? 'fa-bell-slash' : 'fa-bell' }"}
-            = render 'shared/rating', resource: @question
         %hr
         .row
           .col-md-10
@@ -25,36 +24,36 @@
             = render 'rewards/reward', resource: @question.reward
 
   .card-body
-    - cache ['body_for', @question] do
-      %p.card-text
+    %p.card-text
+      - cache ['body_for', @question] do
         = @question.body
         = render 'shared/link', resource: @question
         = render 'attachments/attach', resource: @question
 
-      - if can?(:update, @question)
-        = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
-      - if can?(:destroy, @question)
-        = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
-      %hr/
-    - cache ['comments_for', @question] do
-      #question_comments
-        = render 'comments/comments', resource: @question
+    - if can?(:update, @question)
+      = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
+    - if can?(:destroy, @question)
+      = link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-sm btn-outline-danger', data: { confirm: 'Are you sure?'}
+    %hr/
+    #question_comments
+      = render 'comments/comments', resource: @question
+      - cache_if can?( :add_comment, @question), ['comments_form', @question] do
         - if can?( :add_comment, @question)
           = link_to 'Add comment', '#', class: 'add_commit_btn text-info float-right'
           = render 'comments/form', resource: @question
 
-      - cache ['answers_for', @question] do
-        %h4.text-center
-          Answers
-        .container.border.border-info.p-2.bg-light
-          %ul#answers.list-group.list-group-flush
-            - @question.answers.sort_by_best.each do |answer|
-              = render answer
-      %hr/
+    %h4.text-center
+      Answers
+    .container.border.border-info.p-2.bg-light
+      %ul#answers.list-group.list-group-flush
+        - @question.answers.sort_by_best.each do |answer|
+          = render answer
+    %hr/
 
     - if can?(:create, @answer)
-      .container.border.border-success.p-2.bg-light
-        = render 'answers/form'
+      - cache ['answer_form', @question] do
+        .container.border.border-success.p-2.bg-light
+          = render 'answers/form'
     - else
       Need to #{ link_to  'Log in', new_user_session_path} to answer
 

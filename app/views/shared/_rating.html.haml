@@ -1,15 +1,16 @@
-%span.small.text-center
-  Rating:
-  %span{id: "rating_#{resource.name_id}"}
-    =  resource.rating || '0'
+- cache [ 'rating_button_for', can?(:vote, resource),  resource] do
+  %span.small.text-center
+    Rating:
+    %span{id: "rating_#{resource.name_id}"}
+      =  resource.rating || '0'
 
-  - if can?(:vote, resource)
-    %span{class:  "rating_buttons_#{resource.name_id} #{current_user&.voted?(resource) ?  'hidden' : ''}"}
-      = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true, class: 'rating-link', id: "thumb_up_#{resource.class.name.downcase}_#{resource.id}" do
-        %i.fa.fa-thumbs-up
-      |
-      = link_to polymorphic_path(resource, action: :thumb_down),  method: :post, remote: true, class: 'rating-link', id: "thumb_down_#{resource.class.name.downcase}_#{resource.id}"  do
-        %i.fa.fa-thumbs-down
-    %span{class:  "cancel_rating_#{resource.name_id} #{current_user&.voted?(resource) ? '': 'hidden'}"}
-      = link_to polymorphic_path(resource, action: :cancel_voice),  method: :post, remote: true, class: 'rating-link', id: "cancel_voice_#{resource.class.name.downcase}_#{resource.id}"  do
-        %i.fa.fa-ban
+    - if can?(:vote, resource)
+      %span{class:  "rating_buttons_#{resource.name_id} #{current_user&.voted?(resource) ?  'hidden' : ''}"}
+        = link_to  polymorphic_path(resource, action: :thumb_up),  method: :post, remote: true, class: 'rating-link', id: "thumb_up_#{resource.class.name.downcase}_#{resource.id}" do
+          %i.fa.fa-thumbs-up
+        |
+        = link_to polymorphic_path(resource, action: :thumb_down),  method: :post, remote: true, class: 'rating-link', id: "thumb_down_#{resource.class.name.downcase}_#{resource.id}"  do
+          %i.fa.fa-thumbs-down
+      %span{class:  "cancel_rating_#{resource.name_id} #{current_user&.voted?(resource) ? '': 'hidden'}"}
+        = link_to polymorphic_path(resource, action: :cancel_voice),  method: :post, remote: true, class: 'rating-link', id: "cancel_voice_#{resource.class.name.downcase}_#{resource.id}"  do
+          %i.fa.fa-ban
