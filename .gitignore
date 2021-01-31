@@ -42,3 +42,5 @@ db/sphinx
 
 
 config/development.sphinx.conf
+
+dump.rdb

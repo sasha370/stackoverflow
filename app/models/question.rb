@@ -4,7 +4,7 @@ class Question < ApplicationRecord
   include Linkable
 
   has_many :answers, dependent: :destroy
-  belongs_to :user
+  belongs_to :user, touch: true
   has_one :reward, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 

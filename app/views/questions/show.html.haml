@@ -13,20 +13,22 @@
             = link_to subscribe_question_path(@question) , data_toggle: "tooltip", title: "Subscribe", remote: true  do
               %i{ id: 'subscribe_link', class: "fa #{current_user.subscribed?(@question) ? 'fa-bell-slash' : 'fa-bell' }"}
           = render 'shared/rating', resource: @question
-      %hr
-      .row
-        .col-md-10
-          = @question.title
-        .col-md-2.span.small
-          - if @question.reward
-            .small.text-center Reward for best answer:
-          = render 'rewards/reward', resource: @question.reward
+      - cache ['title_for', @question] do
+        %hr
+        .row
+          .col-md-10
+            = @question.title
+          .col-md-2.span.small
+            - if @question.reward
+              .small.text-center Reward for best answer:
+            = render 'rewards/reward', resource: @question.reward
 
   .card-body
     %p.card-text
-      = @question.body
-      = render 'shared/link', resource: @question
-      = render 'attachments/attach', resource: @question
+      - cache ['body_for', @question] do
+        = @question.body
+        = render 'shared/link', resource: @question
+        = render 'attachments/attach', resource: @question
 
     - if can?(:update, @question)
       = link_to "Edit", edit_question_path(@question), class: 'btn btn-sm btn-outline-warning edit_question'
@@ -35,9 +37,10 @@
     %hr/
     #question_comments
       = render 'comments/comments', resource: @question
-      - if can?( :add_comment, @question)
-        = link_to 'Add comment', '#', class: 'add_commit_btn text-info float-right'
-        = render 'comments/form', resource: @question
+      - cache_if can?( :add_comment, @question), ['comments_form', @question] do
+        - if can?( :add_comment, @question)
+          = link_to 'Add comment', '#', class: 'add_commit_btn text-info float-right'
+          = render 'comments/form', resource: @question
 
     %h4.text-center
       Answers
@@ -48,8 +51,9 @@
     %hr/
 
     - if can?(:create, @answer)
-      .container.border.border-success.p-2.bg-light
-        = render 'answers/form'
+      - cache ['answer_form', @question] do
+        .container.border.border-success.p-2.bg-light
+          = render 'answers/form'
     - else
       Need to #{ link_to  'Log in', new_user_session_path} to answer
 

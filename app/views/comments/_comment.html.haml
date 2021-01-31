@@ -1,9 +1,10 @@
-%li{id: "comment_#{comment.id}"}
-  .row.small
-    .col-10
-      = comment.body
-    .col-2.text-right
-      = comment.user.email
-      - if can?(:destroy_comment, comment)
-        = link_to  polymorphic_path(resource, action: :destroy_comment, comment_id: comment.id), method: :delete, remote: true,  id: "delete_comment_#{comment.id}", data: {confirm: 'Are your sure?'} do
-          %i.fa.fa-trash
+- cache [ can?(:destroy_comment, comment), comment ] do
+  %li{id: "comment_#{comment.id}"}
+    .row.small
+      .col-10
+        = comment.body
+      .col-2.text-right
+        = comment.user.email
+        - if can?(:destroy_comment, comment)
+          = link_to  polymorphic_path(resource, action: :destroy_comment, comment_id: comment.id), method: :delete, remote: true,  id: "delete_comment_#{comment.id}", data: {confirm: 'Are your sure?'} do
+            %i.fa.fa-trash
