@@ -15,15 +15,15 @@
 #
 job_type :runner, "cd :path && bundle exec rails runner -e :environment ':task' :output"
 
-every 1.days do
+every 1.day do
   runner 'DailyDigestJob.perform_now'
 end
 
-every 15.minute do
+every 1.day do
   runner 'NotificationJob.perform_now'
 end
 
-every 1.hour do
+every 1.day do
   rake 'ts:index'
 end
 
