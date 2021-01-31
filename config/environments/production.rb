@@ -70,7 +70,7 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
-
+  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
   config.action_cable.allowed_request_origins = ["http://88.214.237.55"]
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.mailgun.org',
