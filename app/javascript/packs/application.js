@@ -9,7 +9,16 @@ require("@rails/activestorage").start()
 require("channels")
 require("@nathanvda/cocoon")
 
-import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all";
+import "@fortawesome/fontawesome-free/css/all";
+require("@fortawesome/fontawesome-free");
+import '@fortawesome/fontawesome-free/scss/fontawesome';
+import '@fortawesome/fontawesome-free/scss/brands';
+import '@fortawesome/fontawesome-free/scss/solid';
+import '@fortawesome/fontawesome-free/scss/regular';
+import '@fortawesome/fontawesome-free/scss/v4-shims';
+import "font-awesome";
+
 import "bootstrap"
 import './styles.scss';
 import './answers'
