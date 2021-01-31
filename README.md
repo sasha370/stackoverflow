@@ -1,7 +1,7 @@
 QnA Application (Question \ Answer). Analogue of Stackoverflow
 =
 
-###Used tools:
+### Used tools:
 - TDD (349 examples)
 - Ajax (JSON)
 - ActiveStorage (Amazon S3)
@@ -32,10 +32,10 @@ __User can:__
 > - Search by parameters 
 > - Authenticate with Oauth services
 
-###GitHub:
+### GitHub:
 https://github.com/sasha370/stackoverflow
 
-###Deploy
+### Deploy
 http://88.214.237.55/
 
 
@@ -46,4 +46,4 @@ Test users:
 - admin@admin.ru  123456
 ```
 
-Total work time: ~230 hours
+Total work time: ~240 hours

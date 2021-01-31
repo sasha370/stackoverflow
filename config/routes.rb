@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/user/get_email', to: 'users#get_email', as: 'get_email'
   post '/user/set_email', to: 'users#set_email', as: 'set_email'
   get '/search', to: "searches#search"
+  get '/about', to: 'pages#about'
 
   resources :attachments, only: :destroy
   resources :rewards, only: :index

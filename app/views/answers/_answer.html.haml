@@ -1,11 +1,10 @@
 %div{:id => "answer_#{answer.id}", :class => "#{'rounded-lg border border-success best_answer'  if answer.best}" }
   %li.list-group-item
     .row
-      .col-2
-        .border-right
-          = render 'shared/rating', resource: answer
-          - if answer.best
-            = render 'rewards/reward', resource: answer.question.reward
+      .col-2.border-right
+        = render 'shared/rating', resource: answer
+        - if answer.best
+          = render 'rewards/reward', resource: answer.question.reward
         .mx-auto
           - if answer.persisted?
             - if can?( :choose_best, answer )

@@ -1,0 +1,112 @@
+%h2
+  QnA Application. Analogue of Stackoverflow
+
+%br/
+%h3 Used tools:
+%ul
+  %li  TDD (349 examples)
+  %li  Ajax (JSON)
+  %li  ActiveStorage (Amazon S3)
+  %li  ActionCable (for new Question, Answer, Comment)
+  %li  Polymorphic associations( Comments, Links, Attachments)
+  %li  OAuth (Google, Github, VKontakte)
+  %li  CanCanCan
+  %li  REST API
+  %li  ActiveJob (Daily Digest by mail, Subscribe for question)
+  %li  ThinkingSphinx for search (All, by entities)
+  %li  Capistrano for deploy (Passenger(replaced on Unicorn))
+  %li  Caching for views
+
+%h3
+  %span.badge.badge-secondary Total work time: ~240 hours
+
+.row
+  .col-md-12
+    %h2.text-center
+      You can Find me
+  .col-md-12
+    %ul.social
+      %li.facebook
+        = link_to  'https://github.com/sasha370/stackoverflow', title: 'Посмотреть проект на GitHub' do
+          %i.fa.fa-github.fa-3x
+      %li.twitter
+        = link_to 'https://www.linkedin.com/in/alexandr-karyakin-814b881b8/', title: 'Мой провиль в LinkedIN' do
+          %i.fab.fa-linkedin.fa-3x
+      %li.pinterest
+        = link_to 'http://88.214.237.55/', title: 'Посмотреть проект на сервере' do
+          %i.fab.fa-sketch.fa-3x
+
+.container
+  .row.mbr-justify-content-center
+    .col-lg-6.mbr-col-md-10
+      .wrap
+        .ico-wrap
+          %span.mbr-iconfont
+            %i.fa-user-tie.fas
+        .text-wrap.vcenter
+          %h2.mbr-fonts-style.mbr-bold.mbr-section-title3.display-5
+            %span   Guest can:
+          %p.mbr-fonts-style.text1.mbr-text.display-6
+            %li - View all questions, answers, comments
+            %li - Search by parameters
+            %li - Register with Google, GitHub, VK
+    .col-lg-6.mbr-col-md-10
+      .wrap
+        .ico-wrap
+          %span.mbr-iconfont
+            %i.fa-users-cog.fa
+        .text-wrap.vcenter
+          %h2.mbr-fonts-style.mbr-bold.mbr-section-title3.display-5
+            %span Test users:
+          %p.mbr-fonts-style.text1.mbr-text.display-6
+            %li - test1@test.ru   123456
+            %li - test2@test.ru   123456
+            %li - admin@admin.ru  123456
+    .col-lg-6.mbr-col-md-10
+      .wrap
+        .ico-wrap
+          %span.mbr-iconfont
+            %i.fa-user-edit.fas
+        .text-wrap.vcenter
+          %h2.mbr-fonts-style.mbr-bold.mbr-section-title3.display-5
+            As Author
+            %span user can
+          %p.mbr-fonts-style.text1.mbr-text.display-6
+            %li - Create a question
+            %li - Attach link(Gists link convert to image), files
+            %li - Give an award for the best answer
+            %li - Use API for remote services
+            %li - Subscribe to update question
+    .col-lg-6.mbr-col-md-10
+      .wrap
+        .ico-wrap
+          %span.mbr-iconfont
+            %i.fa-users.fa
+        .text-wrap.vcenter
+          %h2.mbr-fonts-style.mbr-bold.mbr-section-title3.display-5
+            All users can
+            %span
+          %p.mbr-fonts-style.text1.mbr-text.display-6
+            %li  - Add answer or comment for all entities
+            %li  - Vote for favorite answer question
+            %li  - Subscribe to update question
+            %li  - Search by parameters
+            %li  - Authenticate with Oauth services
+
+
+.row
+  .col-md-6.img.text-right
+    = image_tag 'ava.jpg', size: 200, class: 'img-rounded'
+  .col-md-6.details
+    %blockquote.blockquote
+      %h5 Alex Karyakin
+      %small
+        %cite{:title => "Source Title"}
+          Nizniy Novgorod, Russia
+          %i.fa.fa-map-marker-alt
+    %p
+      budka52@bk.ru
+      %br/
+      https://github.com/sasha370
+      %br/
+      August 7th, 1983

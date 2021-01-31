@@ -44,19 +44,19 @@ end
 # Create rewards for some Questions
 10.times do
   reward = Reward.new(title: Faker::Movies::Hobbit.location)
-  reward.image.attach(io: File.open(rewards.sample), filename: 'file')
+  reward.image.attach(io: File.open(rewards.sample), filename: 'file for reward')
   reward.question = questions.sample
   reward.save
 end
 
 #Create Attachment for some Questions
 10.times do
-  questions.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
+  questions.sample.files.attach(io: File.open(rewards.sample), filename: 'file for question')
 end
 
 #Create Attachment for some Answer
 20.times do
-  Answer.all.sample.files.attach(io: File.open(rewards.sample), filename: 'file')
+  Answer.all.sample.files.attach(io: File.open(rewards.sample), filename: 'file for answer')
 end
 
 
@@ -79,7 +79,7 @@ end
   )
   questions.sample.links.create(
       name: 'this is simple test link',
-      url: 'http://yandex.ru')
+      url: 'https://github.com/sasha370/stackoverflow')
 end
 
 #Create sample links for Answers
@@ -90,7 +90,7 @@ end
   )
   answers.sample.links.create(
       name: 'this is simple test link',
-      url: 'http://yandex.ru')
+      url: 'https://github.com/sasha370/stackoverflow')
 end
 
 #Simulate rating foe Questions

@@ -28,3 +28,151 @@ body {
   right: 20px;
   z-index: 1000;
 }
+
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  background-color: #f1f4fa;
+}
+.wrap {
+  display: flex;
+  background: white;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.wrap:hover {
+  background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
+  color: white;
+}
+
+.ico-wrap {
+  margin: auto;
+}
+
+.mbr-iconfont {
+  font-size: 4.5rem !important;
+  color: #313131;
+  margin: 1rem;
+  padding-right: 1rem;
+}
+.vcenter {
+  margin: auto;
+}
+
+.mbr-section-title3 {
+  text-align: left;
+}
+h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.display-5 {
+  font-family: 'Source Sans Pro',sans-serif;
+  font-size: 1.4rem;
+}
+.mbr-bold {
+  font-weight: 700;
+}
+
+p {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 25px;
+}
+.display-6 {
+  font-family: 'Source Sans Pro',sans-serif;
+  font-size: 1re}
+
+
+
+//Icons social
+
+body{ font-family: 'Shadows Into Light'; }
+
+.social {
+  position: relative;
+  height: 3em;
+  width: 13.5em;
+  margin: 90px 45%;
+}
+
+.social li {
+  display: block;
+  height: 4em;
+  line-height: 4em;
+  margin: -2.2em;
+  position: absolute;
+  -webkit-transition: -webkit-transform .7s;
+  -moz-transition: -moz-transform .7s;
+  -ms-transition: -ms-transform .7s;
+  -o-transition: -o-transform .7s;
+  transition: transform .7s;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  text-align: center;
+  width: 4em;
+
+}
+
+.social a {
+  color: #fffdf0;
+  display: block;
+  height: 4em;
+  line-height: 6em;
+  text-align: center;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 4em;
+
+}
+
+.social li:hover {
+  -webkit-transform: scale(1.3,1.3) rotate(45deg);
+  -moz-transform: scale(1.3,1.3) rotate(45deg);
+  -ms-transform: scale(1.3,1.3) rotate(45deg);
+  -o-transform: scale(1.3,1.3) rotate(45deg);
+  transform: scale(1.3,1.3) rotate(45deg);
+}
+
+.facebook {
+  background: #155b9d;
+  left: 0;
+  top: 0%;
+}
+
+.twitter {
+  background: #1a9ec4;
+  bottom: 0;
+  left: 25%;
+}
+
+.pinterest {
+  background: #e11a30;
+  left: 50%;
+  top: 0%;
+}
+.behance {
+  background: #3f7aa3;
+  bottom: 0;
+  left: 75%;
+}
+.behance2 {
+  background: #3f7aa3;
+  top: 0%;
+  left: 50%;
+}
+.behance3 {
+  background: #3f7aa3;
+  bottom: 0;
+  left: 75%;
+}

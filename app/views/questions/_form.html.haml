@@ -41,8 +41,8 @@
 
   .card-footer
     %div
-      = form.submit 'Ask', class: "actions btn  btn-sm btn-primary"
+      = form.submit 'Ask', class: "actions btn  btn-sm btn-primary "
       - if @question.new_record?
-        = link_to "Back", questions_path, class: 'btn btn-sm btn-secondary'
+        = link_to "Back", questions_path, class: 'btn btn-sm btn-secondary '
       - else
-        = link_to "Back", @question, class: 'btn btn-sm btn-secondary'
+        = link_to "Back", @question, class: 'btn btn-sm btn-secondary '

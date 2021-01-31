@@ -17,6 +17,7 @@ class Ability
     can :get_email, User
     can :set_email, User
     can :search, :all
+    can :about, :all
   end
 
   def admin_abilities
