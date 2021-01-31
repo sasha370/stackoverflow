@@ -1,6 +1,7 @@
 {
   "name": "stackoverflow",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@nathanvda/cocoon": "^1.2.14",
@@ -16,7 +17,6 @@
     "jquery": "^3.5.1",
     "jquery-ujs": "^1.2.2",
     "mysql": "^2.18.1",
-    "node-sass": "4.14.1",
     "popper.js": "^1.16.1",
     "sphinx": "^0.1.2",
     "turbolinks": "^5.2.0"
