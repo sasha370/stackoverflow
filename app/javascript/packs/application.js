@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("@nathanvda/cocoon")
 
+import "@fortawesome/fontawesome-free/css/all"
 import "bootstrap"
 import './styles.scss';
 import './answers'

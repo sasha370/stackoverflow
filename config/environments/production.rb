@@ -73,11 +73,6 @@ Rails.application.configure do
   config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/0/cache",  expires_in: 90.minutes }
   config.action_cable.allowed_request_origins = ["http://88.214.237.55"]
 
-  # Add the fonts path
-  config.assets.paths << "#{Rails.root}/app/assets/fonts"
-
-  # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
   # config.action_mailer.smtp_settings = {
   #   address: 'smtp.mailgun.org',
   #     domain: 'sandbox3c57011901204e1c986432759bbce859.mailgun.org',
