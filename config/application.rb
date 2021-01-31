@@ -14,7 +14,7 @@ module Stackoverflow
     config.active_storage.replace_on_assign_to_many = false
     config.active_job.queue_adapter = :sidekiq
     config.action_mailer.default_url_options = { host: 'stackoverflow.ru' }
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', {expires_in: 90.minute}
+    config.cache_store = :redis_cache_store, 'redis://localhost:6379/0/cache', {expires_in: 90.minute}
 
     config.generators do |g|
       g.test_framework :rspec,

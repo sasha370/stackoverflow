@@ -40,6 +40,7 @@ gem 'bcrypt_pbkdf'
 gem 'mini_racer'
 gem 'unicorn'
 gem 'redis-rails'
+gem 'hiredis'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
